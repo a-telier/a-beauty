@@ -1,4 +1,25 @@
+<!DOCTYPE html>
+<html>
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li><a href="#!">three</a></li>
+</ul>
+
+<!-- Navigation Menu -->
 <nav>
-    <li>item 1</li>
-    <li>item 2</li>
+    <div class="nav-wrapper">
+        <ul class="left">
+            <!-- Dropdown Trigger -->
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">menu</i></a></li>
+        </ul>
+        <a href="#!" class="brand-logo ">Logo</a>
+        <ul class="right">
+            <li><a href="#!"><i class="material-icons">search</i></a>Search</li>
+            <li><a href="#!"><i class="material-icons">person</i></a>Profile</li>
+            <li><a href="#!"><i class="material-icons">shopping_cart</i></a>My Cart</li>
+        </ul>
+    </div>
 </nav>
+</html>
