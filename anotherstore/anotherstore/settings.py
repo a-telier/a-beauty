@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #   DJANGO APPS
+    #   These are apps pre-installed with Django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,11 +41,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    #   THIRD-PARTY APPS
+    #   These are apps/templates we have used, but have not created
     #   'allauth',
     #   'allauth.account',
     #   'allauth.socialaccount',
 
+    #   MY APPS
+    #   These are apps that we created
     'products',
+    'pages',
 ]
 
 MIDDLEWARE = [

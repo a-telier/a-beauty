@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+#   Here we import all the views you want to route via url
+#   ex. from pages.views import homepage_view, contact_view, about_view, etc
+from pages.views import homepage_view
+
+#   Here we store the urls we want to display ex. home for homepage_view
 urlpatterns = [
+    path('home/', homepage_view, name="home"),
     path('admin/', admin.site.urls),
 ]
