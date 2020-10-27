@@ -18,4 +18,4 @@ class Product(models.Model):
     price = models.DecimalField(default="Price", decimal_places=2, max_digits=1000)
     itemNo = models.IntegerField(default="ItemNo")
     image = models.FileField()
-    additionalImages = models.FileField()
+    additionalImages = models.FileField(blank=True)
