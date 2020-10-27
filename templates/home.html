@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>This is where home.html starts</h1>
-<h1>Hello {{request.user}} </h1>
-<p>{{request.user.is_authenticated}}</p>
+    <div class="container pink lighten-5">
+    <!-- Page Content goes here -->
+        <div class="row">
+            <img class="col l12 s12 landing border" src="../static/media/istockphoto-1178634977-2048x2048.jpg">
+        </div>
+        <div class="row">
+            <img class="col l4 border landing-teaser" src="../static/media/istockphoto-1178634979-2048x2048.jpg">
+            <img class="col l4 border landing-teaser" src="../static/media/istockphoto-1178634979-2048x2048.jpg">
+            <img class="col l4 border landing-teaser" src="../static/media/istockphoto-1178634979-2048x2048.jpg">
+        </div>
+    </div>
 {% endblock content %}

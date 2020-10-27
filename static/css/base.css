@@ -18,17 +18,16 @@ body{
     width: 1.5rem;
 }
 
-#logo{
-    background: url('/media/logo/ellie-logo.png');
+/*--------------------------------------------/home*/
+/*-----------------------------------landing*/
+.landing{
+    height: 42vw;
+    width: 100%;
+    background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
-
-.shop-now-button {
-    background: black;
-    color: white;
-    min-width: 260px;
-}
-.btn-black {
-    background: black;
-    color: white;
+.landing-teaser{
+    height: 14vw !important;
 }

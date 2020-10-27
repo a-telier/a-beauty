@@ -17,5 +17,5 @@ class Product(models.Model):
     productDescription = models.TextField(default="Product Description", blank=True, null=True)
     price = models.DecimalField(default="Price", decimal_places=2, max_digits=1000)
     itemNo = models.IntegerField(default="ItemNo")
-    image = models.FileField()
-    additionalImages = models.FileField(blank=True)
+    image = models.FileField(upload_to="media/product")
+    additionalImages = models.FileField(blank=True, upload_to="media/additional")

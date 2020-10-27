@@ -12,3 +12,6 @@ def homepage_view(request, *args, **kwargs):
     #   print(request.user)
     #   return HttpResponse("<h1>Hello World</h1>")
     return render(request, "home.html", {})
+
+def product_view(request, *args, **kwargs):
+    return render(request, "product.html")
