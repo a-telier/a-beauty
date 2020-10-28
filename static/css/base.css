@@ -39,3 +39,9 @@ body{
 #landing-text{
     margin-top: 10vw;
 }
+
+.product{
+    height: 12vw;
+    width: 6vw;
+    background-color: bisque;
+}
