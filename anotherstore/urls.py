@@ -22,7 +22,8 @@ from pages.views import homepage_view, product_view
 
 #   Here we store the urls we want to display ex. home for homepage_view
 urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', homepage_view, name="home"),
     path('home/', homepage_view, name="home"),
     path('product/', product_view, name="product"),
-    path('admin/', admin.site.urls),
 ]

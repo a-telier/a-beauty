@@ -24,10 +24,18 @@ body{
     height: 42vw;
     width: 100%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-attachment: fixed;
 }
 .landing-teaser{
     height: 14vw !important;
+}
+#logo{
+    height: 100%;
+    width: auto;
+    background-size: contain;
+}
+#landing-text{
+    margin-top: 10vw;
 }

@@ -1,10 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container pink lighten-5">
-    <!-- Page Content goes here -->
+    <div class="container grey lighten-5">
         <div class="row">
-            <img class="col l12 s12 landing border" src="../static/media/istockphoto-1178634977-2048x2048.jpg">
+            <img class="col l12 s12 landing border" src="../static/media/atikh-bana-FtBS0p23fcc-unsplash.jpg">
+            <div class="col l4 ml-4 pl-4 position-absolute" id="landing-text">
+                <h1>PLACEHOLDER FOR TEXT ABOUT NEW COLLECTION</h1>
+                <a href="{% url 'product' %}" class="shop-now-button btn btn-lg black rounded-0 text-uppercase text-white mx-auto mt-3">Shop Now</a>
+                <!-- Serach bar -->
+                <div class="w-75 mt-3">
+                    <form method="GET" action="{% url 'product' %}">
+                        <div class="input-group">
+                            <input class="form-control border border-black rounded-0 white" type="text" name="q" placeholder="Search our site">
+                            <div class="input-group-append">
+                                <button class="form-control btn btn-black border border-black rounded-0 h-96" type="submit">
+                                    <span class="icon"><i class="fas fa-search"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col l8 position-absolute"> </div>
         </div>
         <div class="row">
             <img class="col l4 border landing-teaser" src="../static/media/istockphoto-1178634979-2048x2048.jpg">
