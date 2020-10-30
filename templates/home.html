@@ -42,14 +42,20 @@
         </div>
         <div class="row">
             <div class="col l4 product">
-                <p>Here is where products will go</p>
+                <div class="card">
+                    <div class="card-image">
+                        <img class="responsive-img card-content w-100" src="{{ image }}" alt="{{ product }}{{ variant }}">
+                        <h2 class= "card-title">{{ category }}</h2>
+                        <h1 class= "card-title">{{ brand }}, {{ product }}</h1>
+                    </div>
+                    <div class="card-content">
+                        <p>{{ productDescription }}</p>
+                        <h3>{{ price }}</h3>
+                    </div>
+                </div>
             </div>
-            <div class="col l4 product">
-                <p>Here is where products will go</p>
-            </div>
-            <div class="col l4 product">
-                <p>Here is where products will go</p>
-            </div>
+            <!-- {% for i in product %} -->
+            <!-- {% endfor %} -->
         </div>
     </div>
 {% endblock content %}

@@ -1,3 +1,4 @@
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 
 # Create your models here.
@@ -15,7 +16,8 @@ class Product(models.Model):
     product = models.TextField(default="Product Name")
     variant = models.TextField(default="Variant Name")
     productDescription = models.TextField(default="Product Description", blank=True, null=True)
+    ingredients = ArrayField(models.CharField(max_length=200), blank=True)
     price = models.DecimalField(default="Price", decimal_places=2, max_digits=1000)
     itemNo = models.IntegerField(default="ItemNo")
-    image = models.FileField(upload_to="media/product")
-    additionalImages = models.FileField(blank=True, upload_to="media/additional")
+    image = models.FileField(upload_to="static/media/product")
+    additionalImages = models.FileField(blank=True, upload_to="static/media/additional")
