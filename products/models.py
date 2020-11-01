@@ -3,8 +3,8 @@ from django.db import models
 
 # Create your models here.
 CATEGORIES =( 
-    ("Eyes", "Eyes"), 
-    ("Lips", "Lips"), 
+    ("Eyes", "Eyes"),
+    ("Lips", "Lips"),
     ("Face", "Face")
 )
 
@@ -19,5 +19,5 @@ class Product(models.Model):
     ingredients = ArrayField(models.CharField(max_length=200), blank=True)
     price = models.DecimalField(default="Price", decimal_places=2, max_digits=1000)
     itemNo = models.IntegerField(default="ItemNo")
-    image = models.FileField(upload_to="static/media/product")
-    additionalImages = models.FileField(blank=True, upload_to="static/media/additional")
+    image = models.FileField(upload_to="product")
+    additionalImages = models.FileField(blank=True, upload_to="additional")
