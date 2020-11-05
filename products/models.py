@@ -1,5 +1,11 @@
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
+from django.core.files.storage import FileSystemStorage # customized file storage folder
+
+# Customized location for product pictures storage
+fsProducts = FileSystemStorage(location='/static/media/products'),
+fsAdditional = FileSystemStorage(location='/static/media/additional')
+
 
 # Create your models here.
 CATEGORIES =( 
@@ -19,5 +25,5 @@ class Product(models.Model):
     ingredients = ArrayField(models.CharField(max_length=200), blank=True)
     price = models.DecimalField(default="Price", decimal_places=2, max_digits=1000)
     itemNo = models.IntegerField(default="ItemNo")
-    image = models.FileField(upload_to="product")
-    additionalImages = models.FileField(blank=True, upload_to="additional")
+    image = models.ImageField(storage=fsProducts)
+    additionalImages = models.ImageField(blank=True, storage=fsAdditional)
