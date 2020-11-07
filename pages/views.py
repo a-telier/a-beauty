@@ -7,12 +7,9 @@ from django.http import HttpResponse #  displays HttpResponse
 product = {
     'category': 'category',
     'brand': 'brand',
-    'line': 'line',
-    'lineDescription': 'lineDescription',
     'product': 'product',
     'variant': 'variant',
     'productDescription': 'productDescription',
-    'ingredients': 'ingredients',
     'price': 'price',
     'itemNo': 'itemNo',
     'image': 'image',
