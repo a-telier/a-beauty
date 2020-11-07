@@ -3,13 +3,13 @@
 {% block content %}
     <div class="container grey lighten-5">
         <div class="row">
-            <img class="col l12 s12 landing border" src="../static/media/atikh-bana-FtBS0p23fcc-unsplash.jpg">
+            <img class="col l12 s12 landing border" src="../../media/atikh-bana-FtBS0p23fcc-unsplash.jpg">
             <div class="col l4 ml-4 pl-4 position-absolute" id="landing-text">
                 <h1>PLACEHOLDER FOR TEXT ABOUT NEW COLLECTION</h1>
-                <!-- <a href="{% url 'product' %}" class="shop-now-button btn btn-lg black rounded-0 text-uppercase text-white mx-auto mt-3">Shop Now</a> -->
+                <a href="{% url 'product' %}" class="shop-now-button btn btn-lg black rounded-0 text-uppercase text-white mx-auto mt-3">Shop Now</a>
                 <!-- Serach bar -->
                 <div class="w-75 mt-3">
-                    <!-- <form method="GET" action="{% url 'product' %}"> -->
+                    <form method="GET" action="{% url 'product' %}">
                         <div class="input-group">
                             <input class="form-control border border-black rounded-0 white" type="text" name="q" placeholder=" Find a product">
                             <div class="input-group-append black h-100">
@@ -18,7 +18,7 @@
                                 </button>
                             </div>
                         </div>
-                    <!-- </form> -->
+                    </form>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
         <div class="row">
             <div class="col l4 product">
                 <div class="card">
-                    <!-- <div class="card-image">
+                    <div class="card-image">
                         <img class="responsive-img card-content w-100" src="{{ image }}" alt="{{ product }}{{ variant }}">
                         <h2 class= "card-title">{{ category }}</h2>
                         <h1 class= "card-title">{{ brand }}, {{ product }}</h1>
@@ -51,11 +51,11 @@
                     <div class="card-content">
                         <p>{{ productDescription }}</p>
                         <h3>{{ price }}</h3>
-                    </div> -->
+                    </div>
                 </div>
             </div>
-            <!-- {% for i in product %} -->
-            <!-- {% endfor %} -->
+            {% for i in product %}
+            {% endfor %}
         </div>
     </div>
 {% endblock content %}
