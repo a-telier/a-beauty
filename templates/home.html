@@ -38,24 +38,23 @@
         <div class="row">
             <div class="col l12 text-center">
                 <h1>BROWSE THROUGH OUR PRODUCTS</h1>
+                <h1>{{ name }}</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col l4 product">
+            <div class="col l3 product">
                 <div class="card">
                     <div class="card-image">
-                        <img class="responsive-img card-content w-100" src="{{ image }}" alt="{{ product }}{{ variant }}">
-                        <h2 class= "card-title">{{ category }}</h2>
-                        <h1 class= "card-title">{{ brand }}, {{ product }}</h1>
+                        <img class="responsive-img card-content w-100" src="{{ object.image }}" alt="{{ object.product }}{{ object.variant }}">
+                        <h2 class= "card-title">{{ object.category }}</h2>
+                        <h1 class= "card-title">{{ object.brand }}, {{ object.product }}</h1>
                     </div>
                     <div class="card-content">
-                        <p>{{ productDescription }}</p>
-                        <h3>{{ price }}</h3>
+                        <p>{{ object.productDescription }}</p>
+                        <h3>{{ object.price }}</h3>
                     </div>
                 </div>
             </div>
-            {% for i in product %}
-            {% endfor %}
         </div>
     </div>
 {% endblock content %}

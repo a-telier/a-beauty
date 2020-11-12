@@ -1,10 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product
 
 # Create your views here.
 def product_detail_view(request):
-    # obj = Product.objects.get(id=1)
+
+    obj = get_object_or_404(id=id)
     # context = {
-    #     'object': obj
-    # }
-    return render(request, "product/detail.html") #, context)
+    #     'category': obj.category,
+    #     'brand': obj.brand,
+    #     'product': obj.product,
+    #     'variant': obj.variant,
+    #     'productDescription': obj.productDescription,
+    #     'price': obj.price,
+    #     'itemNo': obj.itemNo,
+    #     'image': obj.image,
+    #     'additionalImages': obj.additionalImages
+    #     }
+    context = {
+        'objects': obj
+    }
+    return render(request, "products/detail.html", context)

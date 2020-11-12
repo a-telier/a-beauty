@@ -10,11 +10,11 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='product',
-            name='ingredients',
-            field=models.TextField(blank=True, default='Ingredients', null=True),
-        ),
+        # migrations.AddField(
+        #     model_name='product',
+        #     name='ingredients',
+        #     field=models.TextField(blank=True, default='Ingredients', null=True),
+        # ),
         migrations.AlterField(
             model_name='product',
             name='additionalImages',
