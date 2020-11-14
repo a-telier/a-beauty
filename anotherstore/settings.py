@@ -40,17 +40,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     #   THIRD-PARTY APPS
     #   These are apps/templates we have used, but have not created
-    #   'allauth',
-    #   'allauth.account',
-    #   'allauth.socialaccount',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 
     #   MY APPS
     #   These are apps that we created
+    'home',
     'products',
-    'pages',
 ]
 
 MIDDLEWARE = [

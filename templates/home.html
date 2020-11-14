@@ -6,10 +6,10 @@
             <img class="col l12 s12 landing border" src="../../media/atikh-bana-FtBS0p23fcc-unsplash.jpg">
             <div class="col l4 ml-4 pl-4 position-absolute" id="landing-text">
                 <h1>PLACEHOLDER FOR TEXT ABOUT NEW COLLECTION</h1>
-                <a href="{% url 'product' %}" class="shop-now-button btn btn-lg black rounded-0 text-uppercase text-white mx-auto mt-3">Shop Now</a>
+                <a href="{% url 'products' %}" class="shop-now-button btn btn-lg black rounded-0 text-uppercase text-white mx-auto mt-3">Shop Now</a>
                 <!-- Serach bar -->
                 <div class="w-75 mt-3">
-                    <form method="GET" action="{% url 'product' %}">
+                    <form method="GET" action="{% url 'products' %}">
                         <div class="input-group">
                             <input class="form-control border border-black rounded-0 white" type="text" name="q" placeholder=" Find a product">
                             <div class="input-group-append black h-100">
@@ -45,13 +45,13 @@
             <div class="col l3 product">
                 <div class="card">
                     <div class="card-image">
-                        <img class="responsive-img card-content w-100" src="{{ object.image }}" alt="{{ object.product }}{{ object.variant }}">
+                        <!-- <img class="responsive-img card-content w-100" src="{{ object.image }}" alt="{{ object.product }}{{ object.variant }}">
                         <h2 class= "card-title">{{ object.category }}</h2>
-                        <h1 class= "card-title">{{ object.brand }}, {{ object.product }}</h1>
+                        <h1 class= "card-title">{{ object.brand }}, {{ object.product }}</h1> -->
                     </div>
                     <div class="card-content">
-                        <p>{{ object.productDescription }}</p>
-                        <h3>{{ object.price }}</h3>
+                        <!-- <p>{{ object.productDescription }}</p>
+                        <h3>{{ object.price }}</h3> -->
                     </div>
                 </div>
             </div>
