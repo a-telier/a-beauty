@@ -8,29 +8,67 @@
 </ul>
 
 <!-- Navigation Menu -->
-<div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'home' %}">Just Another Store</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-dark black col-12">
+            <!-- <a class="navbar-brand" href="{% url 'home' %}">Just Another Store</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
 
-        <div class="collapse navbar-collapse" id="navbarToggler">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Products</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">My Account</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">My cart</a>
-            </li>
-            </ul>
-        </div>
-    </nav>
+            <!-- Home, Products -->
+            <div class="col-3 collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Products</a>
+                    </li>
+                </ul>
+            </div>                
+            <!-- Serach bar -->
+            <div class="col-6 w-75 mt-3">
+                <form method="GET" action="{% url 'products' %}">
+                    <div class="input-group w-50">
+                        <input class="form-control border border-black rounded-0 white" type="text" name="q" placeholder=" Find a product">
+                        <div class="input-group-append black h-100">
+                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                                <span class="icon text-white"><i class="fas fa-search"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Account, Cart -->
+            <div class="col-3 collapse navbar-collapse" id="navbarToggler2">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-circle"></i>
+                        Account
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                <a class="dropdown-item" href="#">Manage products</a>
+                                {% endif %}
+                                <a class="dropdown-item" href="#">My Profile</a>
+                                {% else %}
+                                <a class="dropdown-item" href="#">Register</a>
+                                <a class="dropdown-item" href="#">Login</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                        <i class="fas fa-shopping-basket"></i>
+                        My cart
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 </div>
 </html>

@@ -18,10 +18,14 @@ body{
     width: 1.5rem;
 }
 
+h1{
+    font-size: 2.5em;
+}
+
 /*--------------------------------------------/home*/
 /*-----------------------------------landing*/
 .landing{
-    height: 42vw;
+    height: 52vw;
     width: 100%;
     background-repeat: no-repeat;
     background-size: contain;
@@ -37,7 +41,7 @@ body{
     background-size: contain;
 }
 #landing-text{
-    margin-top: 10vw;
+    width: 94%;
 }
 
 .product{

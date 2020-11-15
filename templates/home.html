@@ -1,27 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container grey lighten-5">
+    <div class="container-fluid grey lighten-5">
+        <!-- Landing Banner -->
         <div class="row">
-            <img class="col-lg-12 landing border" src="../../media/atikh-bana-FtBS0p23fcc-unsplash.jpg">
-            <div class="col-lg-4 ml-4 pl-4 position-absolute" id="landing-text">
-                <h1>PLACEHOLDER FOR TEXT ABOUT NEW COLLECTION</h1>
-                <a href="{% url 'products' %}" class="shop-now-button btn btn-lg black rounded-0 text-uppercase text-white mx-auto mt-3">Shop Now</a>
-                <!-- Serach bar -->
-                <div class="w-75 mt-3">
-                    <form method="GET" action="{% url 'products' %}">
-                        <div class="input-group">
-                            <input class="form-control border border-black rounded-0 white" type="text" name="q" placeholder=" Find a product">
-                            <div class="input-group-append black h-100">
-                                <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                                    <span class="icon text-white"><i class="fas fa-search"></i></span>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+            <img class="col-lg-12 landing" src="../../media/atikh-bana-FtBS0p23fcc-unsplash.jpg">
+            <div class="col-lg-6 pl-8 pr-8 mx-auto position-absolute text-lg-left text-center">
+                <h1 class="pt-8" id="landing-text">PLACEHOLDER FOR TEXT ABOUT NEW COLLECTION</h1>
+                <a href="{% url 'products' %}" class="mx-auto shop-now-button btn btn-lg black rounded-0 text-uppercase text-white">Shop Now</a>
             </div>
         </div>
+        <!-- Product Categories -->
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h1>PLACEHOLDER FOR PRODUCT CATEGORIES</h1>
@@ -35,6 +24,7 @@
             <div class="col-lg-4 border yellow landing-teaser mx-1">
             </div>
         </div>
+        <!-- Browse through products -->
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h1>BROWSE THROUGH OUR PRODUCTS</h1>
