@@ -20,6 +20,9 @@ h1{
 }
 
 /*--------------------------------------------navbar*/
+#top-nav{
+}
+
 .text-handwriten{
     font-family: 'Caveat', cursive;
     font-size: bold;
@@ -63,13 +66,16 @@ h1{
 .landing-teaser{
     height: 14vw !important;
 }
+#nav-text{
+    margin-top: 0px !important;
+}
 #landing-image{
     height: 100%;
     background: url('../media/atikh-bana-FtBS0p23fcc-unsplash.jpg') no-repeat center center fixed;
 }
-#logo{
-    height: 100%;
-    width: auto;
+#logo-image{
+    height: auto;
+    width: 30%;
     background-size: contain;
 }
 #landing-text{
