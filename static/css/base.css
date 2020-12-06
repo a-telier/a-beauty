@@ -74,9 +74,9 @@ h1{
     background: url('../media/atikh-bana-FtBS0p23fcc-unsplash.jpg') no-repeat center center fixed;
 }
 #logo-image{
-    height: auto;
-    width: 30%;
-    background-size: contain;
+    height: 100px;
+    width: auto;
+    background-size: cover;
 }
 #landing-text{
     width: 94%;
