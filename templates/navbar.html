@@ -1,70 +1,60 @@
 <!DOCTYPE html>
 <html>
-<!-- Dropdown Structure -->
-<ul id="dropdown1" class="dropdown-content">
-  <li><a href="{% url 'home'%}">Home</a></li>
-  <li><a href="#!">two</a></li>
-  <li><a href="#!">three</a></li>
-</ul>
+
 
 <!-- Navigation Menu -->
-<div class="container-fluid">
-    <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-dark black">
-            <!-- Just Another Store Text -->
-            <div class="col-3">
-                <a class="navbar-brand text-handwriten" id="just-another-store" href="{% url 'home' %}">Just Another Store</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <!-- Navigation Options -->
-            <div class="col 9">              
-                <div class="collapse navbar-collapse d-flex justify-content-end">
-                    <ul class="navbar-nav">
-                        <!-- Home -->
-                        <li class="nav-item p-2">
-                            <a class="nav-link" href="#">
-                            <i class=""></i>
-                            HOME
-                            </a>
-                        </li>
-                        <!-- Products -->
-                        <li class="nav-item p-2">
-                            <a class="nav-link" href="#">
-                            <i class=""></i>
-                            PRODUCTS
-                            </a>
-                        </li>
-                        <!-- Account -->
-                        <li class="nav-item p-2 dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-user-circle"></i>
-                            ACCOUNT
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                {% if request.user.is_authenticated %}
-                                    {% if request.user.is_superuser %}
-                                    <a class="dropdown-item" href="#">Manage products</a>
-                                    {% endif %}
-                                    <a class="dropdown-item" href="#">My Profile</a>
-                                    {% else %}
-                                    <a class="dropdown-item" href="#">Register</a>
-                                    <a class="dropdown-item" href="#">Login</a>
-                                {% endif %}
+<div class="container-fluid fixed-top">
+    <div class="row black">
+        <div class="col-12 col-lg-4 text-center text-lg-left">
+            <a href="{% url 'home' %}">
+                <h1 class="text-handwriten font-2em text-white">Just Another Store</h1>
+            </a>
+        </div>
+        <div class="col-12 col-lg-4"></div>
+        <div class="col-12 col-lg-4">
+            <ul class="list-inline list-unstyled text-center text-lg-right">
+                <!-- MY ACCOUNT -->
+                <li class="list-inline-item dropdown">
+                    <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="text-center">
+                                <div><i class="fas fa-user fa-lg"></i></div>
+                                <p class="my-0">My Account</p>
                             </div>
-                        </li>
-                        <!-- My cart -->
-                        <li class="nav-item p-2">
-                            <a class="nav-link" href="#">
-                            <i class="fas fa-shopping-basket"></i>
-                            MY CART
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                    <!-- if the user is authenticated then -->
+                        {% if request.user.is_authenticated %}
+                            <!-- if the user is a superuser -->
+                            {% if request.user.is_superuser %}
+                                <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                            <!-- if user is not a superuser -->
+                            {% endif %}
+                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        <!-- if the user not authenticated then -->
+                        {% else %}
+                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                        {% endif %}
+                    </div>
+                </li>
+                <!-- MY SHOPPING CART -->
+                <li class="list-inline-item">
+                    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
+                        <div class="text-center">
+                            <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                            <p class="my-0">
+                                {% if grand_total %}
+                                    ${{ grand_total|floatformat:2 }}
+                                {% else %}
+                                    $0.00
+                                {% endif %}
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 </html>
