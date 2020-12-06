@@ -7,7 +7,6 @@ html{
 }
 
 body{
-    background: url('/media/istockphoto-1178634979-2048x2048.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: black;
@@ -46,6 +45,10 @@ h1{
 .landing-teaser{
     height: 14vw !important;
 }
+#landing-image{
+    height: 100%;
+    background: url('../media/atikh-bana-FtBS0p23fcc-unsplash.jpg') no-repeat center center fixed;
+}
 #logo{
     height: 100%;
     width: auto;
@@ -56,6 +59,7 @@ h1{
     margin-top: 10% !important;
     padding-top: 10% !important;
 }
+
 
 .product{
     height: 12vw;

@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
     <div class="container-fluid grey lighten-5">
         <!-- Landing Banner -->
         <div class="row">
-            <img class="col-lg-12 col-sm-12 landing" src="../../media/atikh-bana-FtBS0p23fcc-unsplash.jpg">
+            <img class="col-lg-12 col-sm-12 pt-6 landing" id="landing-image" src="{% static 'img/atikh-bana-FtBS0p23fcc-unsplash.jpg' %}">
+            <!-- src="../../media/atikh-bana-FtBS0p23fcc-unsplash.jpg" -->
             <div class="col-lg-6 col-sm-12 pl-5 pr-5 position-absolute text-lg-left text-center">
                 <div class="mx-auto pt-5">
                     <h1 id="landing-text">FIND OUR LATEST BEAUTY PRODUCTS</h1>
