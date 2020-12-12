@@ -5,24 +5,12 @@
         <!-- Landing Banner -->
         {% load static %}
         <div class="row">
-            <img class="col-lg-12 col-sm-12 pt-6 landing" id="landing-image" src="{% static 'img/atikh-bana-FtBS0p23fcc-unsplash-horizontal.jpg' %}">
+            <img class="col-lg-12 col-sm-12 d-none d-lg-block landing" id="landing-image" src="{% static 'img/atikh-bana-FtBS0p23fcc-unsplash-horizontal.jpg' %}">
+            <img class="col-lg-12 col-sm-12 d-lg-none landing " id="landing-image-mobile" src="{% static 'img/atikh-bana-FtBS0p23fcc-unsplash-vertical.jpg' %}">
             <div class="col-lg-6 col-sm-12 pl-5 pr-5 position-absolute text-lg-left text-center">
                 <div class="mx-auto pt-5">
                     <h1 id="landing-text" class="uppercase">Welcome back!</h1>
-                    <h3>Enjoy browsing through our latest goodies..</h3>
-                    <!-- Search bar -->
-                    <div class="mt-3">
-                        <form method="GET" action="{% url 'products' %}">
-                            <div class="input-group w-75">
-                                <input class="form-control border border-black rounded-0 white" type="text" name="q" placeholder=" Find a product">
-                                <div class="input-group-append black h-100">
-                                    <button class="form-control btn btn-black border border-black rounded-0 h-100" type="submit">
-                                        <span class="icon text-white"><i class="fas fa-search"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    <h3 class="d-none d-lg-block">Enjoy browsing through our latest goodies..</h3>
                     <!-- Shop Now Button -->
                     <a href="{% url 'products' %}" class="mt-5 shop-now-button btn btn-primary btn-lg h-75 black rounded-0 text-uppercase text-white" id="btn-shop"> Shop Now </a>
                 </div>

@@ -20,7 +20,8 @@ h1{
 }
 
 /*--------------------------------------------navbar*/
-#top-nav{
+#topnav{
+    margin-bottom: 0px !important;
 }
 
 .text-handwriten{
@@ -56,32 +57,29 @@ h1{
 
 /*-----------------------------------landing*/
 .landing{
-    height: 52vw;
-    width: 100%;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     background-attachment: fixed;
 }
-.landing-teaser{
-    height: 14vw !important;
-}
-#nav-text{
-    margin-top: 0px !important;
-}
-#landing-image{
-    height: 100%;
-    background: url('../media/atikh-bana-FtBS0p23fcc-unsplash.jpg') no-repeat center center fixed;
-}
 #logo-image{
-    height: 100px;
+    height: 5vw;
     width: auto;
     background-size: cover;
 }
+#landing-image{
+    height: 58vw;
+    width: 100%;
+    padding-top: 6vw;
+}
+#landing-image-mobile{
+    height: 120vw;
+    width: 100%;
+}
 #landing-text{
     width: 94%;
-    margin-top: 10% !important;
-    padding-top: 10% !important;
+    margin-top: 10vw !important;
+    padding-top: 10vw !important;
 }
 .product{
     height: 12vw;
