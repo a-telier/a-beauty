@@ -4,3 +4,5 @@ core.python*
 env.py
 __pycache__/
 *.py[cod]
+
+SECRET_KEY = 'j3zf=s+wt5y)43y*oqt06mx_q=s0d5o4uuqem@_=o5gj#b_s^0'
