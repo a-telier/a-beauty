@@ -3,19 +3,28 @@ from django.db import models
 
 
 # Create your models here.
-CATEGORIES = {
-    ("Eyes", "Eyes"),
-    ("Lips", "Lips"),
-    ("Face", "Face")
-}
+# CATEGORIES = {
+#     ("Eyes", "Eyes"),
+#     ("Lips", "Lips"),
+#     ("Face", "Face")
+# }
+
+class Category(models.Model):
+    name = models.CharField(max_length=254)
+
+    def __str__(self):
+        return self.name
 
 class Product(models.Model):
-    category = models.CharField(choices=CATEGORIES, max_length=10)
-    brand = models.CharField(default="Brand Name", max_length=120)
-    product = models.TextField(default="Product Name")
-    variant = models.TextField(default="Variant Name")
-    productDescription = models.TextField(default="Product Description", blank=True, null=True)
-    price = models.DecimalField(default="Price", decimal_places=2, max_digits=1000)
-    itemNo = models.IntegerField(default="ItemNo")
-    image = models.FileField(upload_to="products")
-    additionalImages = models.FileField(blank=True, upload_to="additional")
+    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    sku = models.IntegerField()
+    brand = models.CharField(default='Brand Name', max_length=120)
+    name = models.TextField(default='Product Name')
+    description = models.TextField(default='Product Description', blank=True, null=True)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    image = models.FileField(upload_to='products')
+    additionalImages = models.FileField(blank=True, upload_to='additional')
+
+    def __str__(self):
+        return self.name
