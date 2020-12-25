@@ -1,8 +1,26 @@
 from django.contrib import admin
 
-# relative import (same directory), importing product class from models
+#   relative import (same directory), importing product class from models
 from .models import Product, Category
 
-# Register your models here.
-admin.site.register(Product)
-admin.site.register(Category)
+
+class ProductAdmin (admin.ModelAdmin):
+    list_display = (
+        'sku',
+        'brand',
+        'name',
+        'price',
+        'image',
+    )
+
+class CategoryAdmin (admin.ModelAdmin):
+    list_display = (
+        'name',
+        'display_name',
+    )
+
+
+#   Register your models here.
+admin.site.register(Product, ProductAdmin)
+admin.site.register(Category, CategoryAdmin)
+
