@@ -81,6 +81,8 @@ h1{
     margin-top: 10vw !important;
     padding-top: 10vw !important;
 }
+
+/*-----------------------------------products*/
 .product{
     height: 12vw;
     width: 6vw;
@@ -93,4 +95,7 @@ h1{
 }
 .product-image{
     background-size: contain;
+}
+.padding-top{
+    padding-top: 16vw;
 }

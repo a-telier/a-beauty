@@ -3,18 +3,26 @@
 
 {% block content %}
 
-<div class="container-fluid">
-    <div class="row d-inline">
+<div class="container">
+    <div class="row">
         {% for product in products %}
-        <div class="col s12 m4 l4 card">
-            <div class="card-image">
+        <!-- PRODUCT CARD -->
+        <div class="col s12 m4 l3 card">
+             <!-- Card Image -->
+            <div class="card-image my-auto mx-auto">
                 <img class="product-image" src="../media/{{ product.image }}" alt="{{ product.brand }} {{ product.name }}">
-                <!-- /workspace/justanotherstore/media/products/3274872342040_P084632_LE-ROUGE_302_d_0.png -->
             </div>
-            <div class="card-content">
-                <h6>{{ product.brand }}</h6>
-                <h6>{{ product.name }}</h6>
-                <h6>{{ product.price }} kr</h6>
+            <!-- Card Context -->
+            <div class="card-content text-center">
+                <h3>{{ product.brand }}</h3>
+                <h2 class="text-white bg-dark text-handwriten align-items-center">{{ product.name }}</h2>
+                <h2>{{ product.price }} kr</h2>
+            </div>
+            <!-- Card Call to Action -->
+            <div class="card-action my-auto mx-auto">
+                <button class="btn btn-secondary btn-lg bg-dark">
+                    <a class="text-white my-auto mx-auto" href="#">ADD TO CART</a>
+                </button>
             </div>
         </div>
         {% endfor %}
