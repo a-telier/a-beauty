@@ -86,3 +86,11 @@ h1{
     width: 6vw;
     background-color: bisque;
 }
+
+.vwtop10{
+    margin-top: 10vw !important;
+    padding-top: 10vw !important;
+}
+.product-image{
+    background-size: contain;
+}

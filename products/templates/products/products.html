@@ -3,11 +3,21 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            {{ name }}
+<div class="container-fluid">
+    <div class="row d-inline">
+        {% for product in products %}
+        <div class="col s12 m4 l4 card">
+            <div class="card-image">
+                <img class="product-image" src="../media/{{ product.image }}" alt="{{ product.brand }} {{ product.name }}">
+                <!-- /workspace/justanotherstore/media/products/3274872342040_P084632_LE-ROUGE_302_d_0.png -->
+            </div>
+            <div class="card-content">
+                <h6>{{ product.brand }}</h6>
+                <h6>{{ product.name }}</h6>
+                <h6>{{ product.price }} kr</h6>
+            </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 
