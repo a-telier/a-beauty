@@ -2,12 +2,15 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product
 
 # Create your views here.
+
+#   This view allows you to see all products
 def all_products(request):
     products = Product.objects.all()
     query = None
     sort = None
 
-    return render(request, "products/detail.html")
+    context = {
+        'products': products,
+    }
 
-def product_detail(request):
-    return render(request, "products/detail.html")
+    return render(request, "products/products.html", context)
