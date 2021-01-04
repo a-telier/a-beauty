@@ -1,0 +1,8 @@
+        <!-- Categories Banners -->
+        <div class="row">
+            {% for category in categories %}
+            <div class="col-lg-4 col-sm-12 landing-cat">
+                <p>{{category.display_name}}</p>
+            </div>
+            {% endfor %}
+        </div>

@@ -4,10 +4,11 @@
 {% block content %}
 
 <div class="container">
+    <!-- Browsing throught products -->
     <div class="row">
         {% for product in products %}
         <!-- PRODUCT CARD -->
-        <div class="col s12 m4 l3 card">
+        <div class="col s6 m3 l2 card">
              <!-- Card Image -->
             <div class="card-image my-auto mx-auto">
                 <img class="product-image" src="../media/{{ product.image }}" alt="{{ product.brand }} {{ product.name }}">
@@ -15,8 +16,8 @@
             <!-- Card Context -->
             <div class="card-content text-center">
                 <h3>{{ product.brand }}</h3>
-                <h2 class="text-white bg-dark text-handwriten align-items-center">{{ product.name }}</h2>
-                <h2>{{ product.price }} kr</h2>
+                <h5 class="align-items-center">{{ product.name|lower|capfirst }}</h5>
+                <h3>{{ product.price }} kr</h3>
             </div>
             <!-- Card Call to Action -->
             <div class="card-action my-auto mx-auto">
@@ -24,6 +25,16 @@
                     <a class="text-white my-auto mx-auto" href="#">ADD TO CART</a>
                 </button>
             </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="container-fluid">
+    <!-- Category banners - scroll down, continue browsing other categories -->
+    <div class="row justify-content-center">
+        {% for category in categories %}
+        <div class="col-lg-3 col-sm-6 my-auto mx-auto bg-categories img-responsive">
+            <h2 class="text-center text-white py-5 text-handwriten">{{ category.display_name|upper }}</h2>
         </div>
         {% endfor %}
     </div>

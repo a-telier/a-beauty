@@ -14,16 +14,10 @@ body{
 h1{
     font-size: 3em;
 }
-
-.uppercase {
-  text-transform: uppercase;
-}
-
 /*--------------------------------------------navbar*/
 #topnav{
     margin-bottom: 0px !important;
 }
-
 .text-handwriten{
     font-family: 'Caveat', cursive;
     font-size: bold;
@@ -39,22 +33,14 @@ h1{
     height: 1.5rem;
     width: 1.5rem;
 }
-
-/*--------------------------------------------buttons*/
+/*----------------------------------***HOME***/
+/*------------------------------------buttons*/
 .btn-outline-black:hover,
 .btn-outline-black:active,
 .btn-outline-black:focus {
-    background: black;
+    background: hotpink;
     color: white !important;
 }
-
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus {
-    background: #222;
-    color: white;
-}
-
 /*-----------------------------------landing*/
 .landing{
     background-repeat: no-repeat;
@@ -70,7 +56,7 @@ h1{
 #landing-image{
     height: 58vw;
     width: 100%;
-    padding-top: 6vw;
+    padding-top: 2vw;
 }
 #landing-image-mobile{
     height: 120vw;
@@ -80,12 +66,27 @@ h1{
     width: 94%;
     margin-top: 10vw !important;
     padding-top: 10vw !important;
+    z-index: 1;
 }
-
+/*-----------------------------------categories*/
+.landing-cat{
+    height: 10vw;
+    background-color: black;
+    border: 16px solid white;
+}
+.cat-categories{
+    height: 8vw;
+    border: 4px solid white;   
+}
+.bg-categories{
+    height: 8vw;
+    width: auto;
+    background-image: url('../img/categories/bg-categories.jpg');
+    background-size: cover;
+}
 /*-----------------------------------products*/
 .product{
-    height: 12vw;
-    width: 6vw;
+    position: relative;
     background-color: bisque;
 }
 
@@ -95,7 +96,4 @@ h1{
 }
 .product-image{
     background-size: contain;
-}
-.padding-top{
-    padding-top: 16vw;
 }
