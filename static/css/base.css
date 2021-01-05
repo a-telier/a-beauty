@@ -14,6 +14,18 @@ body{
 h1{
     font-size: 3em;
 }
+h4{
+    font-size: 1.5em;
+}
+h5{
+    font-size: 1.25em;
+}
+h6{
+    font-size: 1em;
+}
+a{
+    color: inherit;
+}
 /*--------------------------------------------navbar*/
 #topnav{
     margin-bottom: 0px !important;
@@ -35,11 +47,6 @@ h1{
 }
 /*----------------------------------***HOME***/
 /*------------------------------------buttons*/
-.btn-outline-black:hover,
-.btn-outline-black:active,
-.btn-outline-black:focus {
-    background: hotpink;
-    color: white !important;
 }
 /*-----------------------------------landing*/
 .landing{
@@ -85,14 +92,11 @@ h1{
     background-size: cover;
 }
 /*-----------------------------------products*/
-.product{
-    position: relative;
-    background-color: bisque;
+.vwtop8{
+    margin-top: 8vw;
 }
-
-.vwtop10{
-    margin-top: 10vw !important;
-    padding-top: 10vw !important;
+.vwtop14{
+    margin-top: 14vw !important;
 }
 .product-image{
     background-size: contain;

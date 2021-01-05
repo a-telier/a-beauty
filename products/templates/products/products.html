@@ -3,38 +3,56 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container vwtop14">
     <!-- Browsing throught products -->
     <div class="row">
-        {% for product in products %}
+        <h3>Browse through our <span>{{ product.category }}</span> products</h3>
+    </div>
+    <div class="row">
         <!-- PRODUCT CARD -->
-        <div class="col s6 m3 l2 card">
-             <!-- Card Image -->
-            <div class="card-image my-auto mx-auto">
-                <img class="product-image" src="../media/{{ product.image }}" alt="{{ product.brand }} {{ product.name }}">
-            </div>
-            <!-- Card Context -->
-            <div class="card-content text-center">
-                <h3>{{ product.brand }}</h3>
-                <h5 class="align-items-center">{{ product.name|lower|capfirst }}</h5>
-                <h3>{{ product.price }} kr</h3>
-            </div>
-            <!-- Card Call to Action -->
-            <div class="card-action my-auto mx-auto">
-                <button class="btn btn-secondary btn-lg bg-dark">
-                    <a class="text-white my-auto mx-auto" href="#">ADD TO CART</a>
-                </button>
+        {% for product in products %}
+        <div class="col-lg-3">
+            <div class="card h-80 border-0">
+                <!-- Card Image -->
+                <div class="card-image my-auto mx-auto mb-0">
+                    <a href="#">
+                        <img class="product-image" src="../media/{{ product.image }}" alt="{{ product.brand }} {{ product.name }}">
+                    </a>
+                </div>
+                <!-- Card Content -->
+                <div class="card-content text-center mb-0">
+                    <!-- Card Text -->
+                    <h6 class="font-weight-bold">{{ product.brand }}</h6>
+                    <h6 class="align-items-center">{{ product.name|lower|capfirst }}</h6>
+                    <h4>{{ product.price }} kr</h4>
+                    {% if product.rating %}
+                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                    {% else %}
+                        <small class="text-muted">No Rating</small>
+                    {% endif %}
+                    <!-- Card Call to Action -->
+                    <div class="pt-3">
+                        <button class="btn btn-outline-dark font-weight-bold" type="submit">
+                            <span>BUY</span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
-<div class="container-fluid">
+<div class="container">
+    <div class="row">
+        <h2 class="text-handwriten">Missing something? </h2>
+        <span> </span>
+        <h3>Take a look at our other product categories</h3>
+    </div>
     <!-- Category banners - scroll down, continue browsing other categories -->
     <div class="row justify-content-center">
         {% for category in categories %}
         <div class="col-lg-3 col-sm-6 my-auto mx-auto bg-categories img-responsive">
-            <h2 class="text-center text-white py-5 text-handwriten">{{ category.display_name|upper }}</h2>
+            <h4 class="text-center text-white py-5">{{ category.display_name|upper }}</h4>
         </div>
         {% endfor %}
     </div>
