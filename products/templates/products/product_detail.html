@@ -8,7 +8,7 @@
         <!-- PRODUCT DETAIL -->
         <div class="card d-block">
             <!-- Card Image -->
-            <div class="col-lg-6 left">
+            <div class="col-lg-6 col-sm-12 left">
                 <div class="card-image my-auto mx-auto mb-0">
                     {% if product.image %}
                     <a href="{% url 'product_detail' product.id %}">
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <!-- Card Content -->
-            <div class="col-lg-6 right mx-auto my-auto">
+            <div class="col-lg-6 col-sm-12 right mx-auto my-auto">
                 <div class="card-content text-left mb-0">
                     <h6>HOME/ {{ product.category|upper }}</h6>
                     <div class="mt-5">
@@ -56,16 +56,18 @@
 </div>
 <div class="container">
     <div class="row">
-        <h2 class="text-handwriten">Missing something? </h2>
-        <span> </span>
-        <h3>Take a look at our other product categories</h3>
-    </div>
-    <!-- Category banners - scroll down, continue browsing other categories -->
-    <div class="row justify-content-center">
-        {% for category in categories %}
-        <div class="col-lg-3 col-sm-6 my-auto mx-auto bg-categories img-responsive">
-            <h4 class="text-center text-white py-5">{{ category.display_name|upper }}</h4>
+        <div class="col-lg-12">
+            <h3 class="">MISSING SOMETHING? </h3>
+            <h6>Take a look at our other product categories</h6>   
         </div>
+        {% for category in categories %}
+            {% if forloop.counter <= 4 %}
+            <div class="col-lg-2 col-sm-6 h-100 my-auto mx-auto m-2">
+                <!-- <h4 class="text-center text-white">{{ category.display_name|upper }}</h4> -->
+                <img class="responsive-img" src="../media/{{ category.teaser }}" alt="{{ category.name }}">
+            </div>
+            {% else %}
+            {% endif %}
         {% endfor %}
     </div>
 </div>

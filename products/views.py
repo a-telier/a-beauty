@@ -6,7 +6,7 @@ from .models import Product, Category
 #   This view allows you to see all products
 def all_products(request):
     products = Product.objects.all()
-    categories = Category.objects.all()[0:4]
+    categories = Category.objects.all()
     query = None
     sort = None
 
@@ -21,9 +21,11 @@ def all_products(request):
 #   This view allows you to view each product individually
 def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
+    categories = Category.objects.all()
 
     context = {
         'product': product,
+        'categories': categories,
     }
 
     return render(request, "products/product_detail.html", context)
