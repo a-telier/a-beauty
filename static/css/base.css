@@ -51,28 +51,18 @@ a{
 /*-----------------------------------landing*/
 .landing{
     background-repeat: no-repeat;
-    background-size: contain;
     background-position: center;
     background-attachment: fixed;
+    background-size: contain;
 }
 #logo-image{
     height: 5vw;
     width: auto;
-    background-size: cover;
-}
-#landing-image{
-    height: 58vw;
-    width: 100%;
-    padding-top: 2vw;
-}
-#landing-image-mobile{
-    height: 120vw;
-    width: 100%;
+    background-size: contain;
 }
 #landing-text{
-    width: 94%;
-    margin-top: 10vw !important;
-    padding-top: 10vw !important;
+    margin-top: 4vw !important;
+    padding-top: 4vw !important;
     z-index: 1;
 }
 /*-----------------------------------categories*/
@@ -92,8 +82,8 @@ a{
     background-size: cover;
 }
 /*-----------------------------------products*/
-.vwtop8{
-    margin-top: 8vw;
+.vwtop12{
+    margin-top: 12vw;
 }
 .vwtop14{
     margin-top: 14vw !important;

@@ -1,28 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container-fluid grey lighten-5">
+    <div class="container-fluid grey lighten-5 d-block vwtop12">
         <!-- Landing Banner -->
         {% load static %}
-        <div class="row mt-6 vwtop8">
-            <img class="col-lg-12 col-sm-12 d-none d-lg-block landing" id="landing-image" src="{% static 'img/atikh-bana-FtBS0p23fcc-unsplash-horizontal.jpg' %}">
-            <img class="col-lg-12 col-sm-12 d-lg-none landing " id="landing-image-mobile" src="{% static 'img/atikh-bana-FtBS0p23fcc-unsplash-vertical.jpg' %}">
-            <div class="col-lg-6 col-sm-12 pl-5 pr-5 position-absolute text-lg-left text-center">
-                <div class="mx-auto pt-5">
-                    <h1 id="landing-text" class="text-uppercase">Welcome back!</h1>
-                    <h3 class="d-none d-lg-block">Enjoy browsing through our latest goodies..</h3>
-                    <!-- Shop Now Button -->
-                    <a href="{% url 'products' %}" class="mt-5 shop-now-button btn btn-primary btn-lg h-75 black rounded-0 text-uppercase text-white" id="btn-shop"> Shop Now </a>
-                </div>
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <a href="#">
+                    <img class="landing responsive-img" src="{% static 'img/banners/banner-landing-sales.jpg' %}">
+                </a>
+                <!-- <img class="d-lg-none landing " id="landing-image-mobile" src="{% static 'img/atikh-bana-FtBS0p23fcc-unsplash-vertical.jpg' %}"> -->
             </div>
         </div>          
-        <!-- Categories Banners -->
+        <!-- Other Banners -->
         <div class="row">
-            {% for product in products %}
-            <div class="col-lg-4 col-sm-12 landing-cat">
-                <p>{{ product.category }}</p>
+            <div class="col-lg-6 col-sm-12">
+                <a href="#">
+                    <img class="landing responsive-img" src="{% static 'img/banners/banner-large-sun.jpg' %}" alt="">
+                </a>
             </div>
-            {% endfor %}
+            <div class="col-lg-6 col-sm-12">
+                <a href="#">
+                    <img class="landing responsive-img" src="{% static 'img/banners/banner-small-everyday.jpg' %}" alt="">
+                </a>
+                <a href="#">
+                    <img class="landing responsive-img" src="{% static 'img/banners/banner-small-lipstick.jpg' %}" alt="">
+                </a>
+            </div>
         </div>
     </div>
 {% endblock content %}
