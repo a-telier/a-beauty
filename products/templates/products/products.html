@@ -15,9 +15,15 @@
             <div class="card h-80 border-0">
                 <!-- Card Image -->
                 <div class="card-image my-auto mx-auto mb-0">
+                    {% if product.image %}
                     <a href="{% url 'product_detail' product.id %}">
-                        <img class="product-image" src="../media/{{ product.image }}" alt="{{ product.brand }} {{ product.name }}">
+                    <img class="product-image" src="../media/{{ product.image }}" alt="{{ product.brand }} {{ product.name }}">
+                    {% else %}
                     </a>
+                    <a href="{% url 'product_detail' product.id %}">
+                    <img class="product-image" src="../media/missing-image.jpg" alt="{{ product.brand }} {{ product.name }}">
+                    </a>
+                    {% endif %}
                 </div>
                 <!-- Card Content -->
                 <div class="card-content text-center mb-0">

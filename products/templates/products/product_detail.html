@@ -16,7 +16,7 @@
                     {% else %}
                     </a>
                     <a href="{% url 'product_detail' product.id %}">
-                    <img class="product-image" src="{{ MEDIA_URL }}missing-image.jpg" alt="{{ product.brand }} {{ product.name }}">
+                    <img class="product-image" src="../media/missing-image.jpg" alt="{{ product.brand }} {{ product.name }}">
                     </a>
                     {% endif %}
                 </div>
@@ -24,18 +24,21 @@
             <!-- Card Content -->
             <div class="col-lg-6 right mx-auto my-auto">
                 <div class="card-content text-left mb-0">
-                    <!-- Card Text -->
-                    <h6 class="font-weight-bold">{{ product.brand|upper }}</h6>
-                    <h6 class="align-items-center">{{ product.name|lower|capfirst }}</h6>
-                    {% if product.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
-                    {% else %}
-                        <small class="text-muted">No Rating</small>
-                    {% endif %}
-                    <h4>{{ product.price }} kr</h4>
-                    <p>*Free delivery from 50 EUR</p>
+                    <h6>HOME/ {{ product.category|upper }}</h6>
+                    <div class="mt-5">
+                        <!-- Card Text -->
+                        <h4 class="font-weight-bold">{{ product.brand|upper }}</h4>
+                        <h5 class="align-items-center">{{ product.name|lower|capfirst }}</h5>
+                        {% if product.rating %}
+                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                        {% else %}
+                            <small class="text-muted">No Rating</small>
+                        {% endif %}
+                        <h4>{{ product.price }} kr</h4>
+                        <p>*Free delivery from 50 EUR</p>
+                    </div>
                     <!-- Card Call to Action -->
-                    <div class="mt-2">
+                    <div class="mt-4">
                         <button class="btn btn-outline-light font-weight-bold bg-danger text-white" type="submit">
                             <span>BUY</span>
                         </button>
