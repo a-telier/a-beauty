@@ -4,42 +4,51 @@
 {% block content %}
 
 <div class="container vwtop14">
-    <!-- Browsing throught products -->
     <div class="row">
-        <h3>Browse through our <span>{{ product.category }}</span> products</h3>
-    </div>
-    <div class="row">
-        <!-- PRODUCT CARD -->
-        {% for product in products %}
-        <div class="col-lg-3">
-            <div class="card h-80 border-0">
-                <!-- Card Image -->
+        <!-- PRODUCT DETAIL -->
+        <div class="card d-block">
+            <!-- Card Image -->
+            <div class="col-lg-6 left">
                 <div class="card-image my-auto mx-auto mb-0">
+                    {% if product.image %}
                     <a href="{% url 'product_detail' product.id %}">
-                        <img class="product-image" src="../media/{{ product.image }}" alt="{{ product.brand }} {{ product.name }}">
+                    <img class="product-image" src="../media/{{ product.image }}" alt="{{ product.brand }} {{ product.name }}">
+                    {% else %}
                     </a>
+                    <a href="{% url 'product_detail' product.id %}">
+                    <img class="product-image" src="{{ MEDIA_URL }}missing-image.jpg" alt="{{ product.brand }} {{ product.name }}">
+                    </a>
+                    {% endif %}
                 </div>
-                <!-- Card Content -->
-                <div class="card-content text-center mb-0">
+            </div>
+            <!-- Card Content -->
+            <div class="col-lg-6 right mx-auto my-auto">
+                <div class="card-content text-left mb-0">
                     <!-- Card Text -->
-                    <h6 class="font-weight-bold">{{ product.brand }}</h6>
+                    <h6 class="font-weight-bold">{{ product.brand|upper }}</h6>
                     <h6 class="align-items-center">{{ product.name|lower|capfirst }}</h6>
-                    <h4>{{ product.price }} kr</h4>
                     {% if product.rating %}
                         <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                     {% else %}
                         <small class="text-muted">No Rating</small>
                     {% endif %}
+                    <h4>{{ product.price }} kr</h4>
+                    <p>*Free delivery from 50 EUR</p>
                     <!-- Card Call to Action -->
-                    <div class="pt-3">
-                        <button class="btn btn-outline-dark font-weight-bold" type="submit">
+                    <div class="mt-2">
+                        <button class="btn btn-outline-light font-weight-bold bg-danger text-white" type="submit">
                             <span>BUY</span>
                         </button>
+                    </div>
+                    <div class="mt-5">
+                        <h6>PRODUCT DESCRIPTION</h6>
+                        <span>
+                            {{ product.description|lower|capfirst }}
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
     </div>
 </div>
 <div class="container">
