@@ -53,7 +53,7 @@ a{
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    background-size: contain;
+    background-size: cover !important;
 }
 #logo-image{
     height: 5vw;
