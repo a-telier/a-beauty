@@ -45,7 +45,6 @@ class Product(models.Model):
     additionalImages = models.FileField(default="", null=True, blank=True, upload_to='additional')
     new = models.BooleanField(default="False", null=True)
     deals = models.BooleanField(default="False", null=True)
-    favorites = models.BooleanField(default="False", null=True)
 
     def __str__(self):
         return self.name

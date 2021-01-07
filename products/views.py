@@ -9,23 +9,33 @@ from .models import Product, Category
 def all_products(request):
     products = Product.objects.all()
     query = None
+    categories = None
  
     if request.GET:
+        if 'category' in request.GET:
+            # spslit into a list by commas
+            # use the list to filter the current queries
+            # to only products which cat name are on the list
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, 'No search criteria')
+                messages.error(request, 'No search criteria entered')
                 return redirect(reverse('products'))
 
-        # creating a Q object to pass a query
-        # the pipe | generates the 'or' statement
-        # i in front of contains make it not case sensitive
-        queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(brand__icontains=query) | Q(category__icontains=query)
-        products = products.filter(queries)
+            # creating a Q object to pass a query
+            # the pipe | generates the 'or' statement
+            # i in front of contains make it not case sensitive
+            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(brand__icontains=query) | Q(category__icontains=query)
+            products = products.filter(queries)
 
     context = {
         'products': products,
         'search_term': query,
+        'current_categories': categories,
     }
 
     return render(request, "products/products.html", context)
