@@ -54,17 +54,34 @@
         </div>
     </div>
 </div>
+<!-- Browse through products within the same category -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12 mt-5">
+            <h3 class="">OTHER SUGGESTIONS WITHIN {{ product.category|upper }} </h3>
+            {% for product in products %}
+            {{ product.name }}
+            {% endfor %}  
+        </div>
+        <div class="col-lg-6 col-sm-6 h-100 my-auto mx-auto p-3">
+            <a href="#">
+            <img class="responsive-img" src="../media/{{ category.teaser }}" alt="{{ category.name }}">
+            </a>
+        </div>
+    </div>
+<!-- Browse other categories -->
+    <div class="row">
+        <div class="col-lg-12 mt-5">
             <h3 class="">MISSING SOMETHING? </h3>
             <h6>Take a look at our other product categories</h6>   
         </div>
         {% for category in categories %}
-            {% if forloop.counter <= 4 %}
-            <div class="col-lg-2 col-sm-6 h-100 my-auto mx-auto m-2">
+            {% if forloop.counter <= 4 and category.teaser is not empty %}
+            <div class="col-lg-6 col-sm-6 h-100 my-auto mx-auto p-3">
                 <!-- <h4 class="text-center text-white">{{ category.display_name|upper }}</h4> -->
+                <a href="#">
                 <img class="responsive-img" src="../media/{{ category.teaser }}" alt="{{ category.name }}">
+                </a>
             </div>
             {% else %}
             {% endif %}
