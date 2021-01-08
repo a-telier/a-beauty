@@ -59,15 +59,58 @@
     <div class="row">
         <div class="col-lg-12 mt-5">
             <h3 class="">OTHER SUGGESTIONS WITHIN {{ product.category|upper }} </h3>
-            {% for product in products %}
-            {{ product.name }}
-            {% endfor %}  
         </div>
-        <div class="col-lg-6 col-sm-6 h-100 my-auto mx-auto p-3">
-            <a href="#">
-            <img class="responsive-img" src="../media/{{ category.teaser }}" alt="{{ category.name }}">
-            </a>
+    </div>
+    <div class="row">
+        {% for prod in products %}
+        {% if prod.category == product.category and prod.id != product.id %}
+        {% if forloop.counter <= 4 %}
+        <div class="col-lg-3">
+            <div class="card h-80 border-0">
+                <!-- Card Image -->
+                <div class="card-image my-auto mx-auto mb-0">
+                    {% if prod.image %}
+                    <a href="{% url 'product_detail' prod.id %}">
+                    <img class="product-image" src="../media/{{ prod.image }}" alt="{{ prod.brand }} {{ prod.name }}">
+                    {% else %}
+                    </a>
+                    <a href="{% url 'product_detail' prod.id %}">
+                    <img class="product-image" src="../media/missing-image.jpg" alt="{{ prod.brand }} {{ prod.name }}">
+                    </a>
+                    {% endif %}
+                </div>
+                <!-- Card Content -->
+                <div class="card-content text-center mb-0">
+                    <!-- Card Text -->
+                    <h6 class="font-weight-bold">{{ prod.brand }}</h6>
+                    <h6 class="align-items-center">{{ prod.name|lower|capfirst }}</h6>
+                    <h4>{{ prod.price }} kr</h4>
+                    <!-- Category tag -->
+                    {% if prod.category %}
+                    <p class="small mt-1 mb-0">
+                        <a class="text-muted" href="{% url 'products' %}?category={{ prod.category.name }}">
+                            <i class="fas fa-tag mr-1"></i>{{ prod.category.display_name }}
+                        </a>
+                    </p>
+                    {% endif %}
+                    <!-- Rating -->
+                    {% if product.rating %}
+                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ prod.rating }} / 5</small>
+                    {% else %}
+                    <small class="text-muted">No Rating</small>
+                    {% endif %}
+                    <!-- Card Call to Action -->
+                    <div class="pt-3">
+                        <button class="btn btn-outline-dark font-weight-bold" type="submit">
+                            <span>BUY</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
     </div>
 <!-- Browse other categories -->
     <div class="row">
@@ -75,15 +118,13 @@
             <h3 class="">MISSING SOMETHING? </h3>
             <h6>Take a look at our other product categories</h6>   
         </div>
-        {% for category in categories %}
+        {% for category in all_categories %}
             {% if forloop.counter <= 4 and category.teaser is not empty %}
             <div class="col-lg-6 col-sm-6 h-100 my-auto mx-auto p-3">
-                <!-- <h4 class="text-center text-white">{{ category.display_name|upper }}</h4> -->
-                <a href="#">
+                <a href="{% url 'products' %}?category={{ category.name }}">
                 <img class="responsive-img" src="../media/{{ category.teaser }}" alt="{{ category.name }}">
                 </a>
             </div>
-            {% else %}
             {% endif %}
         {% endfor %}
     </div>
