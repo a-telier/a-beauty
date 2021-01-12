@@ -5,39 +5,38 @@
 
 <div class="container vwtop14">
     <div class="row">
+        <!-- Category names -->
         <div class="col-lg-12">
-            <h2 class="logo-font">Products</h2>
+            {% for category in current_categories %}
+                <h6><a href="{% url 'products' %}"> START </a> / {{ category.name|upper }} </h6>
+                <h2 class="logo-font">{{ category.name|capfirst }}</h2>
+            {% endfor %}
         </div>
-    </div>
-    <!-- Browsing throught products -->
-    <div class="row">
-        <!-- Current Category tag -->
-        <!-- If the product has a category, it will show here -->
-        <div class="col-lg-12 text-center mt-3">
-            {% for cat in current_categories %}
-                <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ cat.name }}">
-                    <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ cat.name }}</span>
-                </a>
+        <!-- Category tags -->
+        <div class="col-lg-12 text-center">
+            {% for category in all_categories %}
+            <a class="btn btn-outline-dark left m-1" href="{% url 'products' %}?category={{ category.name }}">
+                <span class="">{{ category.name }}</span>
+            </a>
             {% endfor %}
         </div>
     </div>
     <hr class="mb-1">
     <div class="row">
         <!-- Sorting selector -->
-        <div class="col-lg-6 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end d-inline-block">
-            <div class="sort-select-wrapper w-50">
-                <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                    <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                    <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-                    <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                    <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
-                    <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
-                    <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
-                    <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
-                    <option value="brand_asc" {% if current_sorting == 'brand_asc' %}selected{% endif %}>Brand (A-Z)</option>
-                    <option value="brand_desc" {% if current_sorting == 'brand_desc' %}selected{% endif %}>Brand (Z-A)</option>
-                </select>
-            </div>
+        <div class="sort-select-wrapper w-50">
+            <select id="sort" class="custom-select custom-select-sm rounded-0 border border">
+                <option value="reset" {% if current_sorting == "None_None" %}selected="selected"{% endif %}>Sort by...</option>
+                <option value="price_asc" {% if current_sorting == "price_asc" %}selected="selected"{% endif %}>Price (low to high)</option>
+                <option value="price_desc" {% if current_sorting == "price_desc" %}selected="selected"{% endif %}>Price (high to low)</option>
+                <option value="rating_asc" {% if current_sorting == "rating_asc" %}selected="selected"{% endif %}>Rating (low to high)</option>
+                <option value="rating_desc" {% if current_sorting == "rating_desc" %}selected="selected"{% endif %}>Rating (high to low)</option>
+        
+                <!-- <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
+                <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option> -->
+            </select>
         </div>
         <!-- Count # of products -->
         <div class="col-lg-6 col-md-6 order-md-first d-inline-block">
@@ -116,44 +115,4 @@
     </div>
 </div>
 
-{% endblock %}
-
-{% block postloadjs %}
-   {{ block.super }} 
-    <script type="text/javascript">
-		$('.btt-link').click(function(e) {
-			window.scrollTo(0,0)
-		})
-	</script>
-    
-    <script type="text/javascript">
-        $('#sort-selector').change(function() {
-            // modify the GET parameters
-            var selector = $(this);
-            var currentUrl = new URL(window.location);
-
-            // get parameter from selector
-            var selectedVal = selector.val();
-            if(selectedVal != "reset"){
-                // var from selectors - desc and asc parameters
-                var sort = selectedVal.split("_")[0];
-                var direction = selectedVal.split("_")[1];
-
-                // setting new parameters based on above
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
-                
-                // replacing parameters in url
-                // which also reloads the page
-                window.location.replace(currentUrl);
-
-            } else {
-                // resets the parameters to default None
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
-
-                window.location.replace(currentUrl);
-            }
-        })
-    </script>
 {% endblock %}

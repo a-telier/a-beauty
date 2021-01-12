@@ -11,10 +11,10 @@ from django.db.models.functions import Lower
 def all_products(request):
     products = Product.objects.all()
     all_categories = Category.objects.all()
-    query = None
     categories = None
-    sort = None
-    direction = None
+    query = None
+    sort = 'price'
+    direction = 'asc'
 
     if request.GET:
         #   Sorting by
