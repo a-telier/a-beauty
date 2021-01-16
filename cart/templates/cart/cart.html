@@ -10,10 +10,12 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-10 border mx-auto">
+        <div class="col-lg-10 col-sm-12 border mx-auto">
+            <!-- If the cart is not empty -->
             {% if cart_items %}
                 <div class="table-responsive">
                     <table class="table table-sm table-borderless">
+                        <!-- Cart Items -->
                         <thead class="text-black">
                             <tr>
                                 <th scope="col">Product</th>
@@ -43,8 +45,37 @@
                             </td>
                         </tr>
                     {% endfor %}
+                        <!-- Cart Summary -->
+                        <tr>
+                            <td colspan="5" class="pt-5 text-right">
+                                <h6>Delivery: {{ delivery|floatformat:2 }}kr</h6>
+                                <h4 class="mt-4"><strong>Grand Total: {{ grand_total|floatformat:2 }}kr</strong></h4>
+                                {% if free_delivery_delta > 0 %}
+                                    <p class="mb-1 text-danger">
+                                        You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
+                                    </p>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <!-- Move to next step -->
                     </table>
+                    <div class="col-12 d-block right">
+                        <div class="">
+                            <button class="btn btn-danger font-weight-bold right" type="submit">
+                                <span>CONTINUE TO PAYMENT</span>
+                            </button>
+                        </div>
+                        <div class="">
+                            <a href="{% url 'products' %}" class="btn btn-outline-dark font-weight-bold mt-2">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="text-uppercase align-items-center">Keep Shopping</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
+            <!-- Otherwise, if the cart is empty -->
             {% else %}
                 <h6>Your shopping bag is empty.</h6>
                 <a class="btn btn-outline-dark center m-1" href="{% url 'products' %}">
