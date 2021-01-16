@@ -39,7 +39,7 @@ class Product(models.Model):
     brand = models.CharField(default='Brand Name', max_length=120)
     name = models.TextField(default='Product Name')
     description = models.TextField(default='Product Description', blank=True, null=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=0)
     rating = models.IntegerField(choices=RATINGS, blank=True, null=True)
     image = models.FileField(default="", null=True, blank=True, upload_to='products')
     additionalImages = models.FileField(default="", null=True, blank=True, upload_to='additional')
