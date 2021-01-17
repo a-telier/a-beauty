@@ -28,7 +28,9 @@
                     {% for item in cart_items %}
                         <tr class="">
                             <td class="py-3">
-                                <img class="img-thumbnail" style="height: 100px;" src="{{ item.product.image.url }}">
+                                <a href="{% url 'product_detail' item.product.id %}">
+                                    <img class="img-thumbnail" style="height: 100px;" src="{{ item.product.image.url }}">
+                                </a>
                             </td>
                             <td class="py-3">
                                 <h6 class=""><strong>{{ item.product.name }}</strong></h6>
@@ -70,7 +72,7 @@
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
-                                <span class="text-uppercase align-items-center">Keep Shopping</span>
+                                <span class="text-uppercase align-items-center">CONTINUE SHOPPING</span>
                             </a>
                         </div>
                     </div>
