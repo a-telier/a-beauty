@@ -19,7 +19,7 @@ def cart_contents(request):
         product_count += quantity
         product_count = product_count + quantity
         # append these elements as a cart_items object
-        cart.items.append({
+        cart_items.append({
             'item_id': item_id,
             'quantity': quantity,
             'product': product,
