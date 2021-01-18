@@ -7,10 +7,15 @@
     <div class="row">
         <!-- Category names -->
         <div class="col-lg-12">
-            {% for category in current_categories %}
-                <h6><a href="{% url 'products' %}"> START </a> / {{ category.name|upper }} </h6>
-                <h2 class="logo-font">{{ category.name|capfirst }}</h2>
-            {% endfor %}
+            {% if current_categories == None %}
+                <h6><a href="{% url 'products' %}"> START </a> / ALL </h6>
+                <h2 class="logo-font">All Categories</h2>
+            {% else %}
+                {% for category in current_categories %}
+                    <h6><a href="{% url 'products' %}"> START </a> / {{ category.name|upper }} </h6>
+                    <h2 class="logo-font">{{ category.name|capfirst }}</h2>
+                {% endfor %}
+            {% endif %}
         </div>
         <!-- Category tags -->
         <div class="col-lg-12 text-center">
@@ -23,24 +28,28 @@
     </div>
     <hr class="mb-1">
     <div class="row">
-        <!-- Sorting selector -->
-        <div class="sort-select-wrapper w-50">
-            <!-- <select id="sort" class="custom-select custom-select-sm rounded-0 border border">
-                <option value="reset" {% if current_sorting == "None_None" %}selected="selected"{% endif %}>Sort by...</option>
-                <option value="price_asc" {% if current_sorting == "price_asc" %}selected="selected"{% endif %}>Price (low to high)</option>
-                <option value="price_desc" {% if current_sorting == "price_desc" %}selected="selected"{% endif %}>Price (high to low)</option>
-                <option value="rating_asc" {% if current_sorting == "rating_asc" %}selected="selected"{% endif %}>Rating (low to high)</option>
-                <option value="rating_desc" {% if current_sorting == "rating_desc" %}selected="selected"{% endif %}>Rating (high to low)</option>
-            </select> -->
-        </div>
         <!-- Count # of products -->
-        <div class="col-lg-6 col-md-6 order-md-first d-inline-block">
+        <div class="col-lg-6 col-md-6 d-inline-block">
             <p class="text-muted mt-3 text-center text-md-left">
                 {% if search_term or current_categories or current_sorting != 'None_None' %}
                     <span class="small"><a href="{% url 'products' %}">Home</a> | </span>
                 {% endif %}
                 {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
             </p>
+        </div>
+        <!-- Sorting selector -->
+        <div class="col-lg-6 col-md-6 right">
+            <li class="nav-item dropdown d-inline-block text-center">
+                <a class="logo-font font-weight-bold nav-link text-black mr-5 text-uppercase" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sort by..
+                </a>
+                <div class="dropdown-menu border-0 text-muted mt-3" aria-labelledby="all-products-link">
+                    <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                    <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item">By Rating</a>
+                    <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
+                    <a href="{% url 'products' %}?sort=brand&direction=asc" class="dropdown-item ">By Brand</a>
+                </div>
+            </li>
         </div>
     </div>
     <div class="row">

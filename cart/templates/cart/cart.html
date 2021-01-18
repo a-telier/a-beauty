@@ -37,7 +37,35 @@
                                 <p class="small text-muted">SKU: {{ item.product.sku|upper }}</p>
                             </td>
                             <td class="py-3">
-                                <h6 class="">{{ item.quantity }}</h6>
+                                <form><input type="text"><input type="submit" value="Submit">
+                                    {% csrf_token %}
+                                    <div class="input-group">
+                                        <!-- decrese quantity -->
+                                        <div class="input-group-prepend d-inline">
+                                            <button class="decrement-qty btn border-0 shadow-none" 
+                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                <span class="icon">
+                                                    <i class="fas fa-minus-circle"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <!-- quantity -->
+                                        <div class="d-inline">
+                                            <input class="form-control qty_input" type="number"
+                                            name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                            data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                        </div>
+                                        <!-- increase quantity -->
+                                        <div class="input-group-append d-inline">
+                                            <button class="increment-qty btn border-0 shadow-none"
+                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                <span class="icon">
+                                                    <i class="fas fa-plus-circle"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                             </td>
                             <td class="py-3">
                                 <h4 class="">{{ item.product.price }}kr</h4>

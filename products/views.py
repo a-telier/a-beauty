@@ -51,7 +51,7 @@ def all_products(request):
             # creating a Q object to pass a query
             # the pipe | generates the 'or' statement
             # i in front of contains make it not case sensitive
-            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(brand__icontains=query) | Q(category__icontains=query)
+            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(brand__icontains=query)
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
