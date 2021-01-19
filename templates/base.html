@@ -129,6 +129,11 @@
         {% endblock %}
 
         {% if messages %}
+            <div class="message-container">
+                {% for message in messages %}
+                    {% include 'includes/toasts/toasts_success.html' %}
+                {% endfor %}
+            </div>
         {% endif %}
 
         {% block postloadjs %}
