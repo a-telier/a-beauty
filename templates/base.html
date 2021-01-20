@@ -129,11 +129,25 @@
         {% endblock %}
 
         {% if messages %}
-            <div class="message-container">
-                {% for message in messages %}
-                    {% include 'includes/toasts/toasts_success.html' %}
-                {% endfor %}
-            </div>
+        <div class="message-container">
+            {% for message in messages %}
+                <!-- Django works with levels for alerts -->
+                {% with message.level as level %}
+                    <!-- level 40 is an error -->
+                    {% if level == 40 %}
+                        {% include 'includes/toasts/toasts_error.html' %}
+                    <!-- level 30 is a warning -->
+                    {% elif level == 30 %}
+                        {% include 'includes/toasts/toasts_warning.html' %}
+                    <!-- level 25 is success -->
+                    {% elif level == 25 %}
+                        {% include 'includes/toasts/toasts_success.html' %}
+                    {% else %}
+                        {% include 'includes/toasts/toasts_info.html' %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
         {% endif %}
 
         {% block postloadjs %}

@@ -43,7 +43,7 @@
                                     <div class="input-group">
                                         <!-- decrese quantity -->
                                         <div class="input-group-prepend">
-                                            <button class="decrement-qty btn border-0 shadow-none" 
+                                            <button class="decrement-qty btn border-0 shadow-none update-link" 
                                                 data-item_id="{{ item.id }}" id="decrement-qty_{{ item.id }}">
                                                 <span class="icon">
                                                     <i class="fas fa-minus-circle"></i>
@@ -58,7 +58,7 @@
                                         </div>
                                         <!-- increase quantity -->
                                         <div class="input-group-append">
-                                            <button class="increment-qty btn border-0 shadow-none"
+                                            <button class="increment-qty btn border-0 shadow-none update-link"
                                                 data-item_id="{{ item.id }}" id="increment-qty_{{ item.id }}">
                                                 <span class="icon">
                                                     <i class="fas fa-plus-circle"></i>
@@ -67,6 +67,7 @@
                                         </div>
                                     </div>
                                 </form>
+                                <!-- <a class="update-link text-info"><small>Update</small></a> -->
                             </td>
                             <td class="py-3">
                                 <h4 class="">{{ item.product.price }}kr</h4>
@@ -124,9 +125,10 @@
 {% include 'products/includes/quantity_input.html' %}
 
 <script type="text/javascript">
-    // Update quantity on click
+    // Everyone with the class update-link should submit
     $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
+        // finds the form and then updates quantity
+        var form = $(this).closest('.update-form');
         form.submit();
     })
 

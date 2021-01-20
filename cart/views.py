@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, reverse  #  renders HTML templates
 from django.http import HttpResponse #  displays HttpResponse
-from django.shortcuts import render
 from django.contrib import messages
 from products.models import Product
 
@@ -11,6 +10,7 @@ def view_cart(request):
 
 
 def add_to_cart(request, item_id):
+    print('Adding to cart...')
 
     product = Product.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
@@ -18,16 +18,22 @@ def add_to_cart(request, item_id):
     cart = request.session.get('cart', {})
 
     if item_id in list(cart.keys()):
+        # if the item already exists, increase the quantity of that item
         cart[item_id] += quantity
+        messages.success(request, f'Added {product.name} has been added to your cart')
+        print(f'Added extra {product.name} has been added to your cart')
     else:
+        # if the item doesn't exist, create this quantity
         cart[item_id] = quantity
-        messages.success(request, f'Added {product.name} ({product.quantity}) to your shopping cart')
+        messages.success(request, f'Added {product.name} has been added to your cart')
+        print('Added {product.name} has been added to your cart')
 
     request.session['cart'] = cart
     return redirect(redirect_url)
 
 
 def update_cart(request, item_id):
+    print('Update cart item ' + item_id)
 
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
