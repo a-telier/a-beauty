@@ -26,17 +26,26 @@
                                 <th scope="col">Subtotal</th>
                             </tr>
                         </thead>
-                    {% for item in cart_items %}
+                        {% for item in cart_items %}
                         <tr class="">
+                            <!-- Display product image thumbnail -->
                             <td class="py-3">
+                                {% if item.product.image %}
                                 <a href="{% url 'product_detail' item.product.id %}">
                                     <img class="img-thumbnail" style="height: 100px;" src="{{ item.product.image.url }}">
                                 </a>
+                                {% else %}
+                                <a href="{% url 'product_detail' item.product.id %}">
+                                    <img class="img-thumbnail" style="height: 100px;" src="../media/missing-image.jpg">
+                                </a>
+                                {% endif %}
                             </td>
+                            <!-- Display product information -->
                             <td class="py-3">
                                 <h6 class=""><strong>{{ item.product.name }}</strong></h6>
                                 <p class="small text-muted">SKU: {{ item.product.sku|upper }}</p>
                             </td>
+                            <!-- Increase, decrease, remove item -->
                             <td class="py-3">
                                 <form class="form update-form" method="POST" action="{% url 'update_cart' item.item_id %}">
                                     {% csrf_token %}
@@ -65,25 +74,29 @@
                                                 </span>
                                             </button>
                                         </div>
-                                        <div class="input-group-append">
-                                            <button class="remove-item" 
-                                            data-item_id="{{ item.id }}" id="remove-item_{{ item.id }}">
-                                                <span>
-                                                    <i class="fas fa-times-circle"></i>
-                                                </span>
-                                            </button>
-                                        </div>
                                     </div>
                                 </form>
+                                <!-- Remove item from cart -->
+                                <form class="form update-form" method="POST" action="{% url 'remove_from_cart' item.item_id %}">
+                                    {% csrf_token %}
+                                    <button class="remove-item border-0 shadow-none update-link" 
+                                    data-item_id="{{ item.id }}" id="remove-item_{{ item.id }}">
+                                        <span>
+                                            <i class="fas fa-times-circle"></i>
+                                        </span>
+                                    </button>
+                                </form>
                             </td>
+                            <!-- Display product price -->
                             <td class="py-3">
                                 <h4 class="">{{ item.product.price }}kr</h4>
                             </td>
+                            <!-- Display subtotal per product in basket -->
                             <td class="py-3">
                                 <h4 class="my-0">{{ item.product.price | calc_subtotal:item.quantity }}kr</h4>
                             </td>
                         </tr>
-                    {% endfor %}
+                        {% endfor %}
                         <!-- Cart Summary -->
                         <tr>
                             <td colspan="5" class="pt-5 text-right">
@@ -143,7 +156,7 @@
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove-item_')[1];
-        var url = `/cart/remove/${itemId}/`;
+        var url = "/cart/remove/${itemId}/";
         var data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)

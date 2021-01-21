@@ -62,10 +62,10 @@
                     {% if product.image %}
                     <a href="{% url 'product_detail' product.id %}">
                     <img class="product-image" src="../media/{{ product.image }}" alt="{{ product.brand }} {{ product.name }}">
-                    {% else %}
                     </a>
+                    {% else %}
                     <a href="{% url 'product_detail' product.id %}">
-                    <img class="product-image" src="../media/missing-image.jpg" alt="{{ product.brand }} {{ product.name }}">
+                    <img class="product-image" src="../media/missing-image.jpg">
                     </a>
                     {% endif %}
                 </div>
