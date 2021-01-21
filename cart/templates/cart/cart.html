@@ -45,9 +45,9 @@
                                 <h6 class=""><strong>{{ item.product.name }}</strong></h6>
                                 <p class="small text-muted">SKU: {{ item.product.sku|upper }}</p>
                             </td>
-                            <!-- Increase, decrease, remove item -->
                             <td class="py-3">
-                                <form class="form update-form" method="POST" action="{% url 'update_cart' item.item_id %}">
+                                <!-- Increase, decrease quantity -->
+                                <form class="form update-form d-inline" method="POST" action="{% url 'update_cart' item.item_id %}">
                                     {% csrf_token %}
                                     <div class="input-group">
                                         <!-- decrese quantity -->
@@ -61,8 +61,8 @@
                                         </div>
                                         <!-- quantity -->
                                         <div class="d-inline">
-                                            <input class="qty_input" type="number"
-                                            name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                            <input class="qty_input" style="box-shadow: none!important; text-align: center;"
+                                            type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
                                             data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
                                         </div>
                                         <!-- increase quantity -->
@@ -77,9 +77,9 @@
                                     </div>
                                 </form>
                                 <!-- Remove item from cart -->
-                                <form class="form update-form" method="POST" action="{% url 'remove_from_cart' item.item_id %}">
+                                <form class="form update-form d-inline" method="POST" action="{% url 'remove_from_cart' item.item_id %}">
                                     {% csrf_token %}
-                                    <button class="remove-item border-0 shadow-none update-link" 
+                                    <button class="remove-item update-link border-0 shadow-none bg-transparent text-black-50" 
                                     data-item_id="{{ item.id }}" id="remove-item_{{ item.id }}">
                                         <span>
                                             <i class="fas fa-times-circle"></i>

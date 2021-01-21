@@ -85,6 +85,7 @@ def product_detail(request, product_id):
 
 def add_one(request, item_id):
     cart = request.session.get('cart', {})
+    redirect_url = request.POST.get('redirect_url')
 
     if item_id in list(cart.keys()):
         # if the item already exists, increase the quantity of that item
@@ -94,4 +95,5 @@ def add_one(request, item_id):
         cart[item_id] = 1
 
     request.session['cart'] = cart
-    return redirect('/products/#' + item_id)
+    return redirect(redirect_url + '/#' + item_id)
+    # return redirect('/products/#' + item_id)
