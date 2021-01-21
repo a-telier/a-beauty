@@ -94,4 +94,4 @@ def add_one(request, item_id):
         cart[item_id] = 1
 
     request.session['cart'] = cart
-    return redirect('/products')
+    return redirect('/products/#' + item_id)
