@@ -19,11 +19,11 @@ def add_to_cart(request, item_id):
     if item_id in list(cart.keys()):
         # if the item already exists, increase the quantity of that item
         cart[item_id] += quantity
-        messages.success(request, f'Added {product.name} has been added to your cart')
+        messages.success(request, f'Another {product.name} has been added to your cart')
     else:
         # if the item doesn't exist, create this quantity
         cart[item_id] = quantity
-        messages.success(request, f'Added {product.name} has been added to your cart')
+        messages.success(request, f'{product.name} has been added to your cart')
 
     request.session['cart'] = cart
     return redirect(redirect_url)
@@ -47,8 +47,7 @@ def remove_from_cart(request, item_id):
 
     cart = request.session.get('cart', {})
     cart.pop(item_id)
-
-    print("An item has been removed from your cart")
+    messages.warning(request, f'An item has been removed from your cart')
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
