@@ -1,4 +1,5 @@
 from django.shortcuts import render, reverse, get_object_or_404, redirect
+from django.http import HttpResponse
 from django.db.models import Q
 from django.contrib import messages
 from .models import Product, Category
@@ -80,3 +81,17 @@ def product_detail(request, product_id):
     }
 
     return render(request, "products/product_detail.html", context)
+
+
+def add_one(request, item_id):
+    cart = request.session.get('cart', {})
+
+    if item_id in list(cart.keys()):
+        # if the item already exists, increase the quantity of that item
+        cart[item_id] += 1
+    else:
+        # if the item doesn't exist, create this quantity
+        cart[item_id] = 1
+
+    request.session['cart'] = cart
+    return redirect('/products')

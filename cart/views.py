@@ -10,7 +10,6 @@ def view_cart(request):
 
 
 def add_to_cart(request, item_id):
-    print('Adding to cart...')
 
     product = Product.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
@@ -21,19 +20,16 @@ def add_to_cart(request, item_id):
         # if the item already exists, increase the quantity of that item
         cart[item_id] += quantity
         messages.success(request, f'Added {product.name} has been added to your cart')
-        print(f'Added extra {product.name} has been added to your cart')
     else:
         # if the item doesn't exist, create this quantity
         cart[item_id] = quantity
         messages.success(request, f'Added {product.name} has been added to your cart')
-        print('Added {product.name} has been added to your cart')
 
     request.session['cart'] = cart
     return redirect(redirect_url)
 
 
 def update_cart(request, item_id):
-    print('Update cart item ' + item_id)
 
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
@@ -49,12 +45,10 @@ def update_cart(request, item_id):
 
 def remove_from_cart(request, item_id):
 
-    try:
-        cart = request.session.get('cart', {})
-        
-        cart.pop(item_id)
-        request.session['cart'] = cart
-        return HttpResponse(status=200)
-        
-    except Exception as e:
-        return HttpResponse(status=500)
+    cart = request.session.get('cart', {})
+    cart.pop(item_id)
+
+    print("An item has been removed from your cart")
+
+    request.session['cart'] = cart
+    return redirect(reverse('view_cart'))

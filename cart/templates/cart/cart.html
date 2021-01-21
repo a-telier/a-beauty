@@ -52,7 +52,7 @@
                                         </div>
                                         <!-- quantity -->
                                         <div class="d-inline">
-                                            <input class="form-control qty_input" type="number"
+                                            <input class="qty_input" type="number"
                                             name="quantity" value="{{ item.quantity }}" min="1" max="99"
                                             data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
                                         </div>
@@ -65,9 +65,16 @@
                                                 </span>
                                             </button>
                                         </div>
+                                        <div class="input-group-append">
+                                            <button class="remove-item" 
+                                            data-item_id="{{ item.id }}" id="remove-item_{{ item.id }}">
+                                                <span>
+                                                    <i class="fas fa-times-circle"></i>
+                                                </span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </form>
-                                <!-- <a class="update-link text-info"><small>Update</small></a> -->
                             </td>
                             <td class="py-3">
                                 <h4 class="">{{ item.product.price }}kr</h4>
@@ -80,11 +87,11 @@
                         <!-- Cart Summary -->
                         <tr>
                             <td colspan="5" class="pt-5 text-right">
-                                <h6>Delivery: {{ delivery|floatformat:2 }}kr</h6>
-                                <h4 class="mt-4"><strong>Grand Total: {{ grand_total|floatformat:2 }}kr</strong></h4>
+                                <h6>Delivery: {{ delivery|floatformat:0 }}kr</h6>
+                                <h4 class="mt-4"><strong>Grand Total: {{ grand_total|floatformat:0 }}kr</strong></h4>
                                 {% if free_delivery_delta > 0 %}
                                     <p class="mb-1 text-danger">
-                                        You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
+                                        You could get free delivery by spending just <strong>{{ free_delivery_delta|floatformat:0 }}kr</strong> more!
                                     </p>
                                 {% endif %}
                             </td>
@@ -135,8 +142,8 @@
     // Remove item and reload on click
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/bag/remove/${itemId}/`;
+        var itemId = $(this).attr('id').split('remove-item_')[1];
+        var url = `/cart/remove/${itemId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)

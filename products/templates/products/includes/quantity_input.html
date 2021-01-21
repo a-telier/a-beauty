@@ -44,4 +44,11 @@
        handleEnableDisable(itemId);
     });
 
+    // Everyone with the class update-link should submit
+    $('.update-link').click(function(e) {
+        // finds the form and then updates quantity
+        var form = $(this).closest('.update-form');
+        form.submit();
+    })
+
 </script>
