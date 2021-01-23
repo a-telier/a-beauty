@@ -112,12 +112,14 @@
                     </table>
                     <!-- Move to payment or browse to more products -->
                     <div class="col-12 d-block right mb-4">
-                        <div class="">
+                        <div>
+                            <a href="{% url 'checkout' %}">
                             <button class="btn btn-danger font-weight-bold right" type="submit">
-                                <span>CONTINUE TO PAYMENT</span>
+                                <span>CONTINUE TO CHECKOUT</span>
                             </button>
+                            </a>
                         </div>
-                        <div class="">
+                        <div>
                             <a href="{% url 'products' %}" class="btn btn-outline-dark font-weight-bold mt-2">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>

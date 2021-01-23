@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load tools %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Form information to fill in -->
+<div class="container vwtop14">
+    <div class="row">
+        <div class="col-lg-12">
+            <h6><a href="{% url 'products' %}"> START </a> / SHOPPING CART </h6>
+            <h2 class="logo-font"> Completing your Order </h2>
+            <p>We need some more information to complete your order</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 border mx-auto mb-5">
+            <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                {% csrf_token %}
+                <!-- Personal Information -->
+                 <fieldset class="px-3 mb-5">
+                     <legend class="fieldset-label small text-black px-2 w-auto">Tell us a bit more about yourself</legend>
+                    {{ order_form.full_name | as_crispy_field }}
+                    {{ order_form.email | as_crispy_field }}
+                    {{ order_form.phone_number | as_crispy_field }}
+                 </fieldset>
+                 <!-- Delivery Information -->
+                 <fieldset class="px-3 mb-5">
+                    <legend class="fieldset-label small text-black px-2 w-auto">Let us know where to send your order</legend>
+                    {{ order_form.address | as_crispy_field }}
+                    {{ order_form.city | as_crispy_field }}
+                    {{ order_form.postcode | as_crispy_field }}
+                    {{ order_form.country | as_crispy_field }}
+                    <!-- Save my information to my profile -->
+                    <div class="form-check form-check-inline float-right mr-0">
+                        {% if user.is_authenticated %}
+                        <label class="form-check-label" for="id-save-info">Do you want to save your delivery information for next time?</label>
+                        <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                        {% else %}
+                        <label class="form-check-label" for="id-save-info">
+                            <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
+                            <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                        </label>
+                        {% endif %}
+                    </div>
+                 </fieldset>
+                 <!-- Payment Information -->
+                 <fieldset class="px-3 mb-5">
+                    <legend class="fieldset-label small text-black px-2 w-auto">Tell us how to bill you</legend>
+                        <!-- A Stripe card element will go here -->
+                        <div class="mb-3" id="card-element"></div>
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                        <!-- Pass the client secret to the view so we can get the payment intent id -->
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                 </fieldset>
+                 <!-- Action buttons -->
+                <div class="col-12 submit-button d-block right mb-4">                    
+                    <a href="{% url 'view_cart' %}" class="btn btn-outline-dark font-weight-bold mt-2">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="font-weight-bold">Adjust your Order</span>
+                    </a>
+                    <button id="submit-button" class="btn btn-danger font-weight-bold right">
+                        <a href="#">
+                            <span class="font-weight-bold">Complete your Order</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </a>
+                    </button>
+                    <p class="small text-danger my-0 right">
+                        <span class="icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                        <span>You will be charged <strong>{{ grand_total|floatformat:0 }}kr</strong></span>
+                    </p>
+                </div>
+            </form>
+        </div>
+    <!-- Summary of items in your cart -->
+     <div class="col-10">
+         <h6>Summary of your order</h6>
+     </div>
+    <div class="col-10 col-sm-12 border mx-auto mb-5">
+        <div class="table-responsive">
+            <table class="table table-sm table-borderless">
+                <!-- Cart Items -->
+                <thead class="text-black">
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col"></th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Subtotal</th>
+                    </tr>
+                </thead>
+                {% for item in cart_items %}
+                <tr class="">
+                    <!-- Image thumbnail -->
+                    <td class="py-3">
+                        {% if item.product.image %}
+                        <a href="{% url 'product_detail' item.product.id %}">
+                            <img class="img-thumbnail" style="height: 100px;" src="{{ item.product.image.url }}">
+                        </a>
+                        {% else %}
+                        <a href="{% url 'product_detail' item.product.id %}">
+                            <img class="img-thumbnail" style="height: 100px;" src="../media/missing-image.jpg">
+                        </a>
+                        {% endif %}
+                    </td>
+                    <!-- Product information -->
+                    <td class="py-3">
+                        <h6 class=""><strong>{{ item.product.name }}</strong></h6>
+                        <p class="small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                    </td>
+                    <td class="py-3">
+                        <form class="form update-form d-inline" method="POST" action="{% url 'update_cart' item.item_id %}">
+                            <!-- quantity -->
+                            <div class="d-inline">
+                                <input class="qty_input" style="box-shadow: none!important; text-align: center;"
+                                type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                            </div>
+                        </form>
+                    </td>
+                    <!-- Display product price -->
+                    <td class="py-3">
+                        <h4 class="">{{ item.product.price }}kr</h4>
+                    </td>
+                    <!-- Display subtotal per product in basket -->
+                    <td class="py-3">
+                        <h4 class="my-0">{{ item.product.price | calc_subtotal:item.quantity }}kr</h4>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <!-- Action buttons -->
+    <div class="col-12 submit-button d-block right mb-4">                    
+        <a href="{% url 'view_cart' %}" class="btn btn-outline-dark font-weight-bold mt-2">
+            <span class="icon">
+                <i class="fas fa-chevron-left"></i>
+            </span>
+            <span class="font-weight-bold">Adjust your Order</span>
+        </a>
+        <button id="submit-button" class="btn btn-danger font-weight-bold right">
+            <a href="#">
+                <span class="font-weight-bold">Complete your Order</span>
+                <span class="icon">
+                    <i class="fas fa-lock"></i>
+                </span>
+            </a>
+        </button>
+        <p class="small text-danger my-0">
+        <span class="icon">
+            <i class="fas fa-exclamation-circle"></i>
+        </span>
+        <span>You will be charged <strong>{{ grand_total|floatformat:0 }}kr</strong></span>
+        </p>
+    </div>
+</div>
+
+
+{% endblock %} 
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{% endblock %}
