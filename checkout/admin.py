@@ -1,32 +1,30 @@
 from django.contrib import admin
-from .models import Order, OrderItem
+from .models import Order, OrderLineItem
 
-# Register your models here.
-class OrderItemAdminInline(admin.TabularInline):
-    model = OrderItem
+
+class OrderLineItemAdminInline(admin.TabularInline):
+    model = OrderLineItem
     readonly_fields = ('lineitem_total',)
 
 
 class OrderAdmin(admin.ModelAdmin):
-    inlines = (OrderItemAdminInline,)
+    inlines = (OrderLineItemAdminInline,)
 
     readonly_fields = ('order_number', 'date',
                        'delivery_cost', 'order_total',
                        'grand_total', 'original_bag',
                        'stripe_pid')
 
-    fields = ('date', 'order_number', 'user_profile',
-             'name', 'lastname',
-             'email', 'phone_number', 'address',
-             'county', 'city', 'postcode',
-             'delivery_cost', 'order_total', 'grand_total',
-             'original_bag', 'stripe_pid')
+    fields = ('date', 'order_number', 'user_profile', 
+              'full_name', 'email', 'phone_number', 'address',
+              'country', 'postcode', 'city',
+              'delivery_cost', 'order_total', 'grand_total', 
+              'original_bag', 'stripe_pid')
 
-    list_display = ('order_number', 'date', 'name', 'lastname',
+    list_display = ('order_number', 'date', 'full_name',
                     'order_total', 'delivery_cost',
                     'grand_total',)
 
-    # reverse cronological order
     ordering = ('-date',)
 
 
