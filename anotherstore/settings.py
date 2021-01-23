@@ -52,7 +52,9 @@ INSTALLED_APPS = [
     #   These are apps that we created
     'home',
     'products',
-    'cart'
+    'cart',
+    'checkout',
+    'profiles',
 ]
 
 MIDDLEWARE = [
