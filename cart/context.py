@@ -17,7 +17,6 @@ def cart_contents(request):
         total += quantity * product.price
         # increment product_count by quantity
         product_count += quantity
-        product_count = product_count + quantity
         # append these elements as a cart_items object
         cart_items.append({
             'item_id': item_id,
