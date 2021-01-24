@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 def profile(request):
 
-    template = profile/profile.html
+    template = 'profile/profile.html'
     context = {
 
     }
