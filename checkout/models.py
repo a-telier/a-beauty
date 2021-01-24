@@ -3,8 +3,10 @@ from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 
+#  dropdown menu to select countries
 from django_countries.fields import CountryField
 
+#   import from other apps within this project
 from products.models import Product
 from profiles.models import UserProfile
 
@@ -12,23 +14,22 @@ from profiles.models import UserProfile
 class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
-                                     null=True, blank=True, related_name='orders')
+    # user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
+    #   on_delete=models.SET_NULL allows to keep profile historically even if deleted
+    #   null/blank allows users without a profile to make purchases
+    #   related_name allows us to call this by using 'orders'
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
 
     address = models.CharField(max_length=80, null=False, blank=False)
-    country = CountryField(blank_label='Country *', null=False, blank=False)
+    country = CountryField(blank_label='Country *', null=False, blank=False) #  required field for stripe payment processing
     postcode = models.CharField(max_length=20, null=True, blank=True)
     city = models.CharField(max_length=40, null=False, blank=False)
 
-    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2,
-                                        null=False, default=0)
-    order_total = models.DecimalField(max_digits=10, decimal_places=2,
-                                      null=False, default=0)
-    grand_total = models.DecimalField(max_digits=10, decimal_places=2,
-                                      null=False, default=0)
+    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
     original_bag = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False, blank=False,
@@ -72,10 +73,6 @@ class OrderLineItem(models.Model):
                                          editable=False)
 
     def save(self, *args, **kwargs):
-        """
-        Override the original save method to set the lineitem total
-        and update the order total.
-        """
         self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
 

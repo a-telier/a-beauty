@@ -1,11 +1,15 @@
 from django import forms
+
+#   Modules from other apps
 from .models import Order
+
 
 class OrderForm(forms.ModelForm):
     class Meta:
-        model = Order
-        fields = ('full_name', 'email', 'phone_number',
-                  'address', 'city', 'postcode', 'country')
+        class Meta:
+            model = Order
+            fields = ('full_name', 'email', 'phone_number',
+                      'address', 'city', 'postcode', 'country')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -22,7 +26,6 @@ class OrderForm(forms.ModelForm):
         #   setting autofocus to true
         #   cursor starts in full_name when page is loaded
         self.fields['full_name'].widget.attrs['autofocus'] = True
-        #   Add a star if this is a required field
         for field in self.fields:
             if field != 'country':
                 if self.fields[field].required:
@@ -30,5 +33,5 @@ class OrderForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-                self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-                self.fields[field].label = False
+            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            self.fields[field].label = False

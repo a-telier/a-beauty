@@ -23,3 +23,10 @@ https://stripe.com/docs/testing
 
 Debugging
 https://www.diffchecker.com/
+
+Disable email notifications
+https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
+https://stackoverflow.com/questions/21563227/django-allauth-example-errno-61-connection-refused
+
+Redirect to specific position
+https://stackoverflow.com/questions/60939092/how-do-you-redirect-to-a-specific-position-on-a-page-in-django

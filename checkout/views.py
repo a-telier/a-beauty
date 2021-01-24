@@ -1,21 +1,41 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
+from django.views.decorators.http import require_POST
 
-#   Modules from other apps
-from products.models import Product
+#   Import Order forms
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 
-from profiles.models import UserProfile
-# from profiles.forms import UserProfileForm
-
+#   Modules from other apps
+from products.models import Product
 from cart.context import cart_contents
 
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
+
+#   Payment
 import stripe
 import json
 
+
 # Create your views here.
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'cart': json.dumps(request.session.get('cart', {})),
+            'save_info': request.POST.get('save_info'),
+            'username': request.user,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, ('Sorry, your payment cannot be '
+                                 'processed right now. Please try '
+                                 'again later.'))
+        return HttpResponse(content=e, status=400)
 
 def checkout (request):
     STRIPE_PUBLIC_KEY = settings.STRIPE_PUBLIC_KEY
@@ -94,7 +114,22 @@ def checkout (request):
             currency=settings.STRIPE_CURR,
         )
 
-        order_form = OrderForm()
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'country': profile.default_country,
+                    'postcode': profile.default_postcode,
+                    'city': profile.default_city,
+                    'address': profile.default_address,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm()
 
     template = 'checkout/checkout.html'
     context = {

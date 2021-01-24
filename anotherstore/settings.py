@@ -33,6 +33,10 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     #   DJANGO APPS
+
+    #   Clear cache
+    'clearcache',
+
     #   These are apps pre-installed with Django
     'django.contrib.admin',
     'django.contrib.auth',
@@ -47,6 +51,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+
     'crispy_forms',
 
     #   MY APPS
@@ -117,6 +122,8 @@ ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #disables confirmation emails
+
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'

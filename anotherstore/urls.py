@@ -18,16 +18,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-#   Here we import all the views you want to route via url
-#   ex. from pages.views import homepage_view, contact_view, about_view, etc
-#   from pages.views import homepage_view, product_view
-#   from products.views import product_detail_view
-
 
 #   Here we store the urls we want to display 
 #   ex. home for homepage_view
 #   Or call urls.py stored within the different apps
 urlpatterns = [
+    path('admin/clearcache/', include('clearcache.urls')),
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('products/', include('products.urls')),
