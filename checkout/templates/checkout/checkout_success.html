@@ -20,9 +20,13 @@
                 A confirmation email will be sent to {order.email} within the next minutes. </h6>
         </div>
     <!-- Summary of items in your cart -->
-            <div class="col-lg-12 col-sm-12">
-                <h6>Order Summary ({{ product_count }} items)</h6>
-            </div>
+        <div>
+            <a href="{% url 'products' %}" class="btn btn-outline-dark font-weight-bold mt-2">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase align-items-center">CONTINUE SHOPPING</span>
+            </a>
         </div>
     </div>
 

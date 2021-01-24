@@ -35,16 +35,17 @@ def checkout (request):
         }
 
         order_form = OrderForm(form_data)
+
         if order_form.is_valid():
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
 
-            order.original_cart = json.dumps(bag)
+            order.original_cart = json.dumps(cart)
             order.save()
 
             #   iterate through cart items
-            for item_id, item_data in bag.items():
+            for item_id, item_data in cart.items():
                 try:
                     #   IF the item exists:
                     #   get product ID from cart
@@ -61,24 +62,26 @@ def checkout (request):
                 except Product.DoesNotExist:
                     #   IF the item does NOT exist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't "
+                        "One of the products in your cart wasn't "
                         "found in our database. "
                         "Please contact us for assistance!")
                     )
                     order.delete()
-                    return redirect(reverse('view_bag'))
+                    return redirect(reverse('view_cart'))
 
+            #   Save the information to the User's profile
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success'), args=[order.order_number])
+
         else:
             messages.error(request, 'There was an error processing your form. \
                 Please review the information you entered.')
 
-
     else:
         cart = request.session.get('cart', {})
         if not cart:
-            messages.error(request, "Hold your horses, there is nothing on your cart right now")
+            messages.error(request, "Hold your horses, there is nothing on your cart \
+                right now. Let's go do some shopping..")
             return redirect(reverse('products'))
 
         current_cart = cart_contents(request)
@@ -87,17 +90,17 @@ def checkout (request):
         stripe.api_key = STRIPE_SECRET_KEY
 
         intent = stripe.PaymentIntent.create(
-            amount = stripe_total,
-            currency = settings.STRIPE_CURR,
+            amount=stripe_total,
+            currency=settings.STRIPE_CURR,
         )
 
         order_form = OrderForm()
 
     template = 'checkout/checkout.html'
     context = {
-        'order_form' : order_form,
+        'order_form': order_form,
         'stripe_public_key': STRIPE_PUBLIC_KEY,
-        'client_secret': intent.client_secret ,
+        'client_secret': intent.client_secret,
     }
     return render(request, template, context)
 
@@ -105,6 +108,27 @@ def checkout (request):
 def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the user's profile to the order
+        order.user_profile = profile
+        order.save()
+
+        # Save the user's info
+        if save_info:
+            profile_data = {
+                'default_phone_number': order.phone_number,
+                'default_email': order.email,
+                'default_country': order.country,
+                'default_postcode': order.postcode,
+                'default_city': order.city,
+                'default_address': order.address,
+            }
+
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
 
     messages.success(request, f'We have processed your order. \
         Your order number is {order_number}. \
@@ -120,4 +144,3 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
-

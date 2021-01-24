@@ -24,7 +24,9 @@ from django.conf.urls.static import static
 #   from products.views import product_detail_view
 
 
-#   Here we store the urls we want to display ex. home for homepage_view
+#   Here we store the urls we want to display 
+#   ex. home for homepage_view
+#   Or call urls.py stored within the different apps
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
@@ -32,5 +34,5 @@ urlpatterns = [
     path('cart/', include('cart.urls')),
     path('checkout/', include('checkout.urls')),
     path('accounts/', include('allauth.urls')),
-    # path('profiles/', include('profiles.urls')),
+    path('profile/', include('profiles.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
