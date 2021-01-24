@@ -23,7 +23,5 @@
 "python.pythonPath": "/usr/bin/python3",
 "python.linting.flake8CategorySeverity.E": "Warning",
 "python.linting.flake8CategorySeverity.F": "Warning",
-"python.linting.pylintArgs": [
-    "load-plugins=pylint_django"
-]
+"python.linting.pylintArgs": []
 }

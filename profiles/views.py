@@ -10,6 +10,7 @@ from .forms import UserProfileForm
 def profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
 
+<<<<<<< HEAD
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
@@ -24,6 +25,9 @@ def profile(request):
     orders = profile.orders.all()
 
     template = 'profiles/profile.html'
+=======
+    template = 'profile/profile.html'
+>>>>>>> bab856ba43cb0ce4c8c70c410226a95cb4d4e1ee
     context = {
         'form': form,
         'orders': orders,

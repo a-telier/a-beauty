@@ -8,10 +8,16 @@ from django.dispatch import receiver
 #  dropdown menu to select countries
 from django_countries.fields import CountryField
 
+#   import from other apps within this project
+
 
 #   Information required when creating a User Profile
 class UserProfile(models.Model):
+<<<<<<< HEAD
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+=======
+    default_user = models.OneToOneField(User, on_delete=models.CASCADE)
+>>>>>>> bab856ba43cb0ce4c8c70c410226a95cb4d4e1ee
     default_phone_number = models.CharField(max_length=20, null=True, blank=True)
     default_address = models.CharField(max_length=80, null=True, blank=True)
     default_city = models.CharField(max_length=40, null=True, blank=True)

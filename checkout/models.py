@@ -14,7 +14,11 @@ from profiles.models import UserProfile
 class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     order_number = models.CharField(max_length=32, null=False, editable=False)
+<<<<<<< HEAD
     # user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
+=======
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
+>>>>>>> bab856ba43cb0ce4c8c70c410226a95cb4d4e1ee
     #   on_delete=models.SET_NULL allows to keep profile historically even if deleted
     #   null/blank allows users without a profile to make purchases
     #   related_name allows us to call this by using 'orders'
