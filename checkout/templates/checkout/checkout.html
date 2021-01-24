@@ -59,31 +59,27 @@
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
                  <!-- Action buttons -->
-                <div class="col-12 submit-button d-block mb-4 d-inline pb-5">
-                    <div class="col-lg-6 col-sm-12 left">                    
-                        <a href="{% url 'view_cart' %}" class="btn btn-outline-dark font-weight-bold mt-2">
+                <div class="col-12 submit-button d-block mb-4 d-inline pb-5">                  
+                    <a href="{% url 'view_cart' %}" class="btn btn-outline-dark font-weight-bold">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="font-weight-bold">Adjust your Order</span>
+                    </a>
+                    <a href="#">
+                        <button id="submit-button" class="btn btn-danger font-weight-bold right">
+                            <span class="font-weight-bold">Complete your Order</span>
                             <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
+                                <i class="fas fa-lock"></i>
                             </span>
-                            <span class="font-weight-bold">Adjust your Order</span>
-                        </a>
-                    </div>
-                    <div class="col-lg-6 col-sm-12 right">
-                        <a href="#">
-                            <button id="submit-button" class="btn btn-danger font-weight-bold">
-                                <span class="font-weight-bold">Complete your Order</span>
-                                <span class="icon">
-                                    <i class="fas fa-lock"></i>
-                                </span>
-                            </button>
-                        </a>
-                        <p class="small text-danger my-0">
-                            <span class="icon">
-                                <i class="fas fa-exclamation-circle"></i>
-                            </span>
-                            <span>You will be charged <strong>{{ grand_total|floatformat:0 }}kr</strong></span>
-                        </p>
-                    </div>
+                        </button>
+                    </a>
+                    <p class="small text-danger my-0 text-right">
+                        <span class="icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                        <span>You will be charged <strong>{{ grand_total|floatformat:0 }}kr</strong></span>
+                    </p>
                 </div>
             </form>
         </div>
