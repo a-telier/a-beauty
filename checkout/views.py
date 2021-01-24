@@ -17,10 +17,14 @@ import json
 
 # Create your views here.
 
+
 def checkout (request):
     STRIPE_PUBLIC_KEY = settings.STRIPE_PUBLIC_KEY
     STRIPE_SECRET_KEY = settings.STRIPE_SECRET_KEY
 
+    cart = request.session.get('cart', {})
+
+    #   prevents the user from manually accessing checkout by typing in url
     if request.method == 'POST':
         cart = request.session.get('cart', {})
 
@@ -70,8 +74,8 @@ def checkout (request):
                     return redirect(reverse('view_cart'))
 
             #   Save the information to the User's profile
-            request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success'), args=[order.order_number])
+            # request.session['save_info'] = 'save-info' in request.POST
+            # return redirect(reverse('checkout_success'), args=[order.order_number])
 
         else:
             messages.error(request, 'There was an error processing your form. \
@@ -89,10 +93,13 @@ def checkout (request):
         stripe_total = round(grand_total * 100)
         stripe.api_key = STRIPE_SECRET_KEY
 
+        
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
             currency=settings.STRIPE_CURR,
         )
+
+        print('Code trying to make payment')
 
         order_form = OrderForm()
 
@@ -105,42 +112,42 @@ def checkout (request):
     return render(request, template, context)
 
 
-def checkout_success(request, order_number):
-    save_info = request.session.get('save_info')
-    order = get_object_or_404(Order, order_number=order_number)
+# def checkout_success(request, order_number):
+#     save_info = request.session.get('save_info')
+#     order = get_object_or_404(Order, order_number=order_number)
 
-    if request.user.is_authenticated:
-        profile = UserProfile.objects.get(user=request.user)
-        # Attach the user's profile to the order
-        order.user_profile = profile
-        order.save()
+#     if request.user.is_authenticated:
+#         profile = UserProfile.objects.get(user=request.user)
+#         # Attach the user's profile to the order
+#         order.user_profile = profile
+#         order.save()
 
-        # Save the user's info
-        if save_info:
-            profile_data = {
-                'default_phone_number': order.phone_number,
-                'default_email': order.email,
-                'default_country': order.country,
-                'default_postcode': order.postcode,
-                'default_city': order.city,
-                'default_address': order.address,
-            }
+#         # Save the user's info
+#         if save_info:
+#             profile_data = {
+#                 'default_phone_number': order.phone_number,
+#                 'default_email': order.email,
+#                 'default_country': order.country,
+#                 'default_postcode': order.postcode,
+#                 'default_city': order.city,
+#                 'default_address': order.address,
+#             }
 
-            user_profile_form = UserProfileForm(profile_data, instance=profile)
-            if user_profile_form.is_valid():
-                user_profile_form.save()
+#             user_profile_form = UserProfileForm(profile_data, instance=profile)
+#             if user_profile_form.is_valid():
+#                 user_profile_form.save()
 
-    messages.success(request, f'We have processed your order. \
-        Your order number is {order_number}. \
-            You will receive a confirmation to your registered email, \
-                 {order.email}, within the next minutes.')
+#     messages.success(request, f'We have processed your order. \
+#         Your order number is {order_number}. \
+#             You will receive a confirmation to your registered email, \
+#                  {order.email}, within the next minutes.')
 
-    if 'cart' in request.session:
-        del request.session['cart']
+#     if 'cart' in request.session:
+#         del request.session['cart']
 
-    template = 'checkout/checkout_success.html'
-    context = {
-        'order': order,
-    }
+#     template = 'checkout/checkout_success.html'
+#     context = {
+#         'order': order,
+#     }
 
-    return render(request, template, context)
+#     return render(request, template, context)

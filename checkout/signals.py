@@ -1,4 +1,7 @@
+#   signals sent to django after something is saved or deleted
 from django.db.models.signals import post_save, post_delete
+
+#   allows to receive the signals
 from django.dispatch import receiver
 
 from .models import OrderLineItem
