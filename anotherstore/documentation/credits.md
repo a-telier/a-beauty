@@ -19,4 +19,7 @@ https://docs.python.org/3/install/index.html#modifying-python-s-search-path
 Stripe
 https://stripe.com/docs/payments
 https://github.com/stripe-samples/accept-a-card-payment
+https://stripe.com/docs/testing
 
+Debugging
+https://www.diffchecker.com/
