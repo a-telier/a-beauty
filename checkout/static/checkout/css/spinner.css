@@ -18,7 +18,7 @@
   width: 100%;
   display:block;
   text-align:center;
-  height: 100vw;
+  height: 900px;
   color: #FFF;
   transform: translateY(-50%);
   z-index: 1000;
@@ -46,7 +46,7 @@
 }
 .loader {
   color: #ffffff;
-  font-size: 20px;
+  font-size: 10px;
   margin: 80px auto;
   position: relative;
   text-indent: -9999em;
