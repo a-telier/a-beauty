@@ -6,5 +6,17 @@ class Stripe_Handler:
 
     def handle_event(self, event):
         return HttpResponse(
-            content=f'Web hook received: {event['type']}',
+            content=f'Web hook received: {event["type"]}', 
+            status=200)
+
+    #   Sent each time a user succeeds a payment process
+    def payment_intent_succeeded(self, event):
+        return HttpResponse(
+            content=f'Web hook received: {event["type"]}', 
+            status=200)
+
+    #   Sent each time a payment fails
+    def payment_intent_failed(self, event):
+        return HttpResponse(
+            content=f'Web hook received: {event["type"]}', 
             status=200)
