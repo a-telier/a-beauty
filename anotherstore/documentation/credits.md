@@ -23,3 +23,6 @@ https://stripe.com/docs/testing
 
 Debugging
 https://www.diffchecker.com/
+
+Spinner
+https://codepen.io/umng/pen/wZzbbQ

@@ -4,6 +4,7 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+    <link rel="stylesheet" href="{% static 'checkout/css/spinner.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -157,6 +158,11 @@
             </div>
         </div>
     </div>
+</div>
+<div class="overlay" id="overlay-loading"></div>
+<div class="spanner">
+  <div class="loader"></div>
+  <p>Processing your order.</p>
 </div>
 
 {% endblock %} 
