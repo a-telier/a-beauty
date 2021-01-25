@@ -26,3 +26,6 @@ https://www.diffchecker.com/
 
 Spinner
 https://codepen.io/umng/pen/wZzbbQ
+
+Form fields
+https://www.geeksforgeeks.org/autofield-django-models/

@@ -20,7 +20,7 @@ class Order(models.Model):
 
     address = models.CharField(max_length=80, null=False, blank=False)
     country = CountryField(blank_label='Country *', null=False, blank=False)
-    postcode = models.CharField(max_length=20, null=False, blank=False)
+    postcode = models.CharField(max_length=20, null=True, blank=True)
     city = models.CharField(max_length=40, null=False, blank=False)
 
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2,
