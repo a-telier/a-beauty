@@ -18,7 +18,7 @@ import json
 # Create your views here.
 
 
-def checkout (request):
+def checkout(request):
     STRIPE_PUBLIC_KEY = settings.STRIPE_PUBLIC_KEY
     STRIPE_SECRET_KEY = settings.STRIPE_SECRET_KEY
 
