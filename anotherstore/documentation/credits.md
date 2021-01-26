@@ -21,6 +21,10 @@ https://stripe.com/docs/payments
 https://github.com/stripe-samples/accept-a-card-payment
 https://stripe.com/docs/testing
 
+Mandatory Stripe fields for Billing and Shipping
+https://stripe.com/docs/api/payment_methods/create#create_payment_method-billing_details
+https://stripe.com/docs/api/payment_intents/confirm#confirm_payment_intent-shipping
+
 Debugging
 https://www.diffchecker.com/
 

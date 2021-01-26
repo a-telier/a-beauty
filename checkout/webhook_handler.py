@@ -12,6 +12,10 @@ class Stripe_Handler:
 
     #   Sent each time a user succeeds a payment process
     def handle_payment_intent_succeeded(self, event):
+
+        # store payment intent
+        intent = event.data.object
+        print(intent)
         return HttpResponse(
             content=f'Web hook received: {event["type"]}',
             status=200)
