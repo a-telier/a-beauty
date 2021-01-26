@@ -28,7 +28,7 @@ class Stripe_Handler:
 
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
-        grand_total = round(intent.data.charges[0].amount/100, 2)
+        grand_total = round(intent.charges.data[0].amount/100, 2)
 
         #   if field comes back empty, this will be stored as None
         for field, value in shipping_details.address.items():
@@ -43,16 +43,17 @@ class Stripe_Handler:
             try:
                 order = Order.objects.get(
                     #   i here allows the field to be non case sensitive
-                    full_name_iexact=shipping_details.name,
-                    phone_iexact=shipping_details.phone,
+                    full_name__iexact=shipping_details.name,
+                    email__iexact=billing_details.email,
+                    phone_number__iexact=shipping_details.phone,
 
-                    address_iexact=shipping_details.address,
-                    postcode_iexact=shipping_details.postcode,
-                    city_iexact=shipping_details.city,
-                    country_iexact=shipping_details.country,
+                    country__iexact=shipping_details.address.country,
+                    postcode__iexact=shipping_details.address.postal_code,
+                    city__iexact=shipping_details.address.city,
+                    address__iexact=shipping_details.address.line1,
 
                     grand_total=grand_total,
-                    original_cart=cart,
+                    original_bag=cart,
                     stripe_pid=pid,
                 )
                 #   if the order is found, break the loop 
@@ -75,12 +76,12 @@ class Stripe_Handler:
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
 
-                    address1=shipping_details.address.line1,
+                    address=shipping_details.address.line1,
                     postcode=shipping_details.address.postal_code,
                     city=shipping_details.address.city,
                     country=shipping_details.address.country,
 
-                    original_cart=cart,
+                    original_bag=cart,
                     stripe_pid=pid,
                 )
                 for item_id, item_data in json.loads(cart).items():
