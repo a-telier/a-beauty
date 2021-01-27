@@ -31,8 +31,9 @@ https://www.diffchecker.com/
 Spinner
 https://codepen.io/umng/pen/wZzbbQ
 
-Form fields
+Form fields (Crispy forms and Django fields)
 https://www.geeksforgeeks.org/autofield-django-models/
+https://simpleisbetterthancomplex.com/tutorial/2018/11/28/advanced-form-rendering-with-django-crispy-forms.html
 
 Cart badge
 https://stackoverflow.com/questions/29313879/shopping-cart-number-of-items-in-cart-css
