@@ -5,8 +5,7 @@
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
-{% block content %}
-<div class="container vwtop14">
+{% block inner_content %}
     <h1>{% trans "Sign In" %}</h1>
 
     {% get_providers as socialaccount_providers %}
@@ -39,8 +38,7 @@
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <button class="primaryAction btn btn-outline-dark font-weight-bold" type="submit">{% trans "Sign In" %}</button>
-        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+        <button class="primaryAction btn btn-outline-dark font-weight-bold d-block" type="submit">{% trans "Sign In" %}</button>
+        <a class="button secondaryAction d-block mt-3" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
     </form>
-</div>
 {% endblock %}
