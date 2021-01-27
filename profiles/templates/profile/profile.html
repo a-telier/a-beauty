@@ -27,7 +27,7 @@
             </form>
         </div>
         <div class="col-10">
-            <h6 class="mt-3">Order History</h6>
+            <h6 class="mt-5">Order History</h6>
             <div class="table-responsive">
                 <table class="table tableborderless">
                     <thead>
@@ -39,16 +39,17 @@
                     </thead>
                     <tbody>
                         {% for order in orders %}
-                        <p>Order number: {{ order.order_number|truncatechars:6 }}</p>
+                        <p>Order number: {{ order.order_number|truncatechars:12 }}</p>
                         <tr>
                             <td>{{ order.date }}</td>
-                            <td> {{ order.product.image }} </td>
-                            <td>{{ order.name }}</td>
-                            <td>{{ order.quantity }}</td>
-                            <td>{{ order.lineitem_total }}</td>
+                            {% for item in order.lineitems.all %}
+                            <td><img class="img-thumbnail product-image" src="../media/{{ item.product.image }}" alt="" style="height: 750px; width: 750px;"></td>
+                            <td>{{ item.product.name }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ item.lineitem_total }}</td>
+                            {% endfor %}
                         </tr>
                         {% endfor %}
-
                     </tbody>
                 </table>
             </div>
