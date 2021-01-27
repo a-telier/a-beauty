@@ -37,3 +37,6 @@ https://www.geeksforgeeks.org/autofield-django-models/
 Cart badge
 https://stackoverflow.com/questions/29313879/shopping-cart-number-of-items-in-cart-css
 https://www.w3schools.com/bootstrap4/bootstrap_badges.asp
+
+Allauth
+https://django-allauth.readthedocs.io/en/latest/configuration.html
