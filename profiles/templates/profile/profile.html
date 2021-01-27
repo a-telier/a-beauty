@@ -18,6 +18,16 @@
         <div class="col-lg-12 col-sm-12">
             <h6>We need some a few more details about you to complete your order.. </h6>
         </div>
+        <fieldset class="px-3 mb-5">
+            <legend class="fieldset-label text-black px-2 w-auto"></legend>
+            {{ order_form.full_name | as_crispy_field }}
+            {{ order_form.phone_number | as_crispy_field }}
+            {{ order_form.email | as_crispy_field }}
+            {{ order_form.address | as_crispy_field }}
+            {{ order_form.city | as_crispy_field }}
+            {{ order_form.postcode | as_crispy_field }}
+            {{ order_form.country | as_crispy_field }}
+        </fieldset>
     </div>
 
 

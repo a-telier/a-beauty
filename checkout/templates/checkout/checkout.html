@@ -26,7 +26,8 @@
                 <!-- Personal Information -->
                  <fieldset class="px-3 mb-5">
                      <legend class="fieldset-label text-black px-2 w-auto"></legend>
-                    {{ order_form.full_name | as_crispy_field }}{{ order_form.phone_number | as_crispy_field }}
+                    {{ order_form.full_name | as_crispy_field }}
+                    {{ order_form.phone_number | as_crispy_field }}
                     {{ order_form.email | as_crispy_field }}
                  </fieldset>
                  <!-- Delivery Information -->
@@ -65,11 +66,11 @@
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
-                        <span class="font-weight-bold">Adjust your Order</span>
+                        <span class="font-weight-bold">Adjust</span>
                     </a>
                     <div class="wrapper">
                         <button id="submit-button" class="btn btn-danger font-weight-bold right">
-                            <span class="font-weight-bold">Complete your Order</span>
+                            <span class="font-weight-bold">Go to Payment</span>
                             <span class="icon">
                                 <i class="fas fa-lock"></i>
                             </span>

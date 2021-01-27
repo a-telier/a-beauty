@@ -48,6 +48,7 @@ a{
 .font-2em{
     font-size: 2em;
 }
+/*-----------------------------------icons*/
 /* from Bulma */
 .icon {
     align-items: center;
@@ -56,9 +57,27 @@ a{
     height: 1.5rem;
     width: 1.5rem;
 }
-/*----------------------------------***HOME***/
-/*------------------------------------buttons*/
+/*-----------------------------------badges*/
+#badge-notification{
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    padding: 15px 26px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
 }
+#cart-badge{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: black;
+    color: white;
+}
+/*------------------------------------buttons*/
+
 /*-----------------------------------landing*/
 .landing{
     background-repeat: no-repeat;
