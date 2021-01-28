@@ -8,14 +8,13 @@
         <div class="col-lg-12 col-sm-12">
             <a href="#">
                 <img class="d-sm-none d-sm-block landing responsive-img p-1" src="{% static 'img/banners/banner-landing-sales.jpg' %}">
-                <img class="d-lg-none landing responsive-img p-1" src="{% static 'img/banners/banner-landing-sales-mobile.jpg' %}">
             </a>
         </div>
     </div>          
     <!-- Other Banners -->
     <div class="row">
         <div class="col-lg-6 col-sm-12">
-            <a href="#">
+            <a href="{% url 'products' %}?category=sun">
                 <img class="landing responsive-img py-1" src="{% static 'img/banners/banner-large-sun.jpg' %}" alt="">
             </a>
         </div>
@@ -23,10 +22,11 @@
             <a href="#">
                 <img class="landing responsive-img p-1" src="{% static 'img/banners/banner-small-everyday.jpg' %}" alt="">
             </a>
-            <a href="#">
+            <a href="{% url 'products' %}?category=lips">
                 <img class="landing responsive-img p-1" src="{% static 'img/banners/banner-small-lipstick.jpg' %}" alt="">
             </a>
         </div>
     </div>
 </div>
+
 {% endblock content %}

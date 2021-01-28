@@ -1,224 +1,187 @@
-  The Pink Turnip
-This blog aspires to be a community where users can exchange recipes, 
-creating a library of vegetarian and vegan recipes to inspire people to 
-start a more plant-based diet. 
-It all starts one Monday at the time.
+  A-telier Beauty
+This is an e-commerce shop developped as part of my Full-Stack Software development
+program at Code Institute. The purpose of the shop is to make it easy for consumers
+to find and purchase beauty products from a selection of hand-picked items.
 
 ##  UX process
 ### Who is this site for?
-This site targets people that are not necessarily vegetarian or vegan, 
-but that are looking to start a more plant-based style.
+This site is meant for users looking to buy beauty products.
 
 ### What does the user want to achieve in this site?
-#####   Passive User:
-*   This is a user that does not necessarily know the site and that is simply 
-looking for inspiration.
--   As a user, I want to browse through recipes, so that I can find a recipe 
-I want to make.
--   As a user, I want to be able to quickly identify if a recipe is vegan 
-or vegetarian, so that I can make a my choice quickly.
--   As a user, I want to identify recipes that are quick to make, so that I 
-can make a my choice quickly.
--   As a user, I want to be able to easily find the information I need in 
-the recipe - ingredients, time it takes to prepare, and instructions.
--   As a user, I want to find brands and products that help me achieve a more 
-plant-based diet and sustainable lifestyle.
+#####   User Stories - as a user I want to..:
+* Explore different products:
+- Browse through products.
+- See information about the product I am interested in.
+- Easily navigate throught the site.
+- Filter products by category.
+- Sort products by a certain metric.
 
-#####   Active User:
-*   This is a user that knows the site and wants to be part of the community 
-and inspire others by sharing their own recipes.
--   As a user, I want to share recipes with others, so that others can replicate 
-what I have made.
--   As a user, I want to see my name on the recipes, so that I can showcase 
-my work.
--   As a user, I want to be able to edit and remove the recipes I have created.
+* Pay for products:
+- Add products to my cart.
+- See the items in my cart.
+- Remove or adjust items in my cart.
+- Pay for my purchase quickly and safely.
+
+* Store my information:
+- Access a page where my information is stored.
+- Easily adjust my information.
+- View my purchases history.
+- Use this information to complete my purchase quicker.
+
 
 ### How can the user achieve this?
-#####   Home page
-- The user is able to browse through recipes by scrolling down the home page.
-- If the user is logged in, a welcome message will be displayed.
+#####   Home View
+- The user is able to browse through different recommended categories through banners in the home page.
 - The user is able to navigate through the site by using the navigation menu.
-- The user is able to easily see which category the recipes belong to as indicated by the 
-category tag.
-- The user is able to visalize approximately how long the recipe will take to make and 
-how many people it will feed.
+- The user is able to see products by category of interest via the navigation menu.
 
-<div style="display: inline block;">
+<!-- <div style="display: inline block;">
     <img width="400" height="300" src="/static/img/documentation/wireframe-home.png">
     <img width="400" height="300" src="/static/img/documentation/wireframe-home-2.png">
-</div>
+</div> -->
 
-#####   Category
-- The user is able to access individual categories through the navigation menu:
-    - The user is able to choose between vegan or vegetarian recipes.
-    - The user is able to access an additional category which is a filter selection for recipes 
-    which duration is under 30 minutes.
-    - The user is also able to access a page which collects all recipes.
-    - The user is also able to log in to their profile.
-- The user is able to visualize each individual recipe by clicking on the action 
-hyperlink on each recipe card.
-- The user is also able to access a 'Brands we love' category where they can see information 
-about brands and possible sponsors that have meat or dairy replacement products.
+#####   Products View
+* All Products Page:
+- The user is able to access all the products in our inventory via the main navigation bar.
+- The user is able to see an overview of product image, price, and name in this view.
+- The user can access the detailed product view by clicking on the product image or product card.
+- The user is able to add products to their cart from this view.
+- The user is able to see that a product has been added to the cart via the product counter in the top right corner.
+- The user is able to sort by different metrics ex. ratings, pricing, or brand name.
 
-<div style="display: inline block;">
+* Category Page:
+- The user is able to see products sorted by category by selecting one of the subcategories from the navigation menu.
+- The user has similar functionalities than in the home page ex. adding products to cart and accessing detailed views.
+
+* Product Detail Page:
+- The user is able to see product details such as product description in a separate view.
+- The user is shown related products from the same category when scrolling down.
+- If the user is not interested in related products, the user is given the option to browse through other categories by clicking on the visual banners at the end of the page.
+- The user has similar functionalities than in the home page ex. adding products to cart.
+- The user is able to specify the quantity of products they would like to add to their cart.
+
+<!-- <div style="display: inline block;">
     <img width="400" height="300" src="/static/img/documentation/wireframe-category.png">
-</div>
+</div> -->
 
-#####   Single Recipe
-- The user is able to visualize duration, portions, ingredients and instructions for each recipe.
-- Once in the single recipe, the user is able to browse through other recipes by simply 
-scrolling all the way down and clicking on another recipe.
+#####   Cart View
+- The user is able to access their cart at any point by clicking on the top right shopping basket icon.
+- Once in this view, the user is able to see the details of their cart such as product name, a thumnail picture and quantity of items added.
+- The user is able to adjust the number of products per item in the cart by using the arrows down or up next to the quantity indicator.
+- The user is able to remove items completely from the cart by clicking on the cross icon under each item in the cart.
+- The user can see a summary per line including item price, quantity and price per line.
+- The user is able to see a summary of the total order value.
+- The user is able to see whether there is a delivery cost associated depending on whether the total order value is higher or lower than the delivery threshold.
+- The user is able to see how much more they would need to spend to eliminate the delivery cost for their order.
 
-#####   Profile Interactions
+#####   Checkout View
+- The user is able to move to the checkout page by clicking on a visible red button in the cart view.
+- The user is able to then complete their order by filling in their personal details, shipping information and payment details.
+- The user knows the transaction was processed via a success_page which (s)he is redirected to, confirming the order and sharing an order number.
+
+#####   Profile View
 - The user is able to login by creating an account which requires a username and password.
 - If the user is not logged in, the button displayed in navigator will say 'Login', if the 
 user has already logged in the button will display 'Sign out'.
 - The user is able to sign out of their account, which removes the cookie session by clicking on 
 the Sign Out button.
-- If the user is already logged in, the user will be redirected to his or her profile.
-- Once the user has logged in, (s)he) is able to see the recipes (s)he has added to The Pink 
-Turnip's library.
-- The user is able to edit those recipes by clicking on the green edit button on the top left 
-corner of each recipe.
-- The user is also able to delete a recipe (s)he has created by simply clicking 
-on the red button next to the edit button.
-- The user is able to add a new recipe by clicking on the 'Add Recipe' button in their profile page.
+- When logged in, the user is able to see a summary of their purchase history as well as the order number in their profile.
 
-<div style="display: inline block;">
+
+<!-- <div style="display: inline block;">
     <img width="400" height="300" src="/static/img/documentation/wireframe-profile.png">
     <img width="400" height="300" src="/static/img/documentation/wireframe-add.png">
-</div>
+</div> -->
 
 ##  UX Features
 This project's ideation started from the Assignment's Mandatory Requirements, and therefore the 
 features will be explained in the same order, showing how the project fullfills these requirements.
 
 ###### Data handling:
-- Created a MongoFB database connected to a Flask-based front-end.
+- The database is handled via Django's own database and admin interface.
 
 ###### Database structure:
-- Created a database structure where recipes can be stored with all fields required for front and back-end.
-- Created separate collections for Categories and Users which interact with the Recipes collection.
-- Created a separate collection called Brands which does not interact with the other collections, it's purpose
-it's to display information to front-end.
+* Product handling:
+- Product model
+- Category model
 
-<div style="display: inline block;">
+* Order handling:
+- Order model
+- OrderLineItem model
+
+* Profile handling:
+- UserProfile model
+
+<!-- <div style="display: inline block;">
     <img width="250" height="300" src="/static/img/documentation/data/collections.png">
     <img width="250" height="300" src="/static/img/documentation/data/collection-examples.png">
 </div>
 <div style="display: inline block;">
     <img width="600" height="300" src="/static/img/documentation/data/collections-interactions.png">
-</div>
+</div> -->
 
 ###### User functionality:
 - Users are able to create, edit and delete records that they have added to the database.
 - The user can access these records via their profile page.
-- The user can interact with those records via the buttons available over each recipe in their profile page.
+- If they have not placed their order, the user is able to modify the elements added to their cart via the buttons in both the detailed product view and the cart view.
 - In addition, the user is able to search the database by looking at different category pages.
+<!-- Need to add more here -->
 
 ###### Front-end:
-- Created a navigation menu via templating in base.html that works both in desktop and mobile devices.
+<!-- - Created a navigation menu via templating in base.html that works both in desktop and mobile devices.
 - Created Flask-based templates for the different pages needed for front-end, for example Recipe or Category pages.
 - Used the Materialize library to speed up the design process.
 - Used icons from both Materialize and Font Awesome libraries to make the interactions more intuitive.
-- And added custom HTML and CSS to complete the options not available via the Materialize library.
+- And added custom HTML and CSS to complete the options not available via the Materialize library. -->
 
 ###### Back-end:
-- Imported all of the required libraries for this project.
-- Connected the flask front-end to the MongoDB database under an env file which is ignored by git.
-- Created a python file called app.py including all the routing needed such as rendering the templated html pages.
-- Defined the data types that should be collected in the database when the user is adding or editing the documents 
-contained.
+- All of the libraries needed to run this project are stored in the requirements.txt file, which can be installed by running <em>pip install -r requirements.txt</em>.
+- Defined the data types that should be collected in the database when the user is adding or editing the documents contained.
 - Created authentication requirements, where a user can not access certain pages unless a username is in session.
+<!-- Need to add more here  -->
 
-<div style="display: inline block;">
+<!-- <div style="display: inline block;">
     <img width="300" height="300" src="/static/img/documentation/data/configuration.png">
     <img width="300" height="300" src="/static/img/documentation/data/routing.png">
 </div>
 <div style="display: inline block;">
     <img width="650" height="300" src="/static/img/documentation/data/data-types.png">
-</div>
+</div> -->
 
 ### Existing Features
 ###### Navigation:
-- Fixed desktop navigation menu - the user is able to navigate through the site and access About, Categories, Brand, Profile and Sign In pages 
-by using the navigation menu.
-- Mobile navigation menu - when browsing from mobile devices, the user can access a side navigation menu that pops up when the user clicks on 
-the burger icon on the top left.
-- Sign In/Sign Out navigation - if a user is in session, the navigation button displays the 'Sign Out' option, if thtere is no username 
+- Fixed desktop navigation menu - the user is able to navigate through the site via the navigation menu.
+- The user is able to access filtered views of the product inventory by clicking on elements in the dropdown menu.
+- Once in the All Products View or Category View the user is able to select one of the category tags to access a filtered view per category.
+<!-- - Mobile navigation menu - when browsing from mobile devices, the user can access a side navigation menu that pops up when the user clicks on 
+the burger icon on the top left. -->
+- Sign In/Sign Out navigation - if a user is in session, the navigation button displays the 'Sign Out' option, if there is no username 
 in session the option displayed is 'Sign In'. This is done via an if statement in the base.html file.
 
 ###### Viewing information:
-- View existing records in the database - all users (without needing to log in) are able to view recipes that have been added to 
-the database. This is done by using a for each statement in the jinja html template, so that each recipe is displayed.
-- View single records from the database - this is done by using the routing in app.py to find one recipe from the collection via the 
-Object(Id).
-- View recipes by category - all users (without needing to log in) are able to see if recipes are vegan or vegetarian via the tag on 
-each recipe preview card. This is done by using an if statement in the jinja html template.
-- View recipes under 30 minutes - all users (without needing to log in) are able to view recipes which duration is under 30 minutes. 
-This is not a user input, but rather a boolean data type set in app.py. When duration is under 30 minutes, the data field returns True, 
-which allows us to display the filtered view of the recipes.
-- View brands - all users (without needing to log in) are able to see the recommended brands. These are simply displayed from a 
-separate collection called 'Brands'.
-- View records created - once logged in, the user is able to see the records they have inputted under their profile page.
+- View existing records in the database - all users (without needing to log in) are able to view products in the site.
+- View single products from the database such as Detailed Product Views.
+- View products by category - all users (without needing to log in) are able to see products filtered by category.
+- View purchase history - once logged in, the user is able to see the records of what they have inputted under their profile page.
+- View items in cart -
+- View profile information - 
+<!-- Need to add more here -->
 
-<div style="display: inline block;">
+<!-- <div style="display: inline block;">
     <img width="250" height="300" src="/static/img/documentation/home-page.png">
     <img width="250" height="300" src="/static/img/documentation/home-browse-page.png">
-</div>
-<div style="display: inline block;">
-    <img width="250" height="300" src="/static/img/documentation/categories/all-recipes-page.png">
-    <img width="250" height="300" src="/static/img/documentation/categories/vegan-page.png">
-    <img width="250" height="300" src="/static/img/documentation/recipes/single-page.png">
-</div>
-<div style="display: inline block;">
-    <img width="250" height="300" src="/static/img/documentation/about-page.png">
-    <img width="250" height="300" src="/static/img/documentation/categories/brands-page.png">
-</div>
+</div> -->
 
 ###### Authentication of user:
-- Register an account - to be able to interact with the database, the user must first create an account. The user is able to do so via the 
-'Register an Account' template which adds a new record to the 'Users' collection.
-- Sign In function - if the user tries to access the Profile Page, app.py checks if there is a username in session. If no username is in 
-session the user is redirected to an html Sign In page.
+- Register an account - the user is able to do so via the 'Register an Account'.
+- Sign In function - if no username is in session, the user is redirected to an html Sign In page.
 - Sign Out function - if the user clicks on the Sign Out button at the top right corner of the navigation menu in desktop or bottom option 
 in the mobile menu, the user is automatically logged out. The username in session is removed.
 
-###### Interacting with the database:
-- Create new records - once logged in, the user is able to submit new records to the database by filling in the 'Add Recipe' form. To 
-do this we use the insert function in app.py combined with a jinja template form.
-- Edit existing records - once logged in, the user is able to update the records (s)he has previously added by clicking on the 'Edit'
-button over each recipe in their Profile Page. This is done by using the update function in app.py combined with a jinja template form.
-- Delete existing records - once logged in, the user is able to remove records (s)he has previously added by clicking on the 'Edit'
-button over each recipe in their Profile Page. This is done by using the remove function in app.py.
-
-<div style="display: inline block;">
-    <img width="250" height="300" src="/static/img/documentation/profile/profile-page.png">
-    <img width="250" height="300" src="/static/img/documentation/profile/add-recipe-page.png">
-    <img width="250" height="300" src="/static/img/documentation/profile/edit-recipe-page.png">
-</div>
-
-###### Tracking:
-- Google Analytics tracking pixel is installed, allowing to see traffic, users, devices, etc.
-
 ### Features Left to Implement
-###### Viewing information:
-- Search function to be able to find a recipe by keywords.
-- New field in the database for type of meal ex. Breakfast, Snack, Lunch + as a new collection in the database.
-- New field in the database for caloric content of each portion of the recipe.
-- Display multiple images in each recipe as an option. If there are more pictures, they are displayed, if not then at least one image 
-is required.
-
-###### Interacting with the database:
-- Adding the above new fields to the input forms.
-- Upload file function as an alternative option to adding an already hosted image URL.
-
-###### Authentication & Data Validation:
-- Encypted password information using hash.
-- Super Admin view where a new record needs to be 'approved' before it goes into live.
-
 ###### Data Protection:
 - Adding T&C including GDPR clause and how the data is stored and for what purposes.
+<!-- More to be added here -->
 
 ##  Languages
 ### Programming languages:
@@ -232,32 +195,45 @@ and the navigation dropdown and side mobile menus.
   [Learn more about Javascript.](https://www.w3schools.com/js/default.asp)
 - Python: Used to communicate with the database, routing and displaying html templates and manipulating data via the user interface.
   [Learn more about Python.](https://www.w3schools.com/python/default.asp)
+- SQL: Used to store the records from our database.
+  [Learn more about SQLite.](https://sqlite.org/docs.html)
 
 ### Libraries:
 ###### Structural:
-- Flask: Used as a web framework, which combined with Jinja and Werkzeug are able to simplify the web development process and make a 
-consistent framework.
-  [Learn more about Flask.](https://flask.palletsprojects.com/en/1.1.x/)
+- Django: Used for setting up the different apps and models needed to run the project.
+  [Learn more about Django.](https://docs.djangoproject.com/en/3.1/)
 - Jinja: Used as the templating engine to be able to create HTML pre-made layouts that can be then can be rendered via Python.
-  [Learn more about Jinja.](https://jinja.palletsprojects.com/en/2.11.x/)
-- Werkzeug: Used as the WSGI toolkit that Flask needs to run.
-  [Learn more about Werkzeug.](https://palletsprojects.com/p/werkzeug/)
+  [Learn more about Jinja.](https://jinja..com/en/2.11.x/)
 
 ###### Styling and Interactions:
-- JQuery: Used to be able to select elements in the HTML code based on their styling, and then modify them in Javascript. Often it 
-has been part of Materialize components for this project.
+- JQuery: Used to be able to select elements in the HTML code based on their styling, and then modify them in Javascript.
   [Learn more about JQuery.](https://www.w3schools.com/jquery/jquery_intro.asp)
-- Materialize: Used to speed up the development process by taking ready to use components and styling classes from the Materialize 
-libarary for example cards which are used to display the recipes.
+- Materialize: Used to speed up the development process by taking ready to use components and styling classes from the Materialize.
   [Learn more about Materialize.](https://materializecss.com/navbar.html)
+- Bootstrap: Used to create all of the HTML structures and some of the styling such as padding and color classes.
+  [Learn more about Bootstrap.](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
+
+###### Forms:
+- Django-allauth: Used to render profiles and handle authentication.
+  [Learn more about Django-allauth.](https://django-allauth.readthedocs.io/en/latest/installation.html)
+- Django-countries: Used to display countries in forms in a dropdown list.
+  [Learn more about Django-countries.](https://pypi.org/project/django-countries/)
+- Django-crispy-forms: Used to display forms.
+  [Learn more about Django-crispy-forms.](https://django-crispy-forms.readthedocs.io/en/latest/install.html)
+
+###### File & Data Handling:
+- Pillow: Provides extensive file support in several formats.
+  [Learn more about Pillow.](https://pillow.readthedocs.io/en/stable/installation.html)
+- Psycopg: Translates Python variables into SQL values.
+  [Learn more about Psycopg.](https://www.psycopg.org/docs/)
+- SQLParse: Provides support for parsing, splitting and formatting SQL statements.
+  [Learn more about SQLParse.](https://pypi.org/project/sqlparse/)
+
 
 ### Tools:
 ###### Production Environment:
 - Gitpod: Used as the coding environment for this project.
 - Github: Used to store all repositories for this project, as well as to deploy the site via GitPages.
-
-###### Tracking:
-- Google Analytics: Used to track users behavior and traffic to the site.
 
 ###### Closing knowledge gaps:
 - W3schools: Used to clarify and solidify knowledge acquired during the course.
@@ -283,63 +259,26 @@ functionalities have been tested in live/deployed version by 3 other users from 
 ###### Home Page:
 - The correct information displays from database records.
 - All users (without needing to log in) are able to view recipes that have been added to the database.
-- The correct tags display on each recipe card, either Vegan or Vegetarian.
 - The contents resize and are able to be seen properly in all different devices. This function has been testsed by using Google 
 Chrome Developer Tools.
-- If a user is logged in, a welcome message displays, if a user is not logged in there is no message displaying.
 
-###### Category Pages:
+###### Product & Category Pages:
 For all pages, the contents resize and are able to be seen properly in all different devices. This function has been testsed by using Google 
 Chrome Developer Tools.
-
-1. Vegan or Vegetarian template:
-- The correct Category name is displayed from 'Category' collection.
-- The correct Category description is displayed from 'Category' collection.
-- The correct tags display on each recipe card, either Vegan or Vegetarian.
-- The correct recipes show on each of the categories input by the user who created the recipe, either Vegan or Vegetarian.
-
-2. Express template:
-- The correct recipes display under the Express Page, since all of the recipes are under 30 minutes duration.
-
-3. Brands template:
-- All of the required fields of each of the items in 'Brands' collection display properly (title, category, imageURL, description, key 
-bullet points).
+<!-- Add more information here -->
 
 ###### Profile Page:
 For all pages, the contents resize and are able to be seen properly in all different devices. This function has been testsed by using Google 
 Chrome Developer Tools.
 - The user is able to see the records (s)he has added to the database.
-- If the user has not previously added a record, a message is displayed.
-- Each record displays a 'Edit' and 'Delete' icons on the top left corner.
-- These icons redirect properly and start the function called.
-
-1. Add a record:
-- The Add Recipe form and all of the fields display correctly.
-- The Submit button works properly and adds a new record to the database.
-
-2. Edit a record:
-- The Edit Recipe form and all of the fields display correctly displaying the records in key fields previously input in the database.
-- The Submit button works properly and the record is updated.
-
-3. Delete a record:
-- The record selected is deleted from the database.
+- If a user is logged in, a welcome message displays, if a user is not logged in there is no message displaying.
+<!-- Add more information here -->
 
 ###### Authentication & User Pages:
 - If there is no username in session, the user is prompt to a Sign In form.
 - If the user does not have an account, the Register link under the Sign In form works properly.
 - A user that is not sign in can not access the Profile Page view.
-
-1. Register:
-- The user is able to create an account by interacting with the registration form.
-
-2. Sign In:
-- The user is able to log in by inputting a registered username and password to the Sign In form.
-- If the password or username is not correct, the same form is reloaded empty.
-
-3. Sign Out:
-- When the user clicks on the Sign Out button, the user is automatically logged out.
-- The session username is removed from the cookie which we can see in Google Chrome Developer Tools.
-
+<!-- Add more information here -->
 
 ## Deployment
 This application is hosted in Heroku, which you would need an account for.
@@ -362,13 +301,11 @@ This application is hosted in Heroku, which you would need an account for.
 
 
 ## Credits
-###### Content
-- Placeholder Loreipsum text has been placed in some pages.
 
 ###### Media:
 - Unsplash: Used to get all the stock photo material. This is a library where amateur photographers around the world upload their 
 pictures and make them available to other users for free.
-  [Learn more about Canva.](https://unsplash.com/s/photos/vegetarian)
+  [Learn more about Unsplash.](https://unsplash.com/s/photos/vegetarian)
 - Canva Online Editor: Used to do any graphic design used on this site such as resizing pictures or creating the logo.
   [Learn more about Canva.](https://www.canva.com/)
 - Font Awesome: Used to get icons making it a more intuitive experience for the user such as for example having a User icon leading 
@@ -376,21 +313,10 @@ to the Profile page.
   [Learn more about Font Awesome.](https://fontawesome.com/icons?d=gallery)
 
 ###### Login System:
-- Julian Nash's tutorials have been fundamental to closing some of the knowledge gaps that I had starting 
-this project. I was able to work with session cookies in Flask.
-    [See the tutorial here - 'The Flask session object', YouTube tutorial here, ](https://www.youtube.com/watch?v=PYILMiGxpAU)
-    [& The Web tutorial here.](https://pythonise.com/series/learning-flask/flask-session-object)
-- I have also benefited from other tutorials to reinforce my knowledge such as the one provided in the YouTube channel Pretty Printed 
-and Tech with Tim.
-    [See the tutorial here - Pretty Printed tutorial.](https://www.youtube.com/watch?v=vVx1737auSE)
-    [& Tech with Tim tutorial.](https://www.youtube.com/watch?v=iIhAfX4iek0&t=432s)
+<!-- Add more information here -->
 
 ###### Documentation:
-At the start of this project, I reviewed some of my classmates submitted milestone III projects which were submitted in the Slack channel 
-for peer reviews. One which I found via LinkedIn really impressed me especially due to the attention to detail and overall effort put into 
-the documentation and commit logs.
-It inspired me to also add images and style my documentation and commit messages.
-It also inspired me to test Balsamiq to create my wireframes and visualize my design process.
-    [See the project - Home Chopped.](https://github.com/Frozenaught/homechopped/tree/master/app)
+<!-- Add more information here -->
 
 ## Acknowledgements
+<!-- Add more information here -->
