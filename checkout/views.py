@@ -112,7 +112,21 @@ def checkout(request):
             currency=settings.STRIPE_CURR,
         )
 
-        print('Code trying to make payment')
+        if request.user.is_authenticated:
+            try:
+                profile=UserProfile.objects.get(user=request.user)
+                order_form=OrderForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'address': profile.default_address,
+                    'postcode': profile.default_postcode,
+                    'city': profile.default_city,
+                    'country': profile.default_country,
+
+                })
+            except UserProfile.DoesNotExist:
+                order_form=OrderForm()
 
         order_form = OrderForm()
 
