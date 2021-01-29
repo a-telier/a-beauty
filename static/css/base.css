@@ -115,3 +115,9 @@ a{
 .product-image{
     background-size: contain;
 }
+/*-----------------------------------articles*/
+.article-teaser{
+    height: 300px;
+    width: auto;
+    background-size: cover;
+}
