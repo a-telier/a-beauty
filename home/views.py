@@ -2,8 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect  #  renders HTM
 from django.http import HttpResponse #  displays HttpResponse
 from django.shortcuts import render
 
-from products.models import Product
-from products.models import Category
+from products.models import Product, Category
 
 # Here are the views that we created.
 def index(request):
