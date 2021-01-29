@@ -11,6 +11,7 @@
             <a class="logo-font font-weight-bold nav-link text-black mr-5 text-uppercase" href="{% url 'products' %}" aria-haspopup="true" aria-expanded="false">
                 All products
             </a>
+        </li>
         <!-- Product categories -->
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5 text-uppercase" href="#" id="per-category-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -25,14 +26,9 @@
         </li>
         <!-- Special Offers -->
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black text-uppercase" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Special Offers
+            <a class="logo-font font-weight-bold nav-link text-black mr-5 text-uppercase" href="{% url 'all_articles' %}" aria-haspopup="true" aria-expanded="false">
+                Blog
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="{% url 'products' %}" class="dropdown-item">New Arrivals</a>
-                <a href="{% url 'products' %}" class="dropdown-item">Deals</a>
-                <a href="{% url 'products' %}" class="dropdown-item">All Specials</a>
-            </div>
         </li>
     </ul>
 </div>

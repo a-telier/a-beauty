@@ -41,3 +41,8 @@ https://www.w3schools.com/bootstrap4/bootstrap_badges.asp
 
 Allauth
 https://django-allauth.readthedocs.io/en/latest/configuration.html
+
+Blog
+https://djangocentral.com/building-a-blog-application-with-django/
+https://www.geeksforgeeks.org/slugfield-django-models/
+

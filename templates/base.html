@@ -104,9 +104,6 @@
                             </a>
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
-                                    {% if request.user.is_superuser %}
-                                        <a href="" class="dropdown-item">Product Management</a>
-                                    {% endif %}
                                     <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                                     {% else %}
@@ -120,11 +117,6 @@
                             <a id="badge-notification" class="nav-link bg-danger" href="{% url 'view_cart' %}">
                                 <span><i class="fas fa-shopping-bag fa-2x text-white mx-auto my-auto py-3"></i></span>
                                 <span id="cart-badge" class="bg-dark text-white"><strong>{{product_count}}</strong></span>
-                                <!-- {% if grand_total %}
-                                    {{ grand_total|floatformat:0 }}kr
-                                {% else %}
-                                    0kr
-                                {% endif %} -->
                             </a>
                         </li>
                     </ul>
@@ -139,9 +131,9 @@
                     {% include 'includes/mobile-top-header.html' %}
                     {% include 'includes/main-nav.html' %}
                 </nav>
-                <div class="text-light black h-80 w-100 text-center">
+                <!-- <div class="text-light black h-80 w-100 text-center">
                     FREE DELIVERIES FOR PURCHASES OVER {{ free_delivery_threshold }} SEK*
-                </div>
+                </div> -->
             </div>
         </header>
 
