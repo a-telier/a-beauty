@@ -28,6 +28,7 @@ class Article(models.Model):
     url = models.SlugField(max_length=200, unique=True)
     content = models.TextField()
     blog_category = models.ForeignKey('blog_category', null=True, blank=True, on_delete=models.SET_NULL)
+    banner = models.FileField(default="", null=True, blank=True, upload_to='articles/banner')
     image = models.FileField(default="", null=True, blank=True, upload_to='articles/img')
     additionalImages = models.FileField(default="", null=True, blank=True, upload_to='articles/additional')
 

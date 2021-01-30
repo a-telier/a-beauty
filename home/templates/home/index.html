@@ -6,7 +6,7 @@
     {% load static %}
     <div class="row">
         <div class="col-lg-12 col-sm-12">
-            <a href="#">
+            <a href="{% url 'products' %}">
                 <img class="d-sm-none d-sm-block landing responsive-img p-1" src="{% static 'img/banners/banner-landing-sales.jpg' %}">
             </a>
         </div>
@@ -96,7 +96,7 @@
     <!-- Browse other categories -->
     <div class="row">
         <div class="col-lg-12 mt-5">
-            <h3 class="">MISSING SOMETHING? </h3>
+            <h3 class="">OTHER CATEGORIES</h3>
             <h6>Take a look at our other product categories</h6>   
         </div>
         {% for category in all_categories %}

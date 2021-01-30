@@ -11,7 +11,7 @@
         </div>
         <!-- Category tags -->
         <div class="col-lg-12 text-center">
-            {% for blog_category in blog_categories %}
+            {% for blog_category in all_blog_categories %}
             <a class="btn btn-outline-dark left m-1" href="{% url 'all_articles' %}?blog_category={{ blog_category.name }}">
                 <span class="">{{ blog_category.display_name }}</span>
             </a>
@@ -51,7 +51,7 @@
     <!-- Browse other categories -->
     <div class="row">
         <div class="col-lg-12 mt-5">
-            <h3 class="">MISSING SOMETHING? </h3>
+            <h3 class="">OTHER CATEGORIES</h3>
             <h6>Take a look at our other product categories</h6>   
         </div>
         {% for category in all_categories %}

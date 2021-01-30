@@ -2,31 +2,34 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item d-block">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5 text-uppercase" href="{% url 'home' %}" id="home-link">
+            <a class="font-weight-bold nav-link text-black text-uppercase mx-4 px-4" href="{% url 'home' %}" id="home-link">
                 Home
             </a>
         </li>
         <!-- All products -->
         <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5 text-uppercase" href="{% url 'products' %}" aria-haspopup="true" aria-expanded="false">
+            <a class="font-weight-bold nav-link text-black text-uppercase mx-4 px-4" href="{% url 'products' %}" aria-haspopup="true" aria-expanded="false">
                 All products
             </a>
         </li>
         <!-- Product categories -->
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5 text-uppercase" href="#" id="per-category-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="font-weight-bold nav-link text-black text-uppercase mx-4 px-4" href="#" id="per-category-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Categories
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="per-category-link">
-                <a href="{% url 'products' %}?category=lips" class="dropdown-item">Lips</a>
+                {% for category in categories %}
+                <a href="{% url 'products' %}?category={{category.name}}">{{category.name}}</a>
+                {% endfor %}
+                <!-- <a href="{% url 'products' %}?category=lips" class="dropdown-item">Lips</a>
                 <a href="{% url 'products' %}?category=eyes" class="dropdown-item">Eyes</a>
                 <a href="{% url 'products' %}?category=face" class="dropdown-item">Face</a>
-                <a href="{% url 'products' %}?category=sun" class="dropdown-item">Sun</a>
+                <a href="{% url 'products' %}?category=sun" class="dropdown-item">Sun</a> -->
             </div>
         </li>
-        <!-- Special Offers -->
+        <!-- Blog -->
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5 text-uppercase" href="{% url 'all_articles' %}" aria-haspopup="true" aria-expanded="false">
+            <a class="font-weight-bold nav-link text-black text-uppercase mx-4 px-4" href="{% url 'all_articles' %}" aria-haspopup="true" aria-expanded="false">
                 Blog
             </a>
         </li>

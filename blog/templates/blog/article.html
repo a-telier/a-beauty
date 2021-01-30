@@ -11,7 +11,7 @@
         </div>
         <!-- Category tags -->
         <div class="col-lg-12 text-center">
-            {% for blog_category in blog_categories %}
+            {% for blog_category in all_blog_categories %}
             <a class="btn btn-outline-dark left m-1" href="{% url 'all_articles' %}?blog_category={{ blog_category.name }}">
                 <span class="">{{ blog_category.display_name }}</span>
             </a>
@@ -20,17 +20,62 @@
     </div>
     <hr class="mb-1">
     <div class="row">
-        <!-- ARTICLE TEASER CARD -->
+    <!-- SINGLE ARTICLE -->
     <div class="row">
         <div class="col-10 my-auto mx-auto">
             <div class="card text-center">
+                <div class="card-image">
+                    <img class="article-top-banner responsive-img" src="{{ MEDIA_URL }}/{{ article.banner }}">
+                </div>
                 <div class="card-content">
                     <h4>{{ article.title }}</h4>
-                    <img class="article-top-banner responsive-img" src="{{ MEDIA_URL }}/{{ article.image}}">
-                    <p>{{ article.content|lower|capfirst }}</p>
+                    <p>{{ article.content|linebreaks }}</p>
+                    <!-- <p>{{ article.content|lower|capfirst }}</p> -->
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container">
+    <!-- ARTICLE TEASER CARD -->
+    <div class="row">
+        <div class="col-lg-12 mt-5">
+            <h3 class="">OTHER ARTICLES </h3>
+            <h6>We thought you could be interested in these</h6>   
+        </div>
+        {% for article in articles %}
+        {% if forloop.counter <= 4 %}
+        <div class="col-6">
+            <div class="card">
+                <a href="{% url 'article_detail' article.url %}">
+                    <div class="card-image">
+                        <img class="article-teaser" src="{{ MEDIA_URL }}/{{ article.image}}">
+                        <span class="card-title">{{article.title}}</span>
+                    </div>
+                </a>
+                <div class="card-content">
+                    <p>{{ article.teaser|lower|capfirst }}</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <!-- Browse other categories -->
+    <div class="row">
+        <div class="col-lg-12 mt-5">
+            <h3 class="">OTHER CATEGORIES</h3>
+            <h6>Take a look at our other product categories</h6>   
+        </div>
+        {% for category in all_categories %}
+            {% if forloop.counter <= 4 and category.teaser is not empty %}
+            <div class="col-lg-6 col-sm-6 h-100 my-auto mx-auto p-3">
+                <a href="{% url 'products' %}?category={{ category.name }}">
+                <img class="responsive-img" src="{{ MEDIA_URL }}/{{ category.teaser }}" alt="{{ category.name }}">
+                </a>
+            </div>
+            {% else %}
+            {% endif %}
+        {% endfor %}
     </div>
 </div>
 
