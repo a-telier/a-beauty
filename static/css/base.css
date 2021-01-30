@@ -117,7 +117,5 @@ a{
 }
 /*-----------------------------------articles*/
 .article-teaser{
-    height: 300px;
-    width: auto;
-    background-size: cover;
+    background-size: contain;
 }

@@ -12,11 +12,11 @@
                 <div class="card-image my-auto mx-auto mb-0">
                     {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
-                        <img class="product-image" src="../media/{{ product.image }}" alt="{{ product.brand }} {{ product.name }}">
+                        <img class="product-image" src="{{ MEDIA_URL }}/{{ product.image }}" alt="{{ product.brand }} {{ product.name }}">
                         {% else %}
                         </a>
                         <a href="{% url 'product_detail' product.id %}">
-                        <img class="product-image" src="../media/missing-image.jpg" alt="{{ product.brand }} {{ product.name }}">
+                        <img class="product-image" src="{{ MEDIA_URL }}/missing-image.jpg" alt="{{ product.brand }} {{ product.name }}">
                         </a>
                     {% endif %}
                 </div>
@@ -117,11 +117,11 @@
                     <div class="card-image my-auto mx-auto mb-0">
                         {% if prod.image %}
                         <a href="{% url 'product_detail' prod.id %}">
-                        <img class="product-image" src="../media/{{ prod.image }}" alt="{{ prod.brand }} {{ prod.name }}">
+                        <img class="product-image" src="{{ MEDIA_URL }}/{{ prod.image }}" alt="{{ prod.brand }} {{ prod.name }}">
                         {% else %}
                         </a>
                         <a href="{% url 'product_detail' prod.id %}">
-                        <img class="product-image" src="../media/missing-image.jpg" alt="{{ prod.brand }} {{ prod.name }}">
+                        <img class="product-image" src="{{ MEDIA_URL }}/missing-image.jpg" alt="{{ prod.brand }} {{ prod.name }}">
                         </a>
                         {% endif %}
                     </div>
@@ -168,7 +168,7 @@
             {% if forloop.counter <= 4 and category.teaser is not empty %}
             <div class="col-lg-6 col-sm-6 h-100 my-auto mx-auto p-3">
                 <a href="{% url 'products' %}?category={{ category.name }}">
-                <img class="responsive-img" src="../media/{{ category.teaser }}" alt="{{ category.name }}">
+                <img class="responsive-img" src="{{ MEDIA_URL }}/{{ category.teaser }}" alt="{{ category.name }}">
                 </a>
             </div>
             {% endif %}

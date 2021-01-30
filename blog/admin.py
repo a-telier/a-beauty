@@ -7,7 +7,7 @@ class ArticleAdmin(admin.ModelAdmin):
     list_display = ('title', 'url', 'teaser', 'status', 'created_on')
     list_filter = ("status",)
     search_fields = ['title', 'content']
-    prepopulated_fields = {'teaser': ('title',)}
+    prepopulated_fields = {'url': ('title',)}
   
 class CategoryAdmin (admin.ModelAdmin):
     list_display = (

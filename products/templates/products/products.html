@@ -61,11 +61,11 @@
                 <div class="card-image my-auto mx-auto mb-0" id="{{ product.id }}">
                     {% if product.image %}
                     <a href="{% url 'product_detail' product.id %}">
-                    <img class="product-image" src="../media/{{ product.image }}" alt="{{ product.brand }} {{ product.name }}">
+                    <img class="product-image" src="{{ MEDIA_URL }}/{{ product.image }}" alt="{{ product.brand }} {{ product.name }}">
                     </a>
                     {% else %}
                     <a href="{% url 'product_detail' product.id %}">
-                    <img class="product-image" src="../media/missing-image.jpg">
+                    <img class="product-image" src="{{ MEDIA_URL }}/missing-image.jpg">
                     </a>
                     {% endif %}
                 </div>
@@ -120,8 +120,8 @@
         {% for category in all_categories %}
             {% if forloop.counter <= 4 and category.teaser is not empty %}
             <div class="col-lg-6 col-sm-6 h-100 my-auto mx-auto p-3">
-                <a href="#">
-                <img class="responsive-img" src="../media/{{ category.teaser }}" alt="{{ category.name }}">
+                <a href="{% url 'products' %}?category={{ category.name }}">
+                <img class="responsive-img" src="{{ MEDIA_URL }}/{{ category.teaser }}" alt="{{ category.name }}">
                 </a>
             </div>
             {% else %}

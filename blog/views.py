@@ -17,8 +17,8 @@ def all_articles(request):
     return render(request, "blog/all_articles.html", context)
 
 
-def article_detail(request, article_id):
-    article = get_object_or_404(Article, pk=article_id)
+def article_detail(request, article_url):
+    article = get_object_or_404(Article, url=article_url)
     articles = Article.objects.all()
     all_categories = Category.objects.all()
 
@@ -27,5 +27,8 @@ def article_detail(request, article_id):
         'articles': articles,
         'categories': all_categories,
     }
+
+    print(url)
+    print(article_id)
 
     return render(request, "blog/article.html", context)

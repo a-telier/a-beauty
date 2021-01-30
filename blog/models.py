@@ -24,9 +24,9 @@ STATUS = (
 
 class Article(models.Model):
     title = models.CharField(max_length=200, unique=True)
-    url = models.SlugField(max_length=200, unique=True)
-
     teaser = models.CharField(max_length=200, unique=True)
+
+    url = models.SlugField(max_length=200, unique=True)
     content = models.TextField()
     blog_category = models.ForeignKey('blog_category', null=True, blank=True, on_delete=models.SET_NULL)
 

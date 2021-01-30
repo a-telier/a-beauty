@@ -39,18 +39,17 @@
     <!-- ARTICLE TEASER CARD -->
     <div class="row">
         {% for article in articles %}
-        <div class="col-lg-6">
-            <div class="card border-0">
-                <!-- Card Image -->
-                <div class="card-image my-auto mx-auto">
-                    <img class="article-teaser img-responsive" src="../media/{{ article.image }}" 
-                    alt="{{ article.title }}">
-                </div>
-                <!-- Card Content -->
-                <div class="card-content text-center mb-0">
-                    <!-- Card Text -->
-                    <h6 class="align-items-center">{{ article.teaser|lower|capfirst }}</h6>
-                </div>
+        <div class="col-6">
+            <div class="card">
+                <a href="{url 'article_detail' article.url}">
+                    <div class="card-image">
+                        <img class="article-teaser" src="{{ MEDIA_URL }}/{{ article.image}}">
+                        <span class="card-title">{{article.title}}</span>
+                    </div>
+                    <div class="card-content">
+                        <p>{{ article.teaser|lower|capfirst }}</p>
+                    </div>
+                </a>
             </div>
         </div>
         {% endfor %}
@@ -66,8 +65,8 @@
         {% for category in all_categories %}
             {% if forloop.counter <= 4 and category.teaser is not empty %}
             <div class="col-lg-6 col-sm-6 h-100 my-auto mx-auto p-3">
-                <a href="#">
-                <img class="responsive-img" src="../media/{{ category.teaser }}" alt="{{ category.name }}">
+                <a href="{% url 'products' %}?category={{ category.name }}">
+                <img class="responsive-img" src="{{ MEDIA_URL }}/{{ category.teaser }}" alt="{{ category.name }}">
                 </a>
             </div>
             {% else %}
