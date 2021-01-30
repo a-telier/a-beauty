@@ -1,0 +1,20 @@
+  <!--Mobile navigation menu-->
+    <ul class="sidenav" id="mobile-links">
+        <div class="container">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li class="nav-item dropdown">
+                <a class="font-weight-bold nav-link text-black text-uppercase mx-4 px-4" href="#" id="per-category-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categories
+                </a>
+                <div class="dropdown-menu border-0" aria-labelledby="per-category-link">
+                    <a href="{% url 'products' %}" class="dropdown-item">All Categories</a>
+                    <a href="{% url 'products' %}?category=lips" class="dropdown-item">Lips</a>
+                    <a href="{% url 'products' %}?category=eyes" class="dropdown-item">Eyes</a>
+                    <a href="{% url 'products' %}?category=face" class="dropdown-item">Face</a>
+                    <a href="{% url 'products' %}?category=sun" class="dropdown-item">Sun</a>
+                </div>
+            </li>
+            <li><a href="{% url 'profile' %}"><i class="fas fa-user-circle"></i><b> Profile</b></a></li>
+            <li><a href="{% url 'all_articles' %}"><i class="fas fa-user-circle"></i><b> Blog</b></a></li>
+        </div>
+    </ul>

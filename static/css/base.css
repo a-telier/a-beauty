@@ -25,6 +25,11 @@ a{
     color: inherit;
 }
 
+.dropdown-item:active, .dropdown-item:hover {
+    background-color: rgb(48, 48, 48);
+    color: white;
+}
+
 /*--------------------------------------------messages*/
 .message-container {
     position: fixed;
