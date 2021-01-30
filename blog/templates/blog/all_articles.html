@@ -41,7 +41,7 @@
         {% for article in articles %}
         <div class="col-6">
             <div class="card">
-                <a href="{url 'article_detail' article.url}">
+                <a href="{% url 'article_detail' article.url %}">
                     <div class="card-image">
                         <img class="article-teaser" src="{{ MEDIA_URL }}/{{ article.image}}">
                         <span class="card-title">{{article.title}}</span>

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<div class="container vwtop14">
+    <div class="row">
+        <!-- Category names -->
+        <div class="col-lg-12">
+            {% if current_categories == None %}
+                <h6><a href="{% url 'products' %}"> START </a> / ALL </h6>
+                <h2 class="logo-font">Articles</h2>
+                {% else %}
+                {% for category in current_categories %}
+                <h6><a href="{% url 'products' %}"> START </a> / {{ category.name|upper }} </h6>
+                <h2 class="logo-font">{{ category.name|capfirst }}</h2>
+                {% endfor %}
+            {% endif %}
+            <h6>This is a single article</h6>
+        </div>
+    </div>
+</div>
