@@ -25,17 +25,14 @@ STATUS = (
 class Article(models.Model):
     title = models.CharField(max_length=200, unique=True)
     teaser = models.CharField(max_length=200, unique=True)
-
     url = models.SlugField(max_length=200, unique=True)
     content = models.TextField()
     blog_category = models.ForeignKey('blog_category', null=True, blank=True, on_delete=models.SET_NULL)
-
     image = models.FileField(default="", null=True, blank=True, upload_to='articles/img')
     additionalImages = models.FileField(default="", null=True, blank=True, upload_to='articles/additional')
 
     updated_on = models.DateTimeField(auto_now= True)
     created_on = models.DateTimeField(auto_now_add=True)
-
     status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:

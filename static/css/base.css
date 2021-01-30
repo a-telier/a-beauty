@@ -119,3 +119,8 @@ a{
 .article-teaser{
 
 }
+.article-top-banner{
+    height: 300px;
+    background-repeat:no-repeat;
+    background-size: auto;
+}

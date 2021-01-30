@@ -1,21 +1,37 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block content %}
 
 <div class="container vwtop14">
     <div class="row">
         <!-- Category names -->
         <div class="col-lg-12">
-            {% if current_categories == None %}
-                <h6><a href="{% url 'products' %}"> START </a> / ALL </h6>
-                <h2 class="logo-font">Articles</h2>
-                {% else %}
-                {% for category in current_categories %}
-                <h6><a href="{% url 'products' %}"> START </a> / {{ category.name|upper }} </h6>
-                <h2 class="logo-font">{{ category.name|capfirst }}</h2>
-                {% endfor %}
-            {% endif %}
-            <h6>This is a single article</h6>
+            <h6><a href="{% url 'products' %}"> START </a> / ARTICLES </h6>
+        </div>
+        <!-- Category tags -->
+        <div class="col-lg-12 text-center">
+            {% for blog_category in blog_categories %}
+            <a class="btn btn-outline-dark left m-1" href="{% url 'all_articles' %}?blog_category={{ blog_category.name }}">
+                <span class="">{{ blog_category.display_name }}</span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    <hr class="mb-1">
+    <div class="row">
+        <!-- ARTICLE TEASER CARD -->
+    <div class="row">
+        <div class="col-10 my-auto mx-auto">
+            <div class="card text-center">
+                <div class="card-content">
+                    <h4>{{ article.title }}</h4>
+                    <img class="article-top-banner responsive-img" src="{{ MEDIA_URL }}/{{ article.image}}">
+                    <p>{{ article.content|lower|capfirst }}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+{% endblock %}
