@@ -17,7 +17,6 @@ class CategoryAdmin (admin.ModelAdmin):
         'name',
         'display_name',
         'teaser',
-        'banner',
     )
 
 

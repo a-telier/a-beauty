@@ -12,9 +12,6 @@ def all_articles(request):
     all_categories = Category.objects.all()
     blog_categories = None
 
-    print('all_categories')
-    print(all_blog_categories)
-
     #   Category filtering
     if 'blog_category' in request.GET:
         blog_categories = request.GET['blog_category'].split(',')

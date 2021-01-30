@@ -13,7 +13,6 @@ class Category(models.Model):
 
     name = models.CharField(max_length=254)
     display_name = models.CharField(max_length=254, null=True, blank=True)
-    banner = models.FileField(default="", null=True, blank=True, upload_to='categories/banner')
     teaser = models.FileField(default="", null=True, blank=True, upload_to='categories/teaser')
 
     def __str__(self):
