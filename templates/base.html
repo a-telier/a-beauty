@@ -63,18 +63,20 @@
     </head>
         <body class="padding-top" data-media-url="{% get_media_prefix %}">
          <header class="container-fluid fixed-top d-block">
-            <div class="row bg-white pt-lg-2 d-lg-flex">
-                <!-- NAVIGATION MENU -->
-                <div class="col-1 my-auto py-1 mt-3 left">
+            <div class="row bg-white pt-lg-2 d-lg-flex mx-auto my-auto">
+                <!-- DROPDOWN MENU -->
+                <div class="col-1 my-auto left">
                     <nav class="nav-wrapper h-100 w-100" style="background-color: white !important;">
                     </nav>
                     <ul id="slide-out" class="sidenav">
                         <div class="container">
+                            <!-- Close the menu -->
+                            <li><a class="sidenav-close" href="#!"><i class="fas fa-times danger"></i>Close</a></li>
                             <!-- Home -->
                             <li><a href="{% url 'home' %}"><i class="fas fa-home"></i>Home</a></li>
                             <!-- Categories -->
                             <li class="nav-item dropdown">
-                                <a class="font-weight-bold nav-link mx-4 px-4" href="#" id="per-category-link" 
+                                <a class="font-weight-bold nav-link" href="#" id="per-category-link" 
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-chevron-down"></i>Categories</a>
                                 <div class="dropdown-menu border-0" aria-labelledby="per-category-link">
                                     <a href="{% url 'products' %}?category=lips" class="dropdown-item">Lips</a>
@@ -85,7 +87,7 @@
                                 </div>
                             </li>
                             <!-- Checkout -->
-                            <li><a href="{% url 'all_articles' %}"><i class="fas fa-shopping-bag"></i><b>Shopping cart</b></a></li>
+                            <li><a href="{% url 'checkout' %}"><i class="fas fa-shopping-bag"></i><b>Shopping cart</b></a></li>
                             <!-- Articles -->
                             <li><a href="{% url 'all_articles' %}"><i class="fas fa-pencil-alt"></i>Blog</a></li>
                             <!-- Account -->
@@ -116,16 +118,16 @@
                         </div>
                     </ul>
                     <!-- Sidenav trigger -->
-                     <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                     <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
                 </div>
-                <!-- Logo -->
+                <!-- LOGO -->
                 <div class="col-1 my-auto py-1 py-lg-0 text-center text-lg-left">
                     <a href="{% url 'home' %}" class="nav-link">
                         <img id="logo-image" src="{% static 'img/logo/logo-a-telier.png' %}" alt="">
                     </a>
                 </div>
                 <div class="col-2"></div>
-                <!-- Search bar -->
+                <!-- SEARCH BAR -->
                 <div class="col-4 d-lg-none"></div>
                 <div class="col-4 my-auto py-1 py-lg-0 d-none d-lg-block">
                     <form method="GET" action="{% url 'products' %}">
@@ -141,20 +143,20 @@
                         </div>
                     </form>
                 </div>
-                <!-- My account & Shopping cart -->
+                <!-- ICONS - MY ACCOUNT & SHOPPING CART -->
                 <div class="col-4 my-auto py-1 py-lg-0">
                     <ul class="list-inline list-unstyled text-center text-lg-right my-0 text-black">
                         <!-- Ratings -->
-                        <li class="list-inline-item">
+                        <li class="list-inline-item px-3 mx-3">
                             <a id="" class="nav-link" href="#">
-                                <span><i class="far fa-heart fa-2x mx-auto my-auto py-3"></i></span>
+                                <span><i class="far fa-heart mx-auto my-auto py-3"></i></span>
                             </a>
                         </li>
                         <!-- My account -->
-                        <li class="list-inline-item dropdown">
+                        <li class="list-inline-item px-3 mx-3 dropdown">
                             <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
-                                    <div><i class="far fa-user fa-2x text-dark mx-auto my-auto py-3"></i></div>
+                                    <div><i class="far fa-user text-dark mx-auto my-auto py-3"></i></div>
                                 </div>
                             </a>
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -168,9 +170,9 @@
                             </div>
                         </li>
                         <!-- My shopping cart -->
-                        <li class="list-inline-item">
+                        <li class="list-inline-item px-3 mx-3">
                             <a id="badge-notification" class="nav-link bg-danger" href="{% url 'view_cart' %}">
-                                <span><i class="fas fa-shopping-bag fa-2x text-white mx-auto my-auto py-3"></i></span>
+                                <span><i class="fas fa-shopping-bag text-white mx-auto my-auto py-3"></i></span>
                                 <span id="cart-badge" class="bg-dark text-white"><strong>{{product_count}}</strong></span>
                             </a>
                         </li>
