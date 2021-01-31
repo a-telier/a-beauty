@@ -1,11 +1,12 @@
-  A-telier Beauty
+ A-telier Beauty
 This is an e-commerce shop developped as part of my Full-Stack Software development
 program at Code Institute. The purpose of the shop is to make it easy for consumers
-to find and purchase beauty products from a selection of hand-picked items.
+to find and purchase beauty products from a selection of hand-picked items. The site
+also contains a blog, to attract potential customers via SEO keywords.
 
 ##  UX process
 ### Who is this site for?
-This site is meant for users looking to buy beauty products.
+This site is meant for customers looking to buy beauty products or find inspiration and advice.
 
 ### What does the user want to achieve in this site?
 #####   User Stories - as a user I want to..:
@@ -13,19 +14,21 @@ This site is meant for users looking to buy beauty products.
 - Browse through products.
 - See information about the product I am interested in.
 - Easily navigate throught the site.
-- Filter products by category.
-- Sort products by a certain metric.
+- Filter/see products by category.
+- Sort products by a certain metric ex. price or ratings.
 
 * Pay for products:
 - Add products to my cart.
 - See the items in my cart.
-- Remove or adjust items in my cart.
+- Remove or adjust number of items in my cart.
+- Be notified when an item is added or removed from my cart.
 - Pay for my purchase quickly and safely.
 
 * Store my information:
-- Access a page where my information is stored.
+- Access a page where my profile and order information is stored.
 - Easily adjust my information.
 - View my purchases history.
+- Save my delivery information for a future purchase.
 - Use this information to complete my purchase quicker.
 
 
@@ -35,10 +38,10 @@ This site is meant for users looking to buy beauty products.
 - The user is able to navigate through the site by using the navigation menu.
 - The user is able to see products by category of interest via the navigation menu.
 
-<!-- <div style="display: inline block;">
-    <img width="400" height="300" src="/static/img/documentation/wireframe-home.png">
-    <img width="400" height="300" src="/static/img/documentation/wireframe-home-2.png">
-</div> -->
+<div style="display: inline block;">
+    <img width="400" height="800" src="static/img/docs/home/Screenshot 2021-01-31 at 14.28.48.png">
+    <img width="400" height="800" src="static/img/docs/home/Screenshot 2021-01-31 at 14.28.58.png">
+</div>
 
 #####   Products View
 * All Products Page:
@@ -234,6 +237,7 @@ and the navigation dropdown and side mobile menus.
 ###### Production Environment:
 - Gitpod: Used as the coding environment for this project.
 - Github: Used to store all repositories for this project, as well as to deploy the site via GitPages.
+- Heroku: Used to host the public/production version of the app
 
 ###### Closing knowledge gaps:
 - W3schools: Used to clarify and solidify knowledge acquired during the course.
