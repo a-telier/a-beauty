@@ -39,8 +39,8 @@ This site is meant for customers looking to buy beauty products or find inspirat
 - The user is able to see products by category of interest via the navigation menu.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="400" height="600" src="{% static 'img/docs/home/Screenshot 2021-01-31 at 14.28.48.png' %}">
-    <img width="400" height="600" src="{% static 'img/docs/home/Screenshot 2021-01-31 at 14.28.58.png' %}">
+    <img width="400" height="600" src="/img/docs/home/Screenshot 2021-01-31 at 14.28.48.png">
+    <img width="400" height="600" src="/img/docs/home/Screenshot 2021-01-31 at 14.28.58.png">
 </div>
 
 #####   Products View
@@ -64,9 +64,9 @@ This site is meant for customers looking to buy beauty products or find inspirat
 - The user is able to specify the quantity of products they would like to add to their cart.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="400" height="600" src="{% static 'img/docs/home/screenshot_home.png' %}">
-    <img width="600" height="600" src="{% static 'img/docs/categories/screenshot_category1.png' %}">
-    <img width="200" height="600" src="{% static 'img/docs/categories/screenshot_category2.png' %}">
+    <img width="400" height="600" src="/img/docs/home/screenshot_home.png">
+    <img width="600" height="600" src="/img/docs/categories/screenshot_category1.png">
+    <img width="200" height="600" src="/img/docs/categories/screenshot_category2.png">
 </div>
 
 #####   Profile View
@@ -78,7 +78,7 @@ the Sign Out button.
 - When logged in, the user is able to see a summary of their purchase history as well as the order number in their profile.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="400" height="600" src="{% static '/img/docs/profile/screenshot_profile.png' %}">
+    <img width="400" height="600" src="/img/docs/profile/screenshot_profile.png">
 </div>
 
 #####   Blog View
@@ -89,9 +89,9 @@ the Sign Out button.
 - The user is able to browse through other categories or other articles after having read the single article.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="600" height="600" src="{% static '/img/docs/articles/screenshot_article1.png' %}">
-    <img width="600" height="600" src="{% static '/img/docs/articles/screenshot_article2.png' %}">
-    <img width="200" height="600" src="{% static '/img/docs/articles/screenshot_category3.png' %}">
+    <img width="600" height="600" src="/img/docs/articles/screenshot_article1.png">
+    <img width="600" height="600" src="/img/docs/articles/screenshot_article2.png">
+    <img width="200" height="600" src="/img/docs/articles/screenshot_category3.png">
 </div>
 
 #####   Cart View
@@ -110,8 +110,8 @@ the Sign Out button.
 - The user knows the transaction was processed via a success_page which (s)he is redirected to, confirming the order and sharing an order number.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="200" height="600" src="{% static '/img/docs/cart/screenshot_cart1.png' %}">
-    <img width="200" height="600" src="{% static '/img/docs/cart/cart2.png' %}">
+    <img width="200" height="600" src="/img/docs/cart/screenshot_cart1.png">
+    <img width="200" height="600" src="/img/docs/cart/cart2.png">
 </div>
 
 ##  UX Features
@@ -119,10 +119,10 @@ This project's ideation started from the Assignment's Mandatory Requirements, an
 features will be explained in the same order, showing how the project fullfills these requirements.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="600" height="600" src="{% static '/img/docs/wireframe/screenshot-wireframe1.png' %}">
-    <img width="600" height="600" src="{% static '/img/docs/wireframe/screenshot-wireframe2.png' %}">
-    <img width="600" height="600" src="{% static '/img/docs/wireframe/screenshot-wireframe3.png' %}">
-    <img width="600" height="600" src="{% static '/img/docs/wireframe/screenshot-wireframe4.png' %}">
+    <img width="600" height="600" src="/img/docs/wireframe/screenshot-wireframe1.png">
+    <img width="600" height="600" src="/img/docs/wireframe/screenshot-wireframe2.png">
+    <img width="600" height="600" src="/img/docs/wireframe/screenshot-wireframe3.png">
+    <img width="600" height="600" src="/img/docs/wireframe/screenshot-wireframe4.png">
 </div>
 
 ###### Data handling:
