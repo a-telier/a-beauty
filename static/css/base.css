@@ -42,7 +42,11 @@ a{
 }
 
 /*--------------------------------------------navbar*/
-#nav-bar{
+#nav-menu{
+    background-color: white;
+    z-index: 1;
+}
+.nav-bar{
     height: 80px;
 }
 .nav-link{
@@ -134,7 +138,7 @@ a{
 }
 /*-----------------------------------------footer*/
 .a-telier {
-    font-size: 1em;
+    font-size: 0.75em;
     font-family: 'Homemade Apple', cursive;
     color: black;
 
@@ -158,7 +162,6 @@ a{
         margin: 1%;
     }
     .nav-link{
-        padding: 0px;
         font-size: 1em;
     }
     #logo-image{
