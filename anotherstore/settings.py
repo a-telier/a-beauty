@@ -28,7 +28,7 @@ SECRET_KEY = 'j3zf=s+wt5y)43y*oqt06mx_q=s0d5o4uuqem@_=o5gj#b_s^0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['a-telier-beauty.herokuapp.com', 'localhost']
 
 
 # Application definition
