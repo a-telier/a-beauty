@@ -39,8 +39,8 @@ This site is meant for customers looking to buy beauty products or find inspirat
 - The user is able to see products by category of interest via the navigation menu.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="420" height="400" src="/anotherstore/documentation/img/home/screenshot_home1.png">
-    <img width="400" height="400" src="/anotherstore/documentation/img/home/screenshot_home2.png">
+    <img width="420" height="600" src="/anotherstore/documentation/img/home/screenshot_home1.png">
+    <img width="400" height="600" src="/anotherstore/documentation/img/home/screenshot_home2.png">
 </div>
 
 #####   Products View
@@ -88,9 +88,9 @@ the Sign Out button.
 - The user is able to browse through other categories or other articles after having read the single article.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="600" height="400" src="/anotherstore/documentation/img/articles/screenshot_article1.png">
-    <img width="600" height="400" src="/anotherstore/documentation/img/articles/screenshot_article2.png">
-    <img width="200" height="400" src="/anotherstore/documentation/img/articles/screenshot_category3.png">
+    <img width="600" height="600" src="/anotherstore/documentation/img/articles/screenshot_article1.png">
+    <img width="600" height="600" src="/anotherstore/documentation/img/articles/screenshot_article2.png">
+    <img width="200" height="600" src="/anotherstore/documentation/img/articles/screenshot_article3.png">
 </div>
 
 #####   Cart View
@@ -183,10 +183,10 @@ The final result, the deploy site, does not necessarily look like the wireframes
 but they were part of the process of defining which functions and data points would be needed to create this site.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="600" height="600" src="/img/wireframe/screenshot-wireframe1.png">
-    <img width="600" height="600" src="/img/wireframe/screenshot-wireframe2.png">
-    <img width="600" height="600" src="/img/wireframe/screenshot-wireframe3.png">
-    <img width="600" height="600" src="/img/wireframe/screenshot-wireframe4.png">
+    <img width="500" height="500" src="/anotherstore/documentation/img/wireframe/screenshot-wireframe1.png">
+    <img width="500" height="500" src="/anotherstore/documentation/img/wireframe/screenshot-wireframe2.png">
+    <img width="500" height="500" src="/anotherstore/documentation/img/wireframe/screenshot-wireframe3.png">
+    <img width="500" height="500" src="/anotherstore/documentation/img/wireframe/screenshot-wireframe4.png">
 </div>
 
 ###### Back-end:
