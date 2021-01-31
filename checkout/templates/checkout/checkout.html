@@ -20,7 +20,7 @@
         <div class="col-lg-12 col-sm-12">
             <h6>We need some a few more details about you to complete your order.. </h6>
         </div>
-        <div class="col-lg-6 col-sm-12 border mx-auto mt-3 mb-5">
+        <div class="col-10 col-sm-12 border mx-auto mt-3 mb-5">
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
                 <!-- Personal Information -->
