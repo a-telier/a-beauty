@@ -63,10 +63,12 @@
     </head>
         <body class="padding-top" data-media-url="{% get_media_prefix %}">
          <header class="container-fluid fixed-top" id="nav-menu">
-            <div class="row bg-white mx-auto">
+            <div class="row bg-white mx-auto d-inline">
                 <!-- DROPDOWN MENU -->
-                <div class="col l1 s4 my-auto">
+                <div class="col l4 s8 mx-auto my-auto">
+                    <div>
                     <nav class="nav-wrapper h-100 w-100" style="background-color: white !important;">
+                    </nav>
                     <ul id="slide-out" class="sidenav pt-5">
                         <div class="container">
                             <!-- Close the menu -->
@@ -116,17 +118,14 @@
                             </li>
                         </div>
                     </ul>
-                    </nav>
                     <!-- Sidenav trigger -->
                      <a href="#" data-target="slide-out" class="sidenav-trigger list-inline-item" id="icon-bars"><i class="fas fa-bars"></i></a>
-                </div>
-                <!-- LOGO -->
-                <div class="col l1 col s4 my-auto text-center">
-                    <a href="{% url 'home' %}" class="nav-link">
+                    <!-- LOGO -->
+                    <a href="{% url 'home' %}" class="" style="display: inline;">
                         <img id="logo-image" src="{% static 'img/logo/logo-a-telier.png' %}" alt="">
                     </a>
+                    </div>
                 </div>
-                <div class="col l2 d-none d-lg-block"></div>
                 <!-- SEARCH BAR -->
                 <div class="col l4 my-auto d-none d-lg-block">
                     <form method="GET" action="{% url 'products' %}">
@@ -142,9 +141,8 @@
                         </div>
                     </form>
                 </div>
-                <div class="col l2 s0 d-none d-lg-block"></div>
                 <!-- ICONS - MY ACCOUNT & SHOPPING CART -->
-                <div class="col l2 col s4 right" id="nav-bar">
+                <div class="col l4 s4 right" id="nav-bar">
                     <ul class="list-inline list-unstyled text-center text-black text-right d-flex flex-row-reverse">
                         <!-- My shopping cart -->
                         <li class="list-inline-item mx-auto my-auto" id="shopping-icon">
@@ -154,7 +152,7 @@
                             </a>
                         </li>
                         <!-- My account -->
-                        <li class="list-inline-item dropdown mx-auto my-auto d-none d-lg-block">
+                        <!-- <li class="list-inline-item dropdown mx-auto my-auto d-none d-lg-block">
                             <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
                                     <div><i class="far fa-user text-dark"></i></div>
@@ -169,13 +167,13 @@
                                     <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                                 {% endif %}
                             </div>
-                        </li>
+                        </li> -->
                         <!-- Ratings -->
-                        <li class="list-inline-item d-none d-lg-block mx-auto my-auto">
+                        <!-- <li class="list-inline-item d-none d-lg-block mx-auto my-auto">
                             <a id="" class="nav-link" href="#">
                                 <span><i class="far fa-heart"></i></span>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -222,6 +220,7 @@
                   <li><a class="grey-text text-lighten-3" href="{% url 'products' %}?category=eyes">Eyes</a></li>
                   <li><a class="grey-text text-lighten-3" href="{% url 'products' %}?category=face">Face</a></li>
                   <li><a class="grey-text text-lighten-3" href="{% url 'products' %}?category=sun">Sun</a></li>
+                  <li><a class="grey-text text-lighten-3" href="{% url 'products' %}?category=essentials">Essentials</a></li>
                 </ul>
               </div>
             </div>
