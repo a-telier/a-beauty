@@ -39,8 +39,8 @@ This site is meant for customers looking to buy beauty products or find inspirat
 - The user is able to see products by category of interest via the navigation menu.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="420" height="400" src="/img/home/screenshot_home1.png">
-    <img width="400" height="400" src="/img/home/screenshot_home2.png">
+    <img width="420" height="400" src="/anotherstore/documentation/img/home/screenshot_home1.png">
+    <img width="400" height="400" src="/anotherstore/documentation/img/home/screenshot_home2.png">
 </div>
 
 #####   Products View
@@ -64,8 +64,8 @@ This site is meant for customers looking to buy beauty products or find inspirat
 - The user is able to specify the quantity of products they would like to add to their cart.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="600" height="400" src="/img/categories/screenshot_category1.png">
-    <img width="200" height="400" src="/img/categories/screenshot_category2.png">
+    <img width="600" height="400" src="/anotherstore/documentation/img/categories/screenshot_category1.png">
+    <img width="200" height="400" src="/anotherstore/documentation/img/categories/screenshot_category2.png">
 </div>
 
 #####   Profile View
@@ -77,7 +77,7 @@ the Sign Out button.
 - When logged in, the user is able to see a summary of their purchase history as well as the order number in their profile.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="400" height="600" src="/img/profile/screenshot_profile.png">
+    <img width="400" height="600" src="/anotherstore/documentation/img/profile/screenshot_profile.png">
 </div>
 
 #####   Blog View
@@ -88,9 +88,9 @@ the Sign Out button.
 - The user is able to browse through other categories or other articles after having read the single article.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="600" height="400" src="/img/articles/screenshot_article1.png">
-    <img width="600" height="400" src="/img/articles/screenshot_article2.png">
-    <img width="200" height="400" src="/img/articles/screenshot_category3.png">
+    <img width="600" height="400" src="/anotherstore/documentation/img/articles/screenshot_article1.png">
+    <img width="600" height="400" src="/anotherstore/documentation/img/articles/screenshot_article2.png">
+    <img width="200" height="400" src="/anotherstore/documentation/img/articles/screenshot_category3.png">
 </div>
 
 #####   Cart View
@@ -109,8 +109,8 @@ the Sign Out button.
 - The user knows the transaction was processed via a success_page which (s)he is redirected to, confirming the order and sharing an order number.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="200" height="400" src="/img/cart/screenshot_cart1.png">
-    <img width="200" height="400" src="/img/cart/screenshot_cart2.png">
+    <img width="200" height="400" src="/anotherstore/documentation/img/cart/screenshot_cart1.png">
+    <img width="200" height="400" src="/anotherstore/documentation/img/cart/screenshot_cart2.png">
 </div>
 
 ##  UX Features
