@@ -38,9 +38,9 @@ This site is meant for customers looking to buy beauty products or find inspirat
 - The user is able to navigate through the site by using the navigation menu.
 - The user is able to see products by category of interest via the navigation menu.
 
-<div style="display: inline block;">
-    <img width="400" height="800" src="static/img/docs/home/Screenshot 2021-01-31 at 14.28.48.png">
-    <img width="400" height="800" src="static/img/docs/home/Screenshot 2021-01-31 at 14.28.58.png">
+<div style="display: inline block; background-size:contain;">
+    <img width="400" height="600" src="{% static 'img/docs/home/Screenshot 2021-01-31 at 14.28.48.png' %}">
+    <img width="400" height="600" src="{% static 'img/docs/home/Screenshot 2021-01-31 at 14.28.58.png' %}">
 </div>
 
 #####   Products View
@@ -63,9 +63,36 @@ This site is meant for customers looking to buy beauty products or find inspirat
 - The user has similar functionalities than in the home page ex. adding products to cart.
 - The user is able to specify the quantity of products they would like to add to their cart.
 
-<!-- <div style="display: inline block;">
-    <img width="400" height="300" src="/static/img/documentation/wireframe-category.png">
-</div> -->
+<div style="display: inline block; background-size:contain;">
+    <img width="400" height="600" src="{% static 'img/docs/categories/Screenshot 2021-01-31 at 14.29.32.png' %}">
+    <img width="400" height="600" src="{% static 'img/docs/home/Screenshot 2021-01-31 at 14.28.58.png' %}">
+    <img width="800" height="600" src="{% static 'img/docs/categories/Screenshot 2021-01-31 at 20.28.14.png' %}">
+</div>
+
+#####   Profile View
+- The user is able to login by creating an account which requires a username and password.
+- If the user is not logged in, the button displayed in navigator will say 'Login', if the 
+user has already logged in the button will display 'Sign out'.
+- The user is able to sign out of their account, which removes the cookie session by clicking on 
+the Sign Out button.
+- When logged in, the user is able to see a summary of their purchase history as well as the order number in their profile.
+
+<div style="display: inline block; background-size:contain;">
+    <img width="400" height="600" src="{% static '/img/docs/profile/Screenshot 2021-01-31 at 14.30.09.png' %}">
+</div>
+
+#####   Blog View
+- The user can access the category 'blog' via the sidenav navigation menu.
+- The user is able to see an overview of all posted articles.
+- The user is able to filter by category by clicking on the tags above the articles.
+- The user is able to see each single article.
+- The user is able to browse through other categories or other articles after having read the single article.
+
+<div style="display: inline block; background-size:contain;">
+    <img width="400" height="600" src="{% static '/img/docs/articles/Screenshot 2021-01-31 at 14.27.20.png' %}">
+    <img width="400" height="600" src="{% static '/img/docs/articles/Screenshot 2021-01-31 at 14.27.45.png' %}">
+    <img width="800" height="600" src="{% static '/img/docs/articles/Screenshot 2021-01-31 at 14.29.11.png' %}">
+</div>
 
 #####   Cart View
 - The user is able to access their cart at any point by clicking on the top right shopping basket icon.
@@ -82,23 +109,21 @@ This site is meant for customers looking to buy beauty products or find inspirat
 - The user is able to then complete their order by filling in their personal details, shipping information and payment details.
 - The user knows the transaction was processed via a success_page which (s)he is redirected to, confirming the order and sharing an order number.
 
-#####   Profile View
-- The user is able to login by creating an account which requires a username and password.
-- If the user is not logged in, the button displayed in navigator will say 'Login', if the 
-user has already logged in the button will display 'Sign out'.
-- The user is able to sign out of their account, which removes the cookie session by clicking on 
-the Sign Out button.
-- When logged in, the user is able to see a summary of their purchase history as well as the order number in their profile.
-
-
-<!-- <div style="display: inline block;">
-    <img width="400" height="300" src="/static/img/documentation/wireframe-profile.png">
-    <img width="400" height="300" src="/static/img/documentation/wireframe-add.png">
-</div> -->
+<div style="display: inline block; background-size:contain;">
+    <img width="400" height="600" src="{% static '/img/docs/cart/Screenshot 2021-01-31 at 14.29.55.png' %}">
+    <img width="400" height="600" src="{% static '/img/docs/cart/Screenshot 2021-01-31 at 14.30.58.png' %}">
+</div>
 
 ##  UX Features
 This project's ideation started from the Assignment's Mandatory Requirements, and therefore the 
 features will be explained in the same order, showing how the project fullfills these requirements.
+
+<div style="display: inline block; background-size:contain;">
+    <img width="600" height="600" src="{% static '/img/docs/wireframe/Screenshot 2021-01-31 at 20.32.26.png' %}">
+    <img width="600" height="600" src="{% static '/img/docs/wireframe/Screenshot 2021-01-31 at 20.32.36.png' %}">
+    <img width="600" height="600" src="{% static '/img/docs/wireframe/Screenshot 2021-01-31 at 20.32.46.png' %}">
+    <img width="600" height="600" src="{% static '/img/docs/wireframe/Screenshot 2021-01-31 at 20.32.56.png' %}">
+</div>
 
 ###### Data handling:
 - The database is handled via Django's own database and admin interface.
