@@ -44,7 +44,6 @@ a{
 /*--------------------------------------------navbar*/
 #nav-menu{
     background-color: white;
-    z-index: 1;
 }
 .nav-bar{
     height: 80px;
@@ -54,6 +53,17 @@ a{
 }
 .list-inline-item{
     font-size: 2em;
+}
+.sidenav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    height: 120vh;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 0 !important;
+    display: none;
 }
 /*--------------------------------------------icons*/
 /* from Bulma */
@@ -79,9 +89,9 @@ a{
     border-radius: 2px;
 }
 #cart-badge{
-    font-size: 0.7em;;
+    font-size: 0.5em;;
     position: absolute;
-    top: -10px;
+    top: 0px;
     right: -10px;
     padding: 5px 10px;
     border-radius: 50%;
@@ -160,6 +170,7 @@ a{
         display: inline !important;
         padding: 1%;
         margin: 1%;
+        z-index: 999;
     }
     .nav-link{
         font-size: 1em;

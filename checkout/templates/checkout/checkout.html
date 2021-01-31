@@ -61,27 +61,33 @@
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
                  <!-- Action buttons -->
-                <div class="col s12 submit-button mb-4 d-inline pb-5">                  
-                    <a href="{% url 'view_cart' %}" class="btn btn-outline-dark font-weight-bold">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="font-weight-bold">Adjust</span>
-                    </a>
-                    <div class="wrapper">
-                        <button id="submit-button" class="btn btn-danger font-weight-bold">
-                            <span class="font-weight-bold">Go to Payment</span>
+                <div class="row d-inline h-100">
+                    <div class="col s6">
+                        <span class="submit-button">             
+                        <a href="{% url 'view_cart' %}" class="btn btn-outline-dark font-weight-bold">
                             <span class="icon">
-                                <i class="fas fa-lock"></i>
+                                <i class="fas fa-chevron-left"></i>
                             </span>
-                        </button>
-                    </div>
-                    <p class="small text-danger my-0 text-right">
-                        <span class="icon">
-                            <i class="fas fa-exclamation-circle"></i>
+                            <span class="font-weight-bold">Adjust</span>
+                        </a>
                         </span>
-                        <span>You will be charged <strong>{{ grand_total|floatformat:0 }}kr</strong></span>
-                    </p>
+                    </div>
+                    <div class="col s6">
+                            <button id="submit-button" class="btn btn-danger submit-button font-weight-bold right">
+                                <span class="font-weight-bold">Go to Payment</span>
+                                <span class="icon"><i class="fas fa-lock"></i></span>
+                            </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <p class="small text-danger my-0 right">
+                            <span class="icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </span>
+                            <span>You will be charged <strong>{{ grand_total|floatformat:0 }}kr</strong></span>
+                        </p>
+                    </div>
                 </div>
             </form>
         </div>
@@ -160,6 +166,7 @@
         </div>
     </div>
 </div>
+<!-- Overlay = Processing your order -->
 <div class="overlay vwtop10" id="overlay-loading"></div>
 <div class="spanner">
   <div class="loader"></div>
