@@ -64,9 +64,9 @@ This site is meant for customers looking to buy beauty products or find inspirat
 - The user is able to specify the quantity of products they would like to add to their cart.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="400" height="600" src="{% static 'img/docs/categories/Screenshot 2021-01-31 at 14.29.32.png' %}">
-    <img width="400" height="600" src="{% static 'img/docs/home/Screenshot 2021-01-31 at 14.28.58.png' %}">
-    <img width="800" height="600" src="{% static 'img/docs/categories/Screenshot 2021-01-31 at 20.28.14.png' %}">
+    <img width="400" height="600" src="{% static 'img/docs/home/screenshot_home.png' %}">
+    <img width="600" height="600" src="{% static 'img/docs/categories/screenshot_category1.png' %}">
+    <img width="200" height="600" src="{% static 'img/docs/categories/screenshot_category2.png' %}">
 </div>
 
 #####   Profile View
@@ -78,7 +78,7 @@ the Sign Out button.
 - When logged in, the user is able to see a summary of their purchase history as well as the order number in their profile.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="400" height="600" src="{% static '/img/docs/profile/Screenshot 2021-01-31 at 14.30.09.png' %}">
+    <img width="400" height="600" src="{% static '/img/docs/profile/screenshot_profile.png' %}">
 </div>
 
 #####   Blog View
@@ -89,9 +89,9 @@ the Sign Out button.
 - The user is able to browse through other categories or other articles after having read the single article.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="400" height="600" src="{% static '/img/docs/articles/Screenshot 2021-01-31 at 14.27.20.png' %}">
-    <img width="400" height="600" src="{% static '/img/docs/articles/Screenshot 2021-01-31 at 14.27.45.png' %}">
-    <img width="800" height="600" src="{% static '/img/docs/articles/Screenshot 2021-01-31 at 14.29.11.png' %}">
+    <img width="600" height="600" src="{% static '/img/docs/articles/screenshot_article1.png' %}">
+    <img width="600" height="600" src="{% static '/img/docs/articles/screenshot_article2.png' %}">
+    <img width="200" height="600" src="{% static '/img/docs/articles/screenshot_category3.png' %}">
 </div>
 
 #####   Cart View
@@ -110,8 +110,8 @@ the Sign Out button.
 - The user knows the transaction was processed via a success_page which (s)he is redirected to, confirming the order and sharing an order number.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="400" height="600" src="{% static '/img/docs/cart/Screenshot 2021-01-31 at 14.29.55.png' %}">
-    <img width="400" height="600" src="{% static '/img/docs/cart/Screenshot 2021-01-31 at 14.30.58.png' %}">
+    <img width="200" height="600" src="{% static '/img/docs/cart/screenshot_cart1.png' %}">
+    <img width="200" height="600" src="{% static '/img/docs/cart/cart2.png' %}">
 </div>
 
 ##  UX Features
@@ -119,10 +119,10 @@ This project's ideation started from the Assignment's Mandatory Requirements, an
 features will be explained in the same order, showing how the project fullfills these requirements.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="600" height="600" src="{% static '/img/docs/wireframe/Screenshot 2021-01-31 at 20.32.26.png' %}">
-    <img width="600" height="600" src="{% static '/img/docs/wireframe/Screenshot 2021-01-31 at 20.32.36.png' %}">
-    <img width="600" height="600" src="{% static '/img/docs/wireframe/Screenshot 2021-01-31 at 20.32.46.png' %}">
-    <img width="600" height="600" src="{% static '/img/docs/wireframe/Screenshot 2021-01-31 at 20.32.56.png' %}">
+    <img width="600" height="600" src="{% static '/img/docs/wireframe/screenshot-wireframe1.png' %}">
+    <img width="600" height="600" src="{% static '/img/docs/wireframe/screenshot-wireframe2.png' %}">
+    <img width="600" height="600" src="{% static '/img/docs/wireframe/screenshot-wireframe3.png' %}">
+    <img width="600" height="600" src="{% static '/img/docs/wireframe/screenshot-wireframe4.png' %}">
 </div>
 
 ###### Data handling:
