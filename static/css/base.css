@@ -139,6 +139,7 @@ a{
 .product-image{
     background-size: contain;
 }
+
 /*-----------------------------------------articles*/
 .article-teaser{
 
@@ -148,7 +149,23 @@ a{
     background-repeat:no-repeat;
     background-size: auto;
 }
+
+/*-----------------------------------------profile*/
+#checkbox-save-info{
+    opacity: 50%;
+}
+
 /*-----------------------------------------footer*/
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+    
 .a-telier {
     font-size: 0.75em;
     font-family: 'Homemade Apple', cursive;
@@ -165,6 +182,12 @@ a{
     }
     .vwtop10{
     margin-top: 21vw;
+    }
+    .checkout-buttons{
+        text-align: right
+    }
+    .product-image{
+        padding: 5px 5px;
     }
 }
 /*mobile screens only - under 320px width*/

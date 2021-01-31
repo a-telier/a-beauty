@@ -160,8 +160,10 @@
             <hr class="mb-1">
         </header>
 
+        <main>
         {% block content %}
         {% endblock %}
+        </main>
 
         <!-- MESSAGES -->
         {% if messages %}
@@ -189,13 +191,13 @@
         <!-- FOOTER -->
         {% block footer%}
         <footer class="page-footer cyan lighten-2">
-          <div class="container">
+          <div class="container-fluid w-100">
             <div class="row">
               <div class="col l6 s12">
                 <h5 class="white-text">A-telier Beauty</h5>
                 <p class="grey-text text-lighten-4">This site is for education purposes only.</p>
               </div>
-              <div class="col l4 offset-l2 s12">
+              <div class="col l6 offset-l2 s12">
                 <h5 class="white-text">Our Categories</h5>
                 <ul>
                   <li><a class="grey-text text-lighten-3" href="{% url 'products' %}?category=lips">Lips</a></li>
@@ -207,6 +209,7 @@
               </div>
             </div>
           </div>
+          <!-- Signature -->
           <div class="footer-copyright black">
                 <span class="text-white text-center px-3 a-telier">Crafted by A-telier</span>
           </div>

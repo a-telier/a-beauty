@@ -9,7 +9,7 @@
         <div class="card d-block">
             <!-- Card Image -->
             <div class="col-lg-6 col-sm-12 left">
-                <div class="card-image my-auto mx-auto mb-0">
+                <div class="card-image my-4 mx-4 mb-0">
                     {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
                         <img class="product-image" src="{{ MEDIA_URL }}/{{ product.image }}" alt="{{ product.brand }} {{ product.name }}">
@@ -90,10 +90,10 @@
                         </div>
                         </div>
                         </div>
-                        <div class="mt-5">
+                        <div class="my-5">
                             <h6>PRODUCT DESCRIPTION</h6>
                             <span>
-                                {{ product.description|lower|capfirst }}
+                                {{ product.description|lower|capfirst|linebreaks }}
                             </span>
                         </div>
                     </div>
@@ -107,11 +107,11 @@
                 <h3 class="">OTHER SUGGESTIONS WITHIN {{ product.category|upper }} </h3>
             </div>
         </div>
+        <!-- Products -->
         <div class="row">
             {% for prod in products %}
             {% if prod.category == product.category and prod.id != product.id %}
-            {% if forloop.counter <= 4 %}
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-sm-6">
                 <div class="card h-80 border-0">
                     <!-- Card Image -->
                     <div class="card-image my-auto mx-auto mb-0">
@@ -154,7 +154,6 @@
                     </div>
                 </div>
             </div>
-            {% endif %}
             {% endif %}
             {% endfor %}
         </div>

@@ -38,12 +38,12 @@
                     {{ order_form.postcode | as_crispy_field }}
                     {{ order_form.country }}
                     <!-- Save my information to my profile -->
-                    <div class="form-check form-check-inline float-right mr-0">
+                    <div class="col-lg-12 form-check form-check-inline">
                         {% if user.is_authenticated %}
-                        <label class="form-check-label" for="id-save-info">Do you want to save your delivery information for next time?</label>
-                        <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                        <label class="form-check-label" for="checkbox-save-info">Do you want to save your delivery information for next time?</label>
+                        <input class="form-check-input mr-0" type="checkbox" id="checkbox-save-info" name="checkbox-save-info" checked>
                         {% else %}
-                        <label class="form-check-label" for="id-save-info">
+                        <label class="form-check-label" for="checkbox-save-info">
                             <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
                             <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
                         </label>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="col s6">
                             <button id="submit-button" class="btn btn-danger submit-button font-weight-bold right">
-                                <span class="font-weight-bold">Go to Payment</span>
+                                <span class="font-weight-bold">Payment</span>
                                 <span class="icon"><i class="fas fa-lock"></i></span>
                             </button>
                     </div>
@@ -93,8 +93,8 @@
         </div>
         <!-- Summary of items in your cart -->
         <div class="row">
-            <div class="col-lg-12 col-sm-12">
-                <h6>Order Summary ({{ product_count }} items)</h6>
+            <div class="col-lg-12 col-sm-12 px-2">
+                <h6 class="px-3">Order Summary ({{ product_count }} items)</h6>
             </div>
             <div class="col-10 col-sm-12 border mx-auto mb-5">
                 <div class="table-responsive">

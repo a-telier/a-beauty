@@ -46,3 +46,5 @@ Blog
 https://djangocentral.com/building-a-blog-application-with-django/
 https://www.geeksforgeeks.org/slugfield-django-models/
 
+Footer
+https://materializecss.com/footer.html
