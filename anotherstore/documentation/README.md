@@ -88,9 +88,9 @@ the Sign Out button.
 - The user is able to browse through other categories or other articles after having read the single article.
 
 <div style="display: inline block; background-size:contain;">
-    <img width="600" height="600" src="/anotherstore/documentation/img/articles/screenshot_article1.png">
-    <img width="600" height="600" src="/anotherstore/documentation/img/articles/screenshot_article2.png">
-    <img width="200" height="600" src="/anotherstore/documentation/img/articles/screenshot_article3.png">
+    <img width="600" height="700" src="/anotherstore/documentation/img/articles/screenshot_article1.png">
+    <img width="600" height="700" src="/anotherstore/documentation/img/articles/screenshot_article2.png">
+    <img width="200" height="400" src="/anotherstore/documentation/img/articles/screenshot_article3.png">
 </div>
 
 #####   Cart View
