@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lato:wght@400;700;900&family=Leckerli+One&family=Montserrat:wght@500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
 
 /*--------------------------------------------general*/
 html{
@@ -41,17 +42,16 @@ a{
 }
 
 /*--------------------------------------------navbar*/
-#topnav{
-    margin-bottom: 0px !important;
-}
-.text-handwriten{
-    font-family: 'Caveat', cursive;
-    font-size: bold;
+#nav-bar{
+    height: 80px;
 }
 .nav-link{
     font-size: 1.2em;
 }
-/*-----------------------------------icons*/
+.list-inline-item{
+    font-size: 2em;
+}
+/*--------------------------------------------icons*/
 /* from Bulma */
 .icon {
     align-items: center;
@@ -60,7 +60,11 @@ a{
     height: 1.5rem;
     width: 1.5rem;
 }
-/*-----------------------------------badges*/
+#shopping-icon{
+    margin-right: 0px !important;
+}
+
+/*-------------------------------------------badges*/
 #badge-notification{
     background-color: #555;
     color: white;
@@ -71,6 +75,7 @@ a{
     border-radius: 2px;
 }
 #cart-badge{
+    font-size: 0.7em;;
     position: absolute;
     top: -10px;
     right: -10px;
@@ -79,9 +84,9 @@ a{
     background: black;
     color: white;
 }
-/*------------------------------------buttons*/
+/*------------------------------------------buttons*/
 
-/*-----------------------------------landing*/
+/*------------------------------------------landing*/
 .landing{
     background-repeat: no-repeat;
     background-position: center;
@@ -89,7 +94,7 @@ a{
     background-size: cover !important;
 }
 #logo-image{
-    height: 5vw;
+    height: 60px;
     width: auto;
     background-size: contain;
 }
@@ -98,7 +103,7 @@ a{
     padding-top: 4vw !important;
     z-index: 1;
 }
-/*-----------------------------------categories*/
+/*-----------------------------------------categories*/
 .landing-cat{
     height: 10vw;
     background-color: black;
@@ -111,14 +116,14 @@ a{
 .bg-categories{
     height: 4vw;
 }
-/*-----------------------------------products*/
+/*-----------------------------------------products*/
 .vwtop10{
     margin-top: 10vw;
 }
 .product-image{
     background-size: contain;
 }
-/*-----------------------------------articles*/
+/*-----------------------------------------articles*/
 .article-teaser{
 
 }
@@ -126,4 +131,47 @@ a{
     height: 300px;
     background-repeat:no-repeat;
     background-size: auto;
+}
+/*-----------------------------------------footer*/
+.a-telier {
+    font-size: 1em;
+    font-family: 'Homemade Apple', cursive;
+    color: black;
+
+    z-index: 8;
+}
+
+/*-------- MEDIA QUERIES --------*/
+
+/*ipad screens only - under 770px width*/
+@media screen and (max-width: 768px){
+
+}
+/*mobile screens only - under 320px width*/
+@media screen and (max-width: 375px){
+    .vwtop10{
+    margin-top: 28vw;
+    }
+    #nav-menu{
+        display: inline !important;
+        padding: 1%;
+        margin: 1%;
+    }
+    .nav-link{
+        padding: 0px;
+        font-size: 1em;
+    }
+    #logo-image{
+        height: 40px;
+        width: auto;
+        background-size: contain;
+    }
+    .list-inline-item{
+        font-size: 1.5em;
+        
+    }
+}
+/*mobile screens only iphone 5SE - under 320px width*/
+@media screen and (max-width: 280px){
+
 }
