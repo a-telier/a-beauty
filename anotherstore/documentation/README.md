@@ -393,11 +393,56 @@ pictures and make them available to other users for free.
 to the Profile page.
   [Learn more about Font Awesome.](https://fontawesome.com/icons?d=gallery)
 
-###### Login System:
-<!-- Add more information here -->
+###### Structure:
+* Set-up
+- [Python Django Web Framework - Full Course for Beginners at FreeCodeCamp.org](https://www.youtube.com/watch?v=F5mRW0jo-U4&feature=share)
+- [Django Documentation](https://docs.djangoproject.com/en/3.1/)
+- [How to structure Django project - Stack Overflow](https://stackoverflow.com/questions/22841764/best-practice-for-django-project-working-directory-structure)
 
-###### Documentation:
-<!-- Add more information here -->
+* Paths
+- [What is init used for & modifying default path](http://effbot.org/pyfaq/what-is-init-py-used-for.htm)
+- [Search Path in Python](https://docs.python.org/3/install/index.html#modifying-python-s-search-path)
+
+* Blog
+- [How to build a Django blog](https://djangocentral.com/building-a-blog-application-with-django/)
+- [Slugfield in Django](https://www.geeksforgeeks.org/slugfield-django-models/)
+
+###### Navbar:
+* Sidenav
+- [Materialize sidenav](https://materializecss.com/sidenav.html)
+- [Collapsible dropdown submenu](https://jsfiddle.net/zmgxz3o1/)
+
+###### Authentication:
+- [Allaut](https://django-allauth.readthedocs.io/en/latest/configuration.html)
+
+###### Styling:
+- [Git Commit Emojis](https://gist.github.com/parmentf/035de27d6ed1dce0b36a)
+
+* Overlay spinner
+- [Spinner](https://codepen.io/umng/pen/wZzbbQ)
+
+* Cart badge
+- [Shoppig cart badge](https://stackoverflow.com/questions/29313879/shopping-cart-number-of-items-in-cart-css)
+- [Badges](https://www.w3schools.com/bootstrap4/bootstrap_badges.asp)
+
+###### Forms:
+- [Form fields (Crispy forms and Django fields)](https://www.geeksforgeeks.org/autofield-django-models/)
+- [Advanced Crispy Forms](https://simpleisbetterthancomplex.com/tutorial/2018/11/28/advanced-form-rendering-with-django-crispy-forms.html)
+
+###### Payment:
+- [Stripe documentation](https://stripe.com/docs/payments)
+- [Accept a card payment](https://github.com/stripe-samples/accept-a-card-payment)
+- [Testing Stripe payments](https://stripe.com/docs/testing)
+
+- [Mandatory Stripe fields](https://stripe.com/docs/api/payment_methods/create#create_payment_method-billing_details)
+- [Payment Intent Shipping](https://stripe.com/docs/api/payment_intents/confirm#confirm_payment_intent-shipping)
+
+###### Footer:
+- [Materialize footer](https://materializecss.com/footer.html)
+
+###### Debugging:
+- [Diffchecker](https://www.diffchecker.com/)
 
 ## Acknowledgements
-<!-- Add more information here -->
+I would like to thank the code institute tutors Scott, Igor and Michael who supported me in debugging, and overcoming the different challenges I encountered.
+I would also like to thank my fiancé, Jonatan, for his unconditional support.
