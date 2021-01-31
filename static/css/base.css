@@ -98,8 +98,10 @@ a{
     background: black;
     color: white;
 }
-/*------------------------------------------buttons*/
-
+.img-thumbnail{
+    height: 100px;
+    width: 100px;
+}
 /*------------------------------------------landing*/
 .landing{
     background-repeat: no-repeat;
@@ -156,15 +158,19 @@ a{
 }
 
 /*-------- MEDIA QUERIES --------*/
-
 /*ipad screens only - under 770px width*/
 @media screen and (max-width: 768px){
-
+    h4{
+        font-size: 1em;
+    }
+    .vwtop10{
+    margin-top: 21vw;
+    }
 }
 /*mobile screens only - under 320px width*/
 @media screen and (max-width: 375px){
     .vwtop10{
-    margin-top: 28vw;
+    margin-top: 34vw;
     }
     #nav-menu{
         display: inline !important;
@@ -184,8 +190,19 @@ a{
         font-size: 1.5em;
         
     }
+    .img-thumbnail{
+        height: 60px;
+    }
 }
 /*mobile screens only iphone 5SE - under 320px width*/
 @media screen and (max-width: 280px){
-
+    .vwtop10{
+        margin-top: 38vw;
+    }
+    .nav-bar{
+        height: 60px;
+    }
+    #nav-menu{
+        height: 60px;
+    }
 }

@@ -43,7 +43,7 @@
                         <tr>
                             {% for item in order.lineitems.all %}
                             <td>{{ item.product.name }}</td>
-                            <td><img class="img-thumbnail product-image" src="../media/{{ item.product.image }}" alt="" style="height: 75px; width: 75px;"></td>
+                            <td><img class="img-thumbnail product-image" src="../media/{{ item.product.image }}" alt=""></td>
                             <td>{{ item.product.sku }}</td>
                             <td>{{ item.quantity }}</td>
                             <td>{{ item.lineitem_total }}</td>

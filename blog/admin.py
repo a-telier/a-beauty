@@ -4,8 +4,8 @@ from .models import Article, Blog_category
 # Register your models here.
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('blog_category', 'title', 'url', 'status', 'created_on')
-    list_filter = ("status",)
+    list_display = ('blog_category', 'title', 'url', 'created_on')
+    # list_filter = ("status",)
     search_fields = ['title', 'content']
     prepopulated_fields = {'url': ('title',)}
   

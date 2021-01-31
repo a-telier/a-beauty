@@ -36,7 +36,7 @@
                     {{ order_form.address | as_crispy_field }}
                     {{ order_form.city | as_crispy_field }}
                     {{ order_form.postcode | as_crispy_field }}
-                    {{ order_form.country | as_crispy_field }}
+                    {{ order_form.country }}
                     <!-- Save my information to my profile -->
                     <div class="form-check form-check-inline float-right mr-0">
                         {% if user.is_authenticated %}
@@ -92,7 +92,7 @@
             </form>
         </div>
         <!-- Summary of items in your cart -->
-        <div class="col-lg-6 col-sm-12">
+        <div class="row">
             <div class="col-lg-12 col-sm-12">
                 <h6>Order Summary ({{ product_count }} items)</h6>
             </div>
@@ -115,11 +115,11 @@
                             <td class="py-3">
                                 {% if item.product.image %}
                                 <a href="{% url 'product_detail' item.product.id %}">
-                                    <img class="img-thumbnail" style="height: 100px;" src="{{ item.product.image.url }}">
+                                    <img class="img-thumbnail" src="{{ item.product.image.url }}">
                                 </a>
                                 {% else %}
                                 <a href="{% url 'product_detail' item.product.id %}">
-                                    <img class="img-thumbnail" style="height: 100px;" src="../media/missing-image.jpg">
+                                    <img class="img-thumbnail" src="../media/missing-image.jpg">
                                 </a>
                                 {% endif %}
                             </td>
@@ -128,10 +128,10 @@
                                 <h6 class=""><strong>{{ item.product.name }}</strong></h6>
                                 <p class="small text-muted">SKU: {{ item.product.sku|upper }}</p>
                             </td>
+                            <!-- Quantity -->
                             <td class="py-3">
                                 <form class="form update-form d-inline" method="POST" action="{% url 'update_cart' item.item_id %}">
-                                    <!-- quantity -->
-                                    <div class="d-inline">
+                                    <div class="d-inline text-center">
                                         <input class="qty_input" style="box-shadow: none!important; text-align: center;"
                                         type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
                                         data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
@@ -140,7 +140,7 @@
                             </td>
                             <!-- Display product price -->
                             <td class="py-3">
-                                <h4 class="">{{ item.product.price }}kr</h4>
+                                <h4 class="mx-auto">{{ item.product.price }}kr</h4>
                             </td>
                             <!-- Display subtotal per product in basket -->
                             <td class="py-3">

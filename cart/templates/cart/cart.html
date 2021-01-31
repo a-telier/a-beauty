@@ -14,7 +14,7 @@
         <div class="col-lg-10 col-sm-12 border mx-auto mb-5">
             <!-- If the cart is not empty -->
             {% if cart_items %}
-            <p>You have {{ product_count }} items in your cart.</p>
+            <p class="text-muted">You have {{ product_count }} items in your cart.</p>
                 <div class="table-responsive">
                     <table class="table table-sm table-borderless">
                         <!-- Cart Items -->
@@ -33,11 +33,11 @@
                             <td class="py-3">
                                 {% if item.product.image %}
                                 <a href="{% url 'product_detail' item.product.id %}">
-                                    <img class="img-thumbnail" style="height: 100px;" src="{{ item.product.image.url }}">
+                                    <img class="img-thumbnail" src="{{ item.product.image.url }}">
                                 </a>
                                 {% else %}
                                 <a href="{% url 'product_detail' item.product.id %}">
-                                    <img class="img-thumbnail" style="height: 100px;" src="../media/missing-image.jpg">
+                                    <img class="img-thumbnail" src="../media/missing-image.jpg">
                                 </a>
                                 {% endif %}
                             </td>
