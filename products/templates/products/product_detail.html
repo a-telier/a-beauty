@@ -9,7 +9,7 @@
         <div class="card d-block">
             <!-- Card Image -->
             <div class="col-lg-6 col-sm-12 left">
-                <div class="card-image my-4 mx-4 mb-0">
+                <div class="card-image my-auto mx-auto mb-0">
                     {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
                         <img class="product-image" src="{{ MEDIA_URL }}/{{ product.image }}" alt="{{ product.brand }} {{ product.name }}">
