@@ -77,21 +77,26 @@
                             <!-- Home -->
                             <li class="pt-3"><a href="{% url 'home' %}"><i class="fas fa-home"></i>Home</a></li>
                             <!-- Categories -->
-                            <li class="nav-item dropdown">
-                                <a class="font-weight-bold nav-link" href="#" id="per-category-link" 
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-chevron-down"></i>Categories</a>
-                                <div class="dropdown-menu border-0" aria-labelledby="per-category-link">
-                                    <a href="{% url 'products' %}?category=lips" class="dropdown-item">Lips</a>
-                                    <a href="{% url 'products' %}?category=eyes" class="dropdown-item">Eyes</a>
-                                    <a href="{% url 'products' %}?category=face" class="dropdown-item">Face</a>
-                                    <a href="{% url 'products' %}?category=sun" class="dropdown-item">Sun</a>
-                                    <a href="{% url 'products' %}" class="dropdown-item"><strong>All Categories</strong></a>
+                            <li class="nav-item">
+                                <ul class="collapsible collapsible-accordion">
+                                <li>
+                                    <a class="collapsible-header"><i class="fas fa-chevron-down pl-2"></i><strong>  Categories</strong></a>
+                                    <!-- Submenu items -->
+                                    <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="{% url 'products' %}"><i class="fas fa-angle-right"></i><strong> All Products</strong></a></li>
+                                        <li><a href="{% url 'products' %}?category=lips"><i class="fas fa-angle-right"></i> Lips</a></li>
+                                        <li><a href="{% url 'products' %}?category=eyes"><i class="fas fa-angle-right"></i> Eyes</a></li>
+                                        <li><a href="{% url 'products' %}?category=face"><i class="fas fa-angle-right"></i> Face</a></li>
+                                        <li><a href="{% url 'products' %}?category=sun"><i class="fas fa-angle-right"></i> Sun</a></li>
+                                        <li><a href="{% url 'products' %}?category=essentials"><i class="fas fa-angle-right"></i> Essentials</a></li>
+                                    </ul>
                                 </div>
                             </li>
-                            <!-- Checkout -->
-                            <li><a href="{% url 'checkout' %}"><i class="fas fa-shopping-bag"></i><b>Shopping cart</b></a></li>
                             <!-- Articles -->
                             <li><a href="{% url 'all_articles' %}"><i class="fas fa-pencil-alt"></i>Blog</a></li>
+                            <!-- Checkout -->
+                            <li><a href="{% url 'checkout' %}"><i class="fas fa-shopping-bag"></i>Shopping cart</a></li>    
                             <!-- Account -->
                             <li>
                                 {% if request.user.is_authenticated %}
@@ -221,10 +226,19 @@
         <script type="text/javascript">
             // navigation toggler
             $(document).ready(function() {
-            $('.sidenav').sidenav();
-            $('.dropdown-trigger').dropdown({ hover: false });
-            $('select').formSelect();
-        });
+                $('.sidenav').sidenav();
+                $('.dropdown-trigger').dropdown({ hover: false });
+                $('select').formSelect();
+                $('.collapsible').collapsible();
+            });
+
+            // dropdown menu
+            // jQuery(document).ready(function($){
+            //     $(".button-collapse").sideNav({
+            //         menuWidth: 275
+            //     });
+            //     $('.collapsible').collapsible();
+            //     });
 
             // toasts
             $('.toast').toast('show');

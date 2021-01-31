@@ -48,3 +48,9 @@ https://www.geeksforgeeks.org/slugfield-django-models/
 
 Footer
 https://materializecss.com/footer.html
+
+Navbar
+Sidenav
+https://materializecss.com/sidenav.html
+Collapsible dropdown submenu
+https://jsfiddle.net/zmgxz3o1/
