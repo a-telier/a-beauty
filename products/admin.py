@@ -5,9 +5,10 @@ from .models import Product, Category
 
 class ProductAdmin (admin.ModelAdmin):
     list_display = (
-        'sku',
+        'category',
         'brand',
         'name',
+        'sku',
         'price',
         'image',
     )
