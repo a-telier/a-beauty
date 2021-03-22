@@ -44,7 +44,7 @@
             {% if forloop.counter <= 4 and category.teaser is not empty %}
             <div class="col-lg-6 col-sm-6 h-100 my-auto mx-auto p-3">
                 <a href="{% url 'products' %}?category={{ category.name }}">
-                <img class="responsive-img" src="{{ MEDIA_URL }}/{{ category.teaser }}" alt="{{ category.name }}">
+                <img class="responsive-img" src="{{ MEDIA_URL }}{{ category.teaser }}" alt="{{ category.name }}">
                 </a>
             </div>
             {% else %}
@@ -63,7 +63,7 @@
             <div class="card">
                 <a href="{% url 'article_detail' article.url %}">
                     <div class="card-image">
-                        <img class="article-teaser" src="{{ MEDIA_URL }}/{{ article.image}}">
+                        <img class="article-teaser" src="{{ MEDIA_URL }}{{ article.image}}">
                         <span class="card-title">{{article.title}}</span>
                     </div>
                 </a>

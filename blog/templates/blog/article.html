@@ -25,7 +25,7 @@
         <div class="col-10 my-auto mx-auto">
             <div class="card text-center">
                 <div class="card-image">
-                    <img class="article-top-banner responsive-img" src="{{ MEDIA_URL }}/{{ article.banner }}">
+                    <img class="article-top-banner responsive-img" src="{{ MEDIA_URL }}{{ article.banner }}">
                 </div>
                 <div class="card-content">
                     <h4>{{ article.title }}</h4>
@@ -48,7 +48,7 @@
             <div class="card">
                 <a href="{% url 'article_detail' article.url %}">
                     <div class="card-image">
-                        <img class="article-teaser" src="{{ MEDIA_URL }}/{{ article.image}}">
+                        <img class="article-teaser" src="{{ MEDIA_URL }}{{ article.image}}">
                         <span class="card-title">{{article.title}}</span>
                     </div>
                 </a>
@@ -70,7 +70,7 @@
             {% if forloop.counter <= 4 and category.teaser is not empty %}
             <div class="col-lg-6 col-sm-6 h-100 my-auto mx-auto p-3">
                 <a href="{% url 'products' %}?category={{ category.name }}">
-                <img class="responsive-img" src="{{ MEDIA_URL }}/{{ category.teaser }}" alt="{{ category.name }}">
+                <img class="responsive-img" src="{{ MEDIA_URL }}{{ category.teaser }}" alt="{{ category.name }}">
                 </a>
             </div>
             {% else %}
