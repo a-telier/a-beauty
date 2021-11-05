@@ -8,7 +8,7 @@
         <!-- Category names -->
         <div class="col-lg-12">
             {% if current_categories == None %}
-                <h6><a href="{% url 'products' %}"> START </a> / ALL </h6>
+                <h6><a href="{% url 'products' %}"> START / ALL </a></h6>
                 <h2 class="logo-font">All Categories</h2>
             {% else %}
                 {% for category in current_categories %}
@@ -72,7 +72,9 @@
                 <!-- Card Content -->
                 <div class="card-content text-center mb-0">
                     <!-- Card Text -->
-                    <h6 class="font-weight-bold">{{ product.brand }}</h6>
+                    <h6 class="font-weight-bold">
+                        <a href="{% url 'product_detail' product.id %}">{{ product.brand }}</a>
+                    </h6>
                     <h6 class="align-items-center">{{ product.name|lower|capfirst }}</h6>
                     <h4>{{ product.price }} kr</h4>
                     <!-- Category tag -->
